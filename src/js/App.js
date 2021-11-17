@@ -1,7 +1,12 @@
+import Menu from "./Menu";
+import Board from "./Board";
+
 function App() {
   return (
-    <div className="App">
-      <h1>SmartSweeper</h1>
+    <div className='container'>
+        <h1>SmartSweeper</h1>
+        <Menu/>
+        <Board/>
     </div>
   );
 }

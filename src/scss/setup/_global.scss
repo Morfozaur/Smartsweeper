@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: $text-color;
+}
+
+a, a:hover, a:active, a:link, a:visited {
+  text-decoration: none;
+  color: $text-color;
+}
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
