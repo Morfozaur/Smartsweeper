@@ -1,0 +1,6 @@
+- losowanie bomb
+- skaner - klikniesz przycisk na klawce, skanuje kilka pól wokół
+- timer resetu - co x sekund jest cyknięcie. Jeśli obok odkrytego pola coś się zmieni, zamiast liczby, pojawia się znak zapytania. Trzeba kliknąć go jeszcze raz, żeby się pojawiła liczba
+- Timer - podkręci atmosferę
+- Znikające pola w mroku?
+- -Obracająca się plansza? (może zadziałać z heksami. Jeden tick, obrót o jeden bok)
