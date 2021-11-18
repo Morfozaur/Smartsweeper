@@ -1,6 +1,7 @@
 import Menu from "./Menu";
 import Board from "./Board";
 import {useState} from "react";
+import {mineBoard} from "./logic/mineBoard";
 
 function App() {
     const [board, setBoard] = useState([])
@@ -16,8 +17,9 @@ function App() {
             }
             board.push(row)
         }
-        console.log(fields)
-        setBoard(board)
+        // console.log(fields)
+        const mineNum = Math.pow(size, 2) * ((10 + size) /100);
+        setBoard(mineBoard(fields, board, mineNum))
     };
 
     return (

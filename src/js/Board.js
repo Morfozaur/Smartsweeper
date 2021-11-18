@@ -1,14 +1,15 @@
 import React from 'react';
+import classNames from "classnames";
 
 const Board = ({board}) => {
     return (
         <div className='board'>
-            {board.map((row, i) => {
+            {board.map((col, i) => {
                 return (
                     <div key={`col-${i}`} className='board__col'>
-                        {row.map((col, i) => {
+                        {col.map((row, i) => {
                             return (
-                                <div key={`row-${i}`} className='board__field'/>
+                                <div key={`row-${i}`} className={classNames('board__field', {'board__field--bombed': row.bomb})}/>
                             )
                         })}
                     </div>

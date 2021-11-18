@@ -4,3 +4,4 @@
 - Timer - podkręci atmosferę
 - Znikające pola w mroku?
 - -Obracająca się plansza? (może zadziałać z heksami. Jeden tick, obrót o jeden bok)
+- Kolory zamiast liczb (przydatne zwłaszcza w trybie smart). Poziom trudności - różnice tonalne między nimi
