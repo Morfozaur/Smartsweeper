@@ -9,7 +9,9 @@ const Board = ({board}) => {
                     <div key={`col-${i}`} className='board__col'>
                         {col.map((row, i) => {
                             return (
-                                <div key={`row-${i}`} className={classNames('board__field', {'board__field--bombed': row.bomb})}/>
+                                <div key={`row-${i}`} className={classNames('board__field', {'board__field--bombed': row.bomb})}>
+                                    {(row.adj> 0 && !row.bomb) && <>{row.adj}</>}
+                                </div>
                             )
                         })}
                     </div>

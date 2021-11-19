@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import Button from "./elements/Button";
 import Slider from "./elements/Slider";
+import {boarding} from "./logic/boarding";
+import Arrow from "./elements/Arrow";
 
-const Menu = ({boarding}) => {
+const Menu = ({setter}) => {
     const [smartSweepers, setSmartSweepers] = useState(false);
     const [size, setSize] = useState(0)
     const sizeArr = [10, 15, 20]
@@ -17,14 +19,12 @@ const Menu = ({boarding}) => {
     return (
         <div className='menu'>
             <div className="menu__settings">
-                <div className="form__arrow"
-                     onClick={()=>down(sizeArr, setSize)}/>
+                <Arrow turn={'left'} size={8} wide={1.7} func={()=>down(sizeArr, setSize)}/>
                 <p>{sizeArr[size]}</p>
-                <div className="form__arrow"
-                     onClick={()=>up(sizeArr, setSize)}/>
+                <Arrow turn={'right'} size={8} wide={1.7} func={()=>up(sizeArr, setSize)}/>
                 <Slider active={smartSweepers} func={smartTrigger}/>
             </div>
-            <Button addClass='menu__button' text='Start' func={()=>boarding(sizeArr[size])}/>
+            <Button addClass='menu__button' text='Start' func={()=>boarding(sizeArr[size], setter)}/>
         </div>
     );
 }
