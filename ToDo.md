@@ -5,3 +5,4 @@
 - Znikające pola w mroku?
 - -Obracająca się plansza? (może zadziałać z heksami. Jeden tick, obrót o jeden bok)
 - Kolory zamiast liczb (przydatne zwłaszcza w trybie smart). Poziom trudności - różnice tonalne między nimi
+- Kursor zmienia się na inny kolor przy polach z minami (np. im bardziej czarny, tym więcej wokół, albo zrobić prosty detektor graficzny)

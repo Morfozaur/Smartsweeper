@@ -1,6 +1,6 @@
 import {mineBoard} from "./mineBoard";
 
-export const boarding = (size, setter) => {
+export const boarding = size => {
     const board = [];
     const fields = [];
     for (let i = 0; i < size; i++) {
@@ -13,6 +13,5 @@ export const boarding = (size, setter) => {
     }
     // console.log(fields)
     const mineNum = Math.pow(size, 2) * ((5 + size) /100);
-    console.log(mineNum)
-    setter(mineBoard(fields, board, Math.ceil(mineNum)))
+    return mineBoard(fields, board, Math.ceil(mineNum))
 };

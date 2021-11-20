@@ -1,19 +1,15 @@
 import React from 'react';
-import classNames from "classnames";
+import Field from "./elements/Field";
+import {useSelector} from "react-redux";
 
-const Board = ({board}) => {
+const Board = () => {
+    const board = useSelector(state => state.board);
     return (
         <div className='board'>
             {board.map((col, i) => {
                 return (
                     <div key={`col-${i}`} className='board__col'>
-                        {col.map((row, i) => {
-                            return (
-                                <div key={`row-${i}`} className={classNames('board__field', {'board__field--bombed': row.bomb})}>
-                                    {(row.adj> 0 && !row.bomb) && <>{row.adj}</>}
-                                </div>
-                            )
-                        })}
+                        {col.map((row, i) => <Field key={`row-${i}`} row={row}/>)}
                     </div>
                 )
             })}
