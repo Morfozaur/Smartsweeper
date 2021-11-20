@@ -36,7 +36,7 @@ export const mineBoard = (data, board, mines = 10) => {
         pool.splice(pick, 1);
     }
 
-    console.log(minedBoard)
+    // console.log(minedBoard)
 
     return minedBoard
 };

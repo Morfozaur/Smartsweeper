@@ -1,24 +1,23 @@
 import React, {useState} from 'react';
 import Button from "./elements/Button";
 import Slider from "./elements/Slider";
-import {boarding} from "./logic/boarding";
+import {boarding} from "../logic/boarding";
 import Arrow from "./elements/Arrow";
 import {useDispatch} from "react-redux";
-import {boardSetter} from "./redux/actions/allActions";
+import {boardSetter} from "../redux/actions/allActions";
 
-const Menu = ({setter}) => {
+const Menu = () => {
     const [smartSweepers, setSmartSweepers] = useState(false);
     const [size, setSize] = useState(0);
     const dispatch = useDispatch();
 
-    const sizeArr = [10, 15, 20]
+    const sizeArr = [3 ,10, 15, 20]
     const smartTrigger = () => {
         setSmartSweepers(state => !state);
     };
 
     const setBoard = () => {
         const newBoard = boarding(sizeArr[size]);
-        console.log(newBoard)
         dispatch(boardSetter(newBoard))
     }
 
