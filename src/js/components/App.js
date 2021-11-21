@@ -1,12 +1,12 @@
 import Menu from "./Menu";
-import Board from "./Board";
+import Screen from "./Screen";
 
 function App() {
     return (
         <div className='container'>
             <h1>SmartSweeper</h1>
             <Menu/>
-            <Board/>
+            <Screen/>
         </div>
   );
 }

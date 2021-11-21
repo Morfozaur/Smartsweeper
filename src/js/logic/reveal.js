@@ -1,67 +1,45 @@
 import {store} from "../redux/store";
-
-const [upLeft, up, upRight, right, downRight, down, downLeft, left] = ['upLeft', 'up', 'upRight', 'right', 'downRight', 'down', 'downLeft', 'left']
-
-const lowVer = el => el - 1 >= 0;
-const highVer = (el, length) => el + 1 < length;
-
-const validate = (col, row, action, length = null) => {
-    switch (action) {
-        case upLeft:
-            return lowVer(row) && lowVer(col);
-        case up:
-            return lowVer(row);
-        case upRight:
-            return lowVer(row) && highVer(col, length);
-        case right:
-            return highVer(col, length);
-        case downRight:
-            return highVer(row, length) && highVer(col, length);
-        case down:
-            return highVer(row, length);
-        case downLeft:
-            return highVer(row, length) && lowVer(col);
-        case left:
-            return lowVer(col);
-        default:
-            break;
-    }
-};
-
+import {ifFieldExist, down, downLeft, downRight, left, right, up, upLeft, upRight} from "./ifFieldExist";
 
 
 export const reveal = async (col, row, main) => {
     let board = [...store.getState().board];
     const size = board.length;
-
     board[col][row].visible = true;
 
-    const passer = (data) => data.adj <= 0 && data.visible === false;
+    const passer = (data) => (data.adj <= 0) && (data.visible === false);
 
-    if (validate(col, row, upLeft)) {
-        if (passer(board[col-1][row-1])) board = await reveal(col - 1, row - 1, board)
+    if (ifFieldExist(col, row, upLeft)) {
+        if (passer(board[col - 1][row - 1])) board = await reveal(col-1, row-1, board);
+        else board[col-1][row-1].visible = true;
     }
-    if (validate(col, row, up)) {
-        if (passer(board[col][row-1])) board = await reveal(col, row - 1, board)
+    if (ifFieldExist(col, row, up)) {
+        if (passer(board[col][row-1])) board = await reveal(col, row-1, board);
+        else board[col][row-1].visible = true;
     }
-    if (validate(col, row, upRight, size)) {
-        if (passer(board[col+1][row-1])) board = await reveal(col + 1, row - 1, board)
+    if (ifFieldExist(col, row, upRight, size)) {
+        if (passer(board[col+1][row-1])) board = await reveal(col+1, row-1, board);
+        else board[col+1][row-1].visible = true;
     }
-    if (validate(col, row, right, size)) {
-        if (passer(board[col+1][row])) board = await reveal(col + 1, row, board)
+    if (ifFieldExist(col, row, right, size)) {
+        if (passer(board[col+1][row])) board = await reveal(col+1, row, board);
+        else board[col+1][row].visible = true;
     }
-    if (validate(col, row, downRight, size)) {
-        if (passer(board[col+1][row+1])) board = await reveal(col + 1, row + 1, board)
+    if (ifFieldExist(col, row, downRight, size)) {
+        if (passer(board[col+1][row+1])) board = await reveal(col+1, row+1, board);
+        else board[col+1][row+1].visible = true;
     }
-    if (validate(col, row, down, size)) {
-        if (passer(board[col][row+1])) board = await reveal(col, row + 1, board)
+    if (ifFieldExist(col, row, down, size)) {
+        if (passer(board[col][row+1])) board = await reveal(col, row+1, board);
+        else board[col][row+1].visible = true;
     }
-    if (validate(col, row, downLeft, size)) {
-        if (passer(board[col-1][row+1])) board = await reveal(col - 1, row + 1, board)
+    if (ifFieldExist(col, row, downLeft, size)) {
+        if (passer(board[col-1][row+1])) board = await reveal(col-1, row+1, board);
+        else board[col-1][row+1].visible = true;
     }
-    if (validate(col, row, left)) {
-        if (passer(board[col-1][row])) board = await reveal(col - 1, row, board)
+    if (ifFieldExist(col, row, left)) {
+        if (passer(board[col-1][row])) board = await reveal(col-1, row, board);
+        else board[col-1][row].visible = true;
     }
-
     if (main) return board
 };

@@ -1,0 +1,25 @@
+.screen {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background: $dark-color;
+  height: 445px;
+  width: 410px;
+  border-radius: 80% / 10%;
+  border-top: 4px solid $brass-color;
+  border-bottom: 4px solid $brass-color;
+  &:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 4.8%;
+    bottom: 4.8%;
+    right: -5%;
+    left: -5%;
+    background: inherit;
+    border-radius: 5% / 50%;
+    border-left: 4px solid $brass-color;
+    border-right: 4px solid $brass-color;
+  }
+}
