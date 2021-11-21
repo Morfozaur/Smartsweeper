@@ -1,23 +1,24 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {reveal} from "../../logic/reveal";
-
+import classNames from "classnames";
+import {reloadSetter} from "../../redux/actions/allActions";
 const Field = ({row, col, field}) => {
-    const dispatch = useDispatch();
-    const board = useSelector(state => state.board)
+    const dispatch = useDispatch()
+    const {board, reload} = useSelector(state => state)
 
-    useEffect(()=> {
 
-    }, [board])
 
-    const action = () => {
+    const action = async () => {
         if (field.adj === 0 && !field.bomb) {
-            reveal(col, row)
+            const data = [...board];
+            await reveal(col, row, data, true);
+            dispatch(reloadSetter(true))
         }
-        console.log('c:', col, 'r:', row)
+        // console.log('c:', col, 'r:', row, 'len:', board.length)
     };
     return (
-        <div className={'board__field'} onClick={action}>
+        <div className={classNames('board__field', {'board__field--reveal': field.visible})} onClick={action}>
             {(field.adj> 0 && !field.bomb) && <>{field.adj}</>}
             {field.bomb && <i className="fas fa-bomb"/>}
         </div>

@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Field from "./elements/Field";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {boardSetter, reloadSetter} from "../redux/actions/allActions";
 
 const Board = () => {
-    const board = useSelector(state => state.board);
+    const dispatch = useDispatch()
+    const {board, reload} = useSelector(state => state);
+
+    useEffect(()=> {
+        if (reload) {
+            // console.log('dddd')
+            dispatch(boardSetter(board))
+            dispatch(reloadSetter(false))
+        }
+    }, [reload, dispatch, board])
+
     return (
         <div className='board'>
             {board.map((col, c) => {

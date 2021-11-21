@@ -1,3 +1,4 @@
 export const actionsTypes = {
-    board: 'SET-BOARD'
+    board: 'SET-BOARD',
+    reload: 'RELOAD'
 };

@@ -6,12 +6,12 @@ export const boarding = size => {
     for (let i = 0; i < size; i++) {
         const row = [];
         for (let j = 0; j < size; j++) {
-            row.push({hide: false, bomb: false, adj:0});
+            row.push({visible: false, bomb: false, adj:0});
             fields.push({col: i, row: j})
         }
         board.push(row)
     }
-    // console.log(fields)
-    const mineNum = Math.pow(size, 2) * ((5 + size) /100);
+    const mineNum = Math.pow(size, 2) * ((2 + size) /100);
+    console.log(Math.ceil(mineNum))
     return mineBoard(fields, board, Math.ceil(mineNum))
 };

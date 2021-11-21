@@ -1,5 +1,11 @@
 import {actionsTypes} from "./actionsTypes";
 
-export const boardSetter = (board) => {
-    return {type: actionsTypes.board, payload:board};
+const {board, reload} = actionsTypes
+
+export const boardSetter = data => {
+    return {type: board, payload:data};
+};
+
+export const reloadSetter = data => {
+    return {type: reload, payload: data};
 };
