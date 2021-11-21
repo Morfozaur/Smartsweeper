@@ -11,14 +11,14 @@ const Menu = () => {
     const [size, setSize] = useState(0);
     const dispatch = useDispatch();
 
-    const sizeArr = [3 ,10, 15, 20]
+    const sizeArr = [10, 15, 20]
     const smartTrigger = () => {
         setSmartSweepers(state => !state);
     };
 
     const setBoard = () => {
         const newBoard = boarding(sizeArr[size]);
-        dispatch(boardSetter(newBoard))
+        dispatch(boardSetter(newBoard));
     }
 
     const down = (arr, setter) => setter(state => state === 0 ? arr.length - 1 : state - 1);

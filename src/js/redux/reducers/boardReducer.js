@@ -5,6 +5,6 @@ export const boardReducer = (state = [], {type, payload}) => {
         case actionsTypes.board:
             return payload;
         default:
-            return state
+            return state;
     }
 };

@@ -4,14 +4,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {boardSetter, reloadSetter} from "../redux/actions/allActions";
 
 const Board = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const {board, reload} = useSelector(state => state);
 
     useEffect(()=> {
         if (reload) {
-            // console.log('dddd')
-            dispatch(boardSetter(board))
-            dispatch(reloadSetter(false))
+            dispatch(boardSetter(board));
+            dispatch(reloadSetter(false));
         }
     }, [reload, dispatch, board])
 

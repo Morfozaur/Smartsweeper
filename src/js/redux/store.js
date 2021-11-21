@@ -7,4 +7,4 @@ const allReducers = combineReducers({
     reload: reloadReducer
 });
 
-export const store = createStore(allReducers)
+export const store = createStore(allReducers);

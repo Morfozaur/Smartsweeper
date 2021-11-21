@@ -1,4 +1,4 @@
-- system odznaczania pól - puszcza beam, który sprawdza, czy wokół nie ma pustych nieodkrytych pól. Jeśli są - w tym kierunku szuka dalej (po skosie też!)
+- system odznaczania pól w bezpośrednim sąsiedztwie do odkrytych
 -skaner - klikniesz przycisk na klawce, skanuje kilka pól wokół
 - timer resetu - co x sekund jest cyknięcie. Jeśli obok odkrytego pola coś się zmieni, zamiast liczby, pojawia się znak zapytania. Trzeba kliknąć go jeszcze raz, żeby się pojawiła liczba
 - Timer - podkręci atmosferę
