@@ -4,7 +4,12 @@ import Board from "./Board";
 const Screen = () => {
     return (
         <div className='screen'>
-            <Board/>
+            <div className="screen__display">
+                <div className="screen__frame"/>
+                <div className="screen__frame screen__frame--second"/>
+                <Board/>
+            </div>
+
         </div>
     );
 }
