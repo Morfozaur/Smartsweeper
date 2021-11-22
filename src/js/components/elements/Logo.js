@@ -3,7 +3,12 @@ import React from 'react';
 const Logo = () => {
     return (
         <div className='logo'>
-            <h1>SmartSweeper</h1>
+            <div className="logo__plate">
+                <div className="logo__border"/>
+            </div>
+            <h1 className='logo__text'>Smart<span className='logo__text logo__text--span'>Sweeper</span></h1>
+            <div className="logo__pin logo__pin--left"/>
+            <div className="logo__pin logo__pin--right"/>
         </div>
     );
 }

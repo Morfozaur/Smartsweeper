@@ -8,8 +8,8 @@
     height: 447px;
     width: 412px;
     border-radius: 80% / 10%;
-    border-top: 5px solid $brass-lite-color;
-    border-bottom: 5px solid $brass-lite-color;
+    border-top: 5px solid $accent-color;
+    border-bottom: 5px solid $accent-color;
     &:before {
       content: "";
       z-index: -1;
@@ -20,8 +20,8 @@
       left: -5%;
       background: inherit;
       border-radius: 5% / 50%;
-      border-left: 5px solid $brass-lite-color;
-      border-right: 5px solid $brass-lite-color;
+      border-left: 5px solid $accent-color;
+      border-right: 5px solid $accent-color;
     }
   }
   &__frame {
@@ -51,8 +51,8 @@
       width: 416px;
       top: -2px;
       left: -3px;
-      border-top: 2px solid $brass-color;
-      border-bottom: 2px solid $brass-color;
+      border-top: 2px solid $brass-lite-color;
+      border-bottom: 2px solid $brass-lite-color;
       &:before {
         content: "";
         z-index: -1;
@@ -62,8 +62,8 @@
         right: -4%;
         left: -3.61%;
         border-radius: 5% / 50%;
-        border-left: 2px solid $brass-color;
-        border-right: 2px solid $brass-color;
+        border-left: 2px solid $brass-lite-color;
+        border-right: 2px solid $brass-lite-color;
       }
     }
   }

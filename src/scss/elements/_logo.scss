@@ -1,0 +1,108 @@
+.logo {
+  position: relative;
+  &__border {
+    position: relative;
+    display: block;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    border: 3px solid $brass-color;
+    border-left-color: $brass-lite-color;
+    border-top-color: $brass-lite-color;
+    border-radius: 50%;
+    &:after {
+      position: absolute;
+      content: '';
+      top: -2px;
+      left: -2px;
+      width: 168px;
+      height: 38px;
+      border: 1px solid $accent-color;
+      //border-bottom-color: $brass-lite-color;
+      opacity: .8;
+      border-radius: 50%;
+    }
+    &:before {
+      position: absolute;
+      content: '';
+      top: -1px;
+      left: -1px;
+      width: 166px;
+      height: 36px;
+      border: 1px solid $brass-color;
+      border-bottom-color: $brass-lite-color;
+      border-right-color: $brass-lite-color;
+      border-radius: 50%;
+    }
+  }
+  &__plate {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, $brass-color , $accent-color);
+    height: 50px;
+    width: 180px;
+    border: 1px solid $brass-color;
+    border-radius: 50%;
+    &:before {
+      position: absolute;
+      content: '';
+      background: radial-gradient(ellipse at center, $accent-color, $brass-color);
+      top: -1px;
+      left: -1px;
+      height: 50px;
+      width: 180px;
+      border-radius: 50%;
+      opacity: .5;
+    }
+    &:after {
+      position: absolute;
+      content: '';
+      background-image: linear-gradient(to top right, $brass-color , $brass-lite-color);
+      opacity: .5;
+      top: -1px;
+      left: -1px;
+      height: 50px;
+      width: 180px;
+      border-radius: 50%;
+    }
+  }
+  &__text {
+    font-size: 23px;
+    position: absolute;
+    top: 11px;
+    left: 36px;
+    font-family: 'Comforter Brush', cursive;
+    color: $brass-color;
+    transform: rotate(-3deg);
+    &:before, &:after { content: 'Smart'; position: absolute; color: $accent-color ; opacity: .2 }
+    &:before { top: 1px; left: 1px }
+    &:after { top: 2px; left: 2px }
+    &--span {
+      top: -1px;
+      left: 45px;
+      &:before, &:after { content: 'Sweeper'; position: absolute; color: $accent-color; opacity: .2}
+      &:before { top: 1px; left: 1px }
+      &:after { top: 2px; left: 2px }
+    }
+  }
+  &__pin {
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    background: radial-gradient(circle, $accent-color, $brass-color);
+    border-top: 1px solid rgba(158,138,38, .5);
+    border-right: 1px solid rgba(158,138,38, .8);
+    border-bottom: 1px solid rgba(158,138,38, .2);
+    border-left: 1px solid rgba(158,138,38, .5);
+    border-radius: 50%;
+    &--left {
+      top: 22px;
+      left: 12px;
+    }
+    &--right {
+      top: 23px;
+      right: 12px;
+    }
+  }
+}
