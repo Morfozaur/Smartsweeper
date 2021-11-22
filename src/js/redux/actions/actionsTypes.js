@@ -1,4 +1,5 @@
 export const actionsTypes = {
     board: 'SET-BOARD',
-    reload: 'RELOAD'
+    reload: 'RELOAD',
+    buttonPress: 'BTN-PRESS'
 };

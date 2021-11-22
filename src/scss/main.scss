@@ -6,6 +6,11 @@
 
 @import 'setup/form';
 
+@import 'layout/head';
+@import 'layout/controls';
+@import 'layout/front';
+
 @import 'section/menu';
 @import 'section/screen';
 @import 'section/board';
+

@@ -5,7 +5,8 @@ import classNames from "classnames";
 import {reloadSetter} from "../../redux/actions/allActions";
 const Field = ({row, col, field}) => {
     const dispatch = useDispatch();
-    const board = useSelector(state => state.board);
+    const {board, flag} = useSelector(state => state);
+
 
     const color = {
         rev: 'board__field--reveal',
@@ -15,13 +16,15 @@ const Field = ({row, col, field}) => {
 
     const {adj, bomb, visible} = field;
     const action = async () => {
-        if (adj === 0 && !bomb) {
-            await reveal(col, row, true);
-        } else if(adj > 0 && !bomb) {
-            board[col][row].visible = true;
+        if (flag === false) {
+            if (adj === 0 && !bomb) {
+                await reveal(col, row, true);
+            } else {
+                board[col][row].visible = true;
+                if (bomb) console.log('boom!')
+            }
         } else {
-            board[col][row].visible = true;
-            console.log('boom!')
+            if (board[col][row].visible === false) board[col][row].flag = true
         }
         dispatch(reloadSetter(true));
     };

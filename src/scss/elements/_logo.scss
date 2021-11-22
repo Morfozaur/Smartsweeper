@@ -58,7 +58,7 @@
     &:after {
       position: absolute;
       content: '';
-      background-image: linear-gradient(to top right, $brass-color , $brass-lite-color);
+      background-image: linear-gradient(to right, $brass-color 0%,$brass-lite-color 10%, $accent-color 50%, $brass-lite-color 90% ,$brass-color 100%);
       opacity: .5;
       top: -1px;
       left: -1px;
@@ -73,7 +73,7 @@
     top: 11px;
     left: 36px;
     font-family: 'Comforter Brush', cursive;
-    color: $brass-color;
+    color: $panel-color;
     transform: rotate(-3deg);
     &:before, &:after { content: 'Smart'; position: absolute; color: $accent-color ; opacity: .2 }
     &:before { top: 1px; left: 1px }

@@ -12,3 +12,6 @@
 - Licznik bomb (obracane tablicznki jak na meczach? albo takie wysuwane na patykach albo rolka)
 - checker poprawności: auto albo manual
 - lista z koordynatami bomb - ułatwi zarządzanie polami (dodaj, odejmij)
+- Ekran do wyświetlania komunikatów (koniec gry etc.)
+- Liczba min - wskażnik jak w piecu gitarowym
+- Aktywne wskaźniki - świeci się lampka nad danym okienkiem, a wewnątrz świeci sie światło - gradient. Jak w danym trybie jest nieaktywne, przyciemnia się
