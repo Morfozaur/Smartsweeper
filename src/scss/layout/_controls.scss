@@ -1,0 +1,20 @@
+.controls {
+  position: relative;
+  width: 600px;
+  height: 200px;
+  perspective: 300px;
+  border: 1px solid #666;
+  &__insert {
+    position: absolute;
+    content: '';
+    width: 629px;
+    height: 190px;
+    top: 9px;
+    left: -14px;
+    transform-style: preserve-3d;
+    transform: rotateX(19deg);
+    background: $banner-lite-color;
+    border: 2px solid $panel-darkest-color;
+    border-radius: 2px;
+  }
+}

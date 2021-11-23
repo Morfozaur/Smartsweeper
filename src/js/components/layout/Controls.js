@@ -4,7 +4,9 @@ import Menu from "../Menu";
 const Controls = () => {
     return (
         <div className='controls'>
-            <Menu/>
+            <div className="controls__insert">
+                <Menu/>
+            </div>
         </div>
     );
 }

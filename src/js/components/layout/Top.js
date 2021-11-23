@@ -5,7 +5,7 @@ import Screen from "../Screen";
 const Top = () => {
     return (
         <div className='head'>
-            <div className="head--insert">
+            <div className="head__insert">
                 <div className="head__side head__side--left"/>
                 <div className="head__center">
                     <div className="head__banner">

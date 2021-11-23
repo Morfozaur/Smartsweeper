@@ -2,9 +2,9 @@
   position: relative;
   width: 600px;
   height: 600px;
-  border: 1px solid #666;
   perspective: 300px;
-  &--insert {
+  border: 1px solid #666;
+  &__insert {
     display: flex;
     justify-content: space-between;
     z-index: -10;
