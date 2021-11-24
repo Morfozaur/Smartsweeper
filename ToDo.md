@@ -1,3 +1,11 @@
+-skończyć logikę:
+  - Dodać flagi i znaki zapytania jako opcje zaznaczania pól
+  - Dodać game over
+  - Ustawić liczby i kolory
+  - dobrać kolor bomby
+  - Dodać główny ekran
+-Dodać wrzut monety
+
 -skaner - klikniesz przycisk na klawce, skanuje kilka pól wokół
 - timer resetu - co x sekund jest cyknięcie. Jeśli obok odkrytego pola coś się zmieni, zamiast liczby, pojawia się znak zapytania. Trzeba kliknąć go jeszcze raz, żeby się pojawiła liczba
 - Przenieść do Reduxa mapę dostępnych pól z wartościami, minedBoard i aktualizaować ją na bieżąco - przyda się do losowania nowych miejsc z bombami
