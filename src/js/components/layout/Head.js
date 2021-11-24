@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from "../elements/Logo";
 import Screen from "../Screen";
 
-const Top = () => {
+const Head = () => {
     return (
         <div className='head'>
             <div className="head__insert">
@@ -23,4 +23,4 @@ const Top = () => {
     );
 }
 
-export default Top;
+export default Head;

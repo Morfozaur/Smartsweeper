@@ -1,0 +1,63 @@
+.front {
+  position: relative;
+  width: 600px;
+  height: 100px;
+  perspective: 300px;
+  //border: 1px solid #666;
+  &__insert {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    content: "";
+    height: 97px;
+    width: 656px;
+    top: -7px;
+    left: -28px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg);
+    background: #6B5E1A;
+    border-radius: 0 0 10px 10px;
+  }
+  &__side {
+    width: 12px;
+    height: 100%;
+    background: $panel-color;
+    border-bottom: 2px solid $panel-darkest-color;
+    border-top: 2px solid $panel-darkest-color;
+    &--left {
+      border-left: 2px solid $panel-darkest-color;
+      border-bottom-left-radius: 50px;
+    }
+    &--right {
+      border-right: 2px solid $panel-darkest-color;
+      border-bottom-right-radius: 50px;
+    }
+  }
+  &__center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  &__top {
+    height: 40px;
+    width: 100%;
+    background: orange;
+    border: 2px solid $panel-darkest-color;
+    border-bottom: none;
+  }
+  &__middle {
+    height: 100%;
+    width: 100%;
+    border: 2px solid $panel-darkest-color;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: $banner-lite-color;
+  }
+  &__bottom {
+    width: 100%;
+    height: 15px;
+    background: $panel-color;
+    border-bottom: 2px solid $panel-darkest-color;
+  }
+}
