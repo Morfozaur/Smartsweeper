@@ -1,0 +1,13 @@
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  //background: $panel-dark-color;
+  border-top: 4px solid $panel-darkest-color;
+  border-bottom: 2px solid $panel-darkest-color;
+
+  background-color: $banner-color;
+  background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
+  background-size: 50px 50px;
+}

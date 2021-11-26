@@ -1,6 +1,6 @@
 import {actionsTypes} from "./actionsTypes";
 
-const {board, reload, buttonPress} = actionsTypes
+const {board, reload, flagMode} = actionsTypes
 
 export const boardSetter = data => {
     return {type: board, payload:data};
@@ -10,6 +10,6 @@ export const reloadSetter = data => {
     return {type: reload, payload: data};
 };
 
-export const buttonPressSetter = data => {
-    return {type: buttonPress, payload: data};
+export const flagModeSetter = data => {
+    return {type: flagMode, payload: data};
 };

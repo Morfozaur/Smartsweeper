@@ -1,19 +1,19 @@
 import React, {useState} from 'react';
-import Button from "./elements/Button";
-import Slider from "./elements/Slider";
-import {boarding} from "../logic/boarding";
-import Arrow from "./elements/Arrow";
-import {useDispatch} from "react-redux";
-import {boardSetter} from "../redux/actions/allActions";
+import Button from "../elements/Button";
+import Slider from "../elements/Slider";
+import {boarding} from "../../logic/boarding";
+import Arrow from "../elements/Arrow";
+import {useDispatch, useSelector} from "react-redux";
+import {boardSetter, flagModeSetter} from "../../redux/actions/allActions";
 
 const Menu = () => {
-    const [smartSweepers, setSmartSweepers] = useState(false);
     const [size, setSize] = useState(0);
     const dispatch = useDispatch();
+    const {flagMode} = useSelector(state =>state)
 
     const sizeArr = [10, 15, 20]
     const smartTrigger = () => {
-        setSmartSweepers(state => !state);
+        dispatch(flagModeSetter(!flagMode))
     };
 
     const setBoard = () => {
@@ -30,7 +30,7 @@ const Menu = () => {
                 <Arrow turn={'left'} size={8} wide={1.7} func={()=>down(sizeArr, setSize)}/>
                 <p>{sizeArr[size]}</p>
                 <Arrow turn={'right'} size={8} wide={1.7} func={()=>up(sizeArr, setSize)}/>
-                <Slider active={smartSweepers} func={smartTrigger}/>
+                <Slider active={flagMode} func={smartTrigger}/>
             </div>
             <Button addClass='menu__button' text='Start' func={setBoard}/>
         </div>

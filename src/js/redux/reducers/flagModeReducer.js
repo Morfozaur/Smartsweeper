@@ -1,8 +1,8 @@
 import {actionsTypes} from "../actions/actionsTypes";
 
-export const buttonPressReducer = (state = false, {type, payload}) => {
+export const flagModeReducer = (state = false, {type, payload}) => {
     switch (type) {
-        case actionsTypes.buttonPress:
+        case actionsTypes.flagMode:
             return payload;
         default:
             return state;
