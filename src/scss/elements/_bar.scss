@@ -1,0 +1,32 @@
+.bar {
+  position: absolute;
+  width: 18px;
+  display: flex;
+  justify-content: center;
+  &__center {
+    height: 4px;
+    width: 10px;
+    background: $display-inactive;
+  }
+  &__arrow  {
+    width: 0;
+    height: 0;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid $display-inactive;
+    &--right {
+      border-right: none;
+      border-left: 2px solid $display-inactive;
+    }
+  }
+  &__lighten {
+    background: $display-active;
+    &--left {
+      border-right: 2px solid $display-active;
+    }
+    &--right {
+      border-right: none;
+      border-left: 2px solid $display-active;
+    }
+  }
+}
