@@ -8,7 +8,7 @@ import Front from "./layout/Front";
 
 function App() {
     const dispatch = useDispatch();
-    const qPress = useKeyPress('q');
+    const qPress = useKeyPress('q', 'short');
 
     useEffect(()=> {
         console.log(qPress)

@@ -3,7 +3,8 @@ import React from 'react';
 const Symbol = ({type}) => {
     const symbols = {
         flag: 'flag',
-        bomb: 'bomb'
+        bomb: 'bomb',
+        question: 'question'
     }
 
     return (

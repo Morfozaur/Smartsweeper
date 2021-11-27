@@ -6,7 +6,12 @@ export const boarding = size => {
     for (let i = 0; i < size; i++) {
         const row = [];
         for (let j = 0; j < size; j++) {
-            row.push({visible: false, bomb: false, adj:0});
+            row.push({
+                visible: false,
+                bomb: false,
+                flag: false,
+                question: false,
+                adj:0});
             fields.push({col: i, row: j});
         }
         board.push(row);

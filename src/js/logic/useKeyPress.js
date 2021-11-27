@@ -1,14 +1,17 @@
 import {useEffect, useState} from "react";
 
-export const useKeyPress = (targetKey) => {
-    const [pressed, setPressed] = useState(false);
+export const useKeyPress = (targetKey, type, state= false) => {
+    const [longPress, setLongPress] = useState(false);
+    const [pressed, setPressed] = useState(state);
 
     const keyDown = ({key}) => {
-        if (key === targetKey) setPressed(true);
+        if (key === targetKey) {
+            type === 'long' ? setLongPress(true) : setPressed(state => !state)
+        }
     }
 
     const keyUp = ({key}) => {
-        if (key === targetKey) setPressed(false);
+        if (key === targetKey && type === 'long') setLongPress(false);
     }
 
     useEffect(() => {
@@ -21,5 +24,5 @@ export const useKeyPress = (targetKey) => {
         };
         // eslint-disable-next-line no-use-before-define
     }, [])
-    return pressed
+    return type === 'long' ? longPress : pressed
 };
