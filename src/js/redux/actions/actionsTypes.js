@@ -1,5 +1,8 @@
 export const actionsTypes = {
     board: 'SET-BOARD',
     reload: 'RELOAD',
-    flagMode: 'BTN-PRESS'
+    flagMode: 'BTN-PRESS',
+    totalMines: 'MINES',
+    addMine: 'MINE-ADD',
+    removeMine: 'MINE-REM'
 };

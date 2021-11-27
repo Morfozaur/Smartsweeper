@@ -2,11 +2,11 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {reveal} from "../../logic/reveal";
 import classNames from "classnames";
-import {reloadSetter} from "../../redux/actions/allActions";
+import {checkMineSetter, reloadSetter, uncheckMineSetter} from "../../redux/actions/allActions";
 import Symbol from "./Symbol";
 const Field = ({row, col, field}) => {
     const dispatch = useDispatch();
-    const {board, flagMode} = useSelector(state => state);
+    const {board, flagMode, mines} = useSelector(state => state);
     const {adj, bomb, visible, flag, question} = field;
 
     const fieldClass = {
@@ -34,11 +34,17 @@ const Field = ({row, col, field}) => {
                 if (question) fieldCase = 'question';
                 switch (fieldCase) {
                     case "neutral":
-                        board[col][row].flag = true;
+                        if (mines.remain > 0) {
+                            board[col][row].flag = true;
+                            dispatch(checkMineSetter())
+                        } else {
+                            board[col][row].question = true;
+                        }
                         break;
                     case "flag":
                         board[col][row].flag = false;
                         board[col][row].question = true;
+                        dispatch(uncheckMineSetter())
                         break;
                     case "question":
                         board[col][row].question = false;

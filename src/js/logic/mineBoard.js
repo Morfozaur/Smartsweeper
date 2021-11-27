@@ -1,6 +1,8 @@
 import {random} from "./baseFunctions";
+import {store} from "../redux/store";
+import {minesSetter} from "../redux/actions/allActions";
 
-export const mineBoard = (data, board, mines = 10) => {
+export const mineBoard = (data, board, mines) => {
     const pool = [...data];
     const minedBoard = [...board];
     for (let i = 0; i < (mines); i++) {
@@ -20,5 +22,6 @@ export const mineBoard = (data, board, mines = 10) => {
         }
         pool.splice(pick, 1);
     }
+    store.dispatch(minesSetter({total: mines, remain: mines}))
     return minedBoard
 };

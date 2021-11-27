@@ -62,7 +62,6 @@ const DigitalNumber = ({number}) => {
             topRight = true;
             topLeft = true;
             middle = true;
-
             bottomRight = true;
             bottom = true;
             break;
@@ -73,6 +72,9 @@ const DigitalNumber = ({number}) => {
             bottomLeft = true;
             bottomRight = true;
             bottom = true;
+            break;
+        case null:
+            middle = true;
             break;
         default:
             break;
