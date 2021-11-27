@@ -1,10 +1,11 @@
 -skończyć logikę:
-  - Dodać flagi i znaki zapytania jako opcje zaznaczania pól
+  - Dodać system sprawdzania liczby pozostałych pól oraz poprawności rozwiązania
   - Dodać game over
   - Ustawić liczby i kolory
   - dobrać kolor bomby
   - Dodać główny ekran
 -Dodać wrzut monety
+-Dodać komiksowy napis boom przy odkryciu bomby (bomby wybuchają, zmieniają kolor na czerwony)
 
 
 - Tryb narastającej liczby bomb

@@ -11,7 +11,6 @@ function App() {
     const qPress = useKeyPress('q', 'short');
 
     useEffect(()=> {
-        console.log(qPress)
         qPress === false ? dispatch(flagModeSetter(false)) : dispatch(flagModeSetter(true));
     }, [dispatch, qPress])
 

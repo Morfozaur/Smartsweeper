@@ -26,7 +26,6 @@ const Field = ({row, col, field}) => {
                 if (bomb) console.log('boom!')
             }
         } else {
-            console.log(board[col][row].flag)
             if (board[col][row].visible === false) {
                 const {flag, question} = board[col][row]
                 let fieldCase = 'neutral';

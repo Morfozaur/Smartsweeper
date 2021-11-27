@@ -17,12 +17,10 @@ export const useKeyPress = (targetKey, type, state= false) => {
     useEffect(() => {
         window.addEventListener("keydown", keyDown);
         window.addEventListener("keyup", keyUp);
-        // Remove event listeners on cleanup
         return () => {
             window.removeEventListener("keydown", keyDown);
             window.removeEventListener("keyup", keyUp);
         };
-        // eslint-disable-next-line no-use-before-define
     }, [])
     return type === 'long' ? longPress : pressed
 };
