@@ -81,7 +81,6 @@ const DigitalNumber = ({number}) => {
     }
 
 
-
     return (
         <div className='number'>
             <NumberBar top={-3} left={-3} active={top}/>
