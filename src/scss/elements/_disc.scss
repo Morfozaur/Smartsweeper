@@ -1,0 +1,40 @@
+.disc {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  &__window {
+    position: relative;
+    height: 22px;
+    width: 30px;
+    border: 2px solid $panel-dark-color;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #38310D;
+  }
+  &__plate {
+    position: absolute;
+    top: 2px;
+    left: -6px;
+    height: 40px;
+    width: 40px;
+    border: 1px solid $panel-color;
+    border-radius: 50%;
+  }
+  &__background {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: $brass-lite-color;
+    border-radius: 50%;
+    transition: 0.5s;
+  }
+  &__number {
+    position: absolute;
+    height: 20px;
+    top:0;
+    left: 50%;
+    transform-origin: bottom center;
+    color: $panel-color;
+    text-shadow: 2px 2px  $brass-color;
+  }
+}

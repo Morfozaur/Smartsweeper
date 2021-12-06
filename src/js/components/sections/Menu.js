@@ -1,35 +1,32 @@
-import React, {useState} from 'react';
-import Button from "../elements/Button";
-import Slider from "../elements/Slider";
+import React from 'react';
+import Button from "../elements/menu/Button";
+import Slider from "../elements/menu/Slider";
 import {boarding} from "../../logic/boarding";
-import Arrow from "../elements/Arrow";
 import {useDispatch, useSelector} from "react-redux";
-import {boardSetter, flagModeSetter} from "../../redux/actions/allActions";
-import Disk from "../elements/Disk";
+import {boardSetter, boardSizeSetter, flagModeSetter} from "../../redux/actions/allActions";
+import Disc from "../elements/menu/Disc";
 
 const Menu = () => {
-    const [size, setSize] = useState(0);
     const dispatch = useDispatch();
-    const {flagMode, mines} = useSelector(state =>state)
+    const {flagMode, boardSize} = useSelector(state =>state)
 
-    console.log(mines)
+    const boardPool = [10, 15, 20]
 
-    const sizeArr = [10, 15, 20]
     const smartTrigger = () => {
         dispatch(flagModeSetter(!flagMode))
     };
 
+    const setBoardSize = (size) => dispatch(boardSizeSetter(size))
+
     const setBoard = () => {
-        const newBoard = boarding(sizeArr[size]);
+        const newBoard = boarding(boardSize);
         dispatch(boardSetter(newBoard));
     }
-
-
 
     return (
         <div className='menu'>
             <div className="menu__settings">
-                <Disk setSize={setSize} size={size} sizeArr={sizeArr}/>
+                <Disc value={boardSize} setter={setBoardSize} pool={boardPool}/>
                 <Slider active={flagMode} func={smartTrigger}/>
             </div>
             <Button addClass='menu__button' text='Start' func={setBoard}/>

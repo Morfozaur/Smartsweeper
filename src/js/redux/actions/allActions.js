@@ -1,9 +1,12 @@
 import {actionsTypes} from "./actionsTypes";
 
-const {board, reload, flagMode, totalMines, removeMine, addMine} = actionsTypes
+const {board, boardSize, reload, flagMode, totalMines, removeMine, addMine} = actionsTypes
 
 export const boardSetter = data => {
     return {type: board, payload:data};
+};
+export const boardSizeSetter = data => {
+    return {type: boardSize, payload:data};
 };
 
 export const reloadSetter = data => {
