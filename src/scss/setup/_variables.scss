@@ -14,6 +14,7 @@ $banner-lite-color: #81b4b9;
 
 $brass-color: #9E8A26;
 $brass-lite-color: #AEA15E;
+$brass-bright-color: #c9b76d;
 $panel-color: #6B5E1A;
 $panel-dark-color: #524714;
 $panel-darkest-color: #38310D;
@@ -25,3 +26,29 @@ $display-inactive: #333333;
 $display-active: #c74358;
 
 // GRADIENTS
+
+$round-gradient: radial-gradient(circle, $brass-color 0%, $brass-lite-color 80%);
+$rings-gradient: radial-gradient(circle,
+        $brass-color 0%, $accent-color 4%,
+        $brass-color 7%, $accent-color 10%,
+        $brass-color 14%, $accent-color 17%,
+        $brass-color 20%, $accent-color 24%,
+        $brass-color 27%, $accent-color 30%,
+        $brass-color 34%, $accent-color 37%,
+        $brass-color 40%, $accent-color 44%,
+        $brass-color 47%, $accent-color 50%,
+        $brass-color 54%, $accent-color 57%,
+        $brass-color 60%, $accent-color 64%,
+        $brass-color 67%, $accent-color 70%,
+        $brass-color 74%, $accent-color 77%,
+        $brass-color 80%, $accent-color 84%,
+        $brass-color 87%, $accent-color 90%,
+        $brass-color 94%, $accent-color 97%, $brass-color 100%);
+
+$dimming-gradient: radial-gradient(circle,
+        rgba(68,68,68,0) 0%,
+        rgba(68,68,68,0.85) 95%,
+        rgba(33,33,33,1) 100%);
+
+
+$frame-shadow: inset 2px 3px 9px -6px rgba($panel-darkest-color, .9);

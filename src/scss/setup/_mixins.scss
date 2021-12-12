@@ -1,0 +1,5 @@
+@mixin engraving($text) {
+  &:before, &:after { content: $text; position: absolute; color: $accent-color ; opacity: .2 }
+  &:before { top: 1px; left: 1px }
+  &:after { top: 2px; left: 2px }
+}

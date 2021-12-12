@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import Arrow from "../Arrow";
-import Plate from "./Plate";
+import Plate from "./RotatingPlate";
+import InfoPlate from "./InfoPlate";
 
-const Disc = ({value, setter, pool}) => {
+const Disc = ({value, setter, pool, type}) => {
     const [rotation, setRotation] = useState(0)
     const [currState, setCurrState] = useState(pool.findIndex(el => el === value));
 
@@ -30,11 +31,16 @@ const Disc = ({value, setter, pool}) => {
     };
     return (
         <div className='disc'>
-            <Arrow turn={'left'} size={8} wide={1.7} func={down}/>
-            <div className='disc__window'>
-                <Plate rotation={rotation} pool={pool}/>
+            <InfoPlate text={type}/>
+            <div className="disc__controls">
+                <Arrow turn={'left'} size={8} wide={1.7} func={down}/>
+                <div className='disc__window'>
+                    <div className="disc__container">
+                        <Plate rotation={rotation} pool={pool}/>
+                    </div>
+                </div>
+                <Arrow turn={'right'} size={8} wide={1.7} func={up}/>
             </div>
-            <Arrow turn={'right'} size={8} wide={1.7} func={up}/>
         </div>
     );
 }

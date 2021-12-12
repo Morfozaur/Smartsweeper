@@ -26,7 +26,10 @@ const Menu = () => {
     return (
         <div className='menu'>
             <div className="menu__settings">
-                <Disc value={boardSize} setter={setBoardSize} pool={boardPool}/>
+                <Disc value={boardSize}
+                      setter={setBoardSize}
+                      pool={boardPool}
+                      type={'Size'}/>
                 <Slider active={flagMode} func={smartTrigger}/>
             </div>
             <Button addClass='menu__button' text='Start' func={setBoard}/>
