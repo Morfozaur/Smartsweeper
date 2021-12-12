@@ -21,6 +21,7 @@ export const useKeyPress = (targetKey, type, state= false) => {
             window.removeEventListener("keydown", keyDown);
             window.removeEventListener("keyup", keyUp);
         };
+        // eslint-disable-next-line
     }, [])
     return type === 'long' ? longPress : pressed
 };

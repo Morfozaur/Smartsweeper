@@ -10,7 +10,7 @@ const Menu = () => {
     const dispatch = useDispatch();
     const {flagMode, boardSize} = useSelector(state =>state)
 
-    const boardPool = [10, 15, 20]
+    const boardPool = [10, 15, 20];
 
     const smartTrigger = () => {
         dispatch(flagModeSetter(!flagMode))

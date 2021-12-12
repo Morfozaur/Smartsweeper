@@ -1,15 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-const Plate = ({value, pool}) => {
-    const [rotateValue, setRotateValue] = useState(pool.findIndex(el => el === value))
-
-    useEffect(()=> {
-        setRotateValue(state => state + 1)
-    }, [value])
+const Plate = ({rotation, pool}) => {
 
     const arc = 360 / pool.length;
     const rotateStyle = {
-        transform: `rotate(${-arc * rotateValue}deg)`
+        transform: `rotate(${-arc * rotation}deg)`
     }
     return (
         <div className='disc__plate'>
