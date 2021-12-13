@@ -11,10 +11,11 @@
     border: 1px #ADA28C solid;
     border-radius: 3px;
     text-align: center;
+    font-weight: 600;
     box-shadow: -1px -1px 4px #f4f4f4;
-
     &--bombed {
-      background: red;
+      color: $bomb-color;
+      border: none;
     }
     &--reveal {
       border-radius: 3px;
@@ -28,5 +29,16 @@
       box-shadow: inset 5px 5px 6px #e4d6c4,
       inset -5px -5px 6px #ffffea;
     }
+  }
+  &__symbol {
+    user-select: none;
+    color: inherit;
+  }
+}
+
+@each $color in $bomb-nums {
+  $i: index($bomb-nums, $color);
+  .board__symbol--n#{$i} {
+    color: $color;
   }
 }

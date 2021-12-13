@@ -1,4 +1,4 @@
-@use "sass:color";
+@use "sass:list";
 
 // COLORS
 $dark-color: #212121;
@@ -24,6 +24,17 @@ $accent-dark-color: #FFA500FF;
 
 $display-inactive: #333333;
 $display-active: #c74358;
+
+$bomb-color: #5c1f1f;
+
+// NUMBERS
+$bomb-nums:
+        #84b85c, #587a3d,
+        #5475ab, #3b5278,
+        #9565cf, #6b4287,
+        #874242, #663232;
+
+
 
 // GRADIENTS
 

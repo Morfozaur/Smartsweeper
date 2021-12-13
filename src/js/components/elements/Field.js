@@ -68,7 +68,7 @@ const Field = ({row, col, field}) => {
              onClick={action}>
 
 
-            <div className="board__symbols">
+            <div className={classNames("board__symbol", {[`board__symbol--n${adj}`]: visible && adj && !bomb})}>
                 {(adj > 0 && !bomb && visible) && <>{adj}</>}
                 {(!visible && flag) && <Symbol type={'flag'}/>}
                 {(!visible && question) && <Symbol type={'question'}/>}

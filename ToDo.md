@@ -1,3 +1,6 @@
+
+
+
 -skończyć logikę:
   - Dodać system sprawdzania liczby pozostałych pól oraz poprawności rozwiązania
   - Dodać game over
@@ -7,6 +10,8 @@
 -Dodać wrzut monety
 -Dodać komiksowy napis boom przy odkryciu bomby (bomby wybuchają, zmieniają kolor na czerwony)
 
+
+Zmiany położenia bomb - w zależności od poziomu trudności położenie zmienia x bomb
 
 - Tryb narastającej liczby bomb
 -skaner - klikniesz przycisk na klawce, skanuje kilka pól wokół

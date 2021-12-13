@@ -8,7 +8,7 @@ const Symbol = ({type}) => {
     }
 
     return (
-        <i className={`fas fa-${symbols[type]}`}/>
+        <i className={`symbol fas fa-${symbols[type]}`}/>
     );
 }
 
