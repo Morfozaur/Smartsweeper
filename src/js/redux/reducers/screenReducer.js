@@ -1,8 +1,8 @@
 import {actionsTypes} from "../actions/actionsTypes";
 
-export const flagModeReducer = (state = false, {type, payload}) => {
+export const screenReducer = (state = 'start', {type, payload}) => {
     switch (type) {
-        case actionsTypes.flagMode:
+        case actionsTypes.screen:
             return payload;
         default:
             return state;

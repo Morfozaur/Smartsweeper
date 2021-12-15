@@ -1,6 +1,6 @@
 import {useKeyPress} from "../logic/useKeyPress";
 import {useEffect} from "react";
-import {flagModeSetter} from "../redux/actions/allActions";
+import {selectModeSetter} from "../redux/actions/allActions";
 import {useDispatch} from "react-redux";
 import Head from "./layout/Head";
 import Controls from "./layout/Controls";
@@ -11,7 +11,7 @@ function App() {
     const qPress = useKeyPress('q', 'short');
 
     useEffect(()=> {
-        qPress === false ? dispatch(flagModeSetter(false)) : dispatch(flagModeSetter(true));
+        qPress === false ? dispatch(selectModeSetter(false)) : dispatch(selectModeSetter(true));
     }, [dispatch, qPress])
 
     return (

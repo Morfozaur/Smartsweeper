@@ -1,11 +1,16 @@
 import React, {useEffect} from 'react';
-import Field from "../elements/Field";
+import Field from "../../elements/Field";
 import {useDispatch, useSelector} from "react-redux";
-import {boardSetter, reloadSetter} from "../../redux/actions/allActions";
+import {boardSetter, reloadSetter} from "../../../redux/actions/allActions";
 
 const Board = () => {
     const dispatch = useDispatch();
-    const {board, reload} = useSelector(state => state);
+    const {board, reload, mines, fieldsCounter} = useSelector(state => state);
+
+    if (mines.remain === 0 || fieldsCounter.left === fieldsCounter.check) {
+        console.log('Winnie!')
+    }
+
 
     useEffect(()=> {
         if (reload) {

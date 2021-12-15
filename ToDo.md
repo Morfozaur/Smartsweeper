@@ -4,7 +4,6 @@
 -skończyć logikę:
   - Dodać system sprawdzania liczby pozostałych pól oraz poprawności rozwiązania
   - Dodać game over
-  - Ustawić liczby i kolory
   - dobrać kolor bomby
   - Dodać główny ekran
 -Dodać wrzut monety

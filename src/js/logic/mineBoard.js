@@ -1,27 +1,25 @@
 import {random} from "./baseFunctions";
-import {store} from "../redux/store";
-import {minesSetter} from "../redux/actions/allActions";
 
 export const mineBoard = (data, board, mines) => {
     const pool = [...data];
-    const minedBoard = [...board];
+    const targetBoard = [...board];
     for (let i = 0; i < (mines); i++) {
         const pick = random(0, pool.length - 1);
         const {col, row} = pool[pick];
-        minedBoard[col][row].bomb = true;
+        targetBoard[col][row].bomb = true;
 
         for (let c = -1; c < 2; c++) {
-            if ((col + c) >= 0 && (col + c) < minedBoard.length) {
+            if ((col + c) >= 0 && (col + c) < targetBoard.length) {
                 for (let r = -1; r < 2; r++) {
-                    if ((row + r) >= 0 && (row + r) < minedBoard.length) {
-                        minedBoard[col+c][row+r].adj += 1;
-                        if (col + c === col && row + r === row) minedBoard[col][row].adj -= 1;
+                    if ((row + r) >= 0 && (row + r) < targetBoard.length) {
+                        targetBoard[col+c][row+r].adj += 1;
+                        if (col + c === col && row + r === row) targetBoard[col][row].adj -= 1;
                     }
                 }
             }
         }
         pool.splice(pick, 1);
     }
-    store.dispatch(minesSetter({total: mines, remain: mines}))
-    return minedBoard
+
+    return targetBoard
 };

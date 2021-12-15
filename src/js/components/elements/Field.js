@@ -2,11 +2,17 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {reveal} from "../../logic/reveal";
 import classNames from "classnames";
-import {checkMineSetter, reloadSetter, uncheckMineSetter} from "../../redux/actions/allActions";
+import {
+    selectMineSetter,
+    reloadSetter,
+    unselectMineSetter,
+    addFlagSetter,
+    removeFlagSetter, revealFieldSetter
+} from "../../redux/actions/allActions";
 import Symbol from "./Symbol";
 const Field = ({row, col, field}) => {
     const dispatch = useDispatch();
-    const {board, flagMode, mines} = useSelector(state => state);
+    const {board, selectMode, mines} = useSelector(state => state);
     const {adj, bomb, visible, flag, question} = field;
 
     const fieldClass = {
@@ -18,10 +24,16 @@ const Field = ({row, col, field}) => {
     }
 
     const action = async () => {
-        if (flagMode === false) {
+        if (selectMode === false) {
+            if (board[col][row].flag) {
+                dispatch(revealFieldSetter());
+                board[col][row].flag = false;
+                dispatch(removeFlagSetter())
+            }
             if (adj === 0 && !bomb) {
                 await reveal(col, row, true);
             } else {
+                dispatch(revealFieldSetter());
                 board[col][row].visible = true;
                 if (bomb) console.log('boom!')
             }
@@ -33,9 +45,10 @@ const Field = ({row, col, field}) => {
                 if (question) fieldCase = 'question';
                 switch (fieldCase) {
                     case "neutral":
-                        if (mines.remain > 0) {
+                        if (mines.flagged < mines.total) {
                             board[col][row].flag = true;
-                            dispatch(checkMineSetter())
+                            if (board[col][row].bomb) dispatch(unselectMineSetter())
+                            dispatch(addFlagSetter())
                         } else {
                             board[col][row].question = true;
                         }
@@ -43,7 +56,8 @@ const Field = ({row, col, field}) => {
                     case "flag":
                         board[col][row].flag = false;
                         board[col][row].question = true;
-                        dispatch(uncheckMineSetter())
+                        if (board[col][row].bomb) dispatch(selectMineSetter())
+                        dispatch(removeFlagSetter())
                         break;
                     case "question":
                         board[col][row].question = false;

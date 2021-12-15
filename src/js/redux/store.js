@@ -1,16 +1,22 @@
 import {combineReducers, createStore} from 'redux'
 import {boardReducer} from "./reducers/boardReducer";
 import {reloadReducer} from "./reducers/reloadReducer";
-import {flagModeReducer} from "./reducers/flagModeReducer";
+import {selectionModeReducer} from "./reducers/selectionModeReducer";
 import {minesReducer} from "./reducers/minesReducer";
 import {boardSizeReducer} from "./reducers/boardSizeReducer";
+import {boardFieldsReducer} from "./reducers/boardFieldsReducer";
+import {screenReducer} from "./reducers/screenReducer";
 
 const allReducers = combineReducers({
+    screen: screenReducer,
     board: boardReducer,
     boardSize: boardSizeReducer,
     reload: reloadReducer,
-    flagMode: flagModeReducer,
-    mines: minesReducer
+    selectMode: selectionModeReducer,
+    mines: minesReducer,
+    fieldsCounter: boardFieldsReducer
 });
 
-export const store = createStore(allReducers);
+const enhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+export const store = createStore(allReducers, enhancers);
