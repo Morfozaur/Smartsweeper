@@ -11,6 +11,7 @@ import {
     totalFieldsSetter, screenSetter
 } from "../../redux/actions/allActions";
 import Disc from "../elements/menu/Disc";
+import {playNote} from "../../logic/synth";
 
 const Menu = () => {
     const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const Menu = () => {
         dispatch(boardSetter(newBoard));
         dispatch(minesSetter({total: mines, remain: mines, flagged: 0}));
         dispatch(screenSetter('board'))
+        playNote('C4', '8n')
     }
 
     return (
