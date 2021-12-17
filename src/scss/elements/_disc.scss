@@ -1,6 +1,6 @@
 .disc {
   flex-direction: column;
-  &, &__controls, &__info {
+  &, &__controls {
     display: flex;
     align-items: center;
     gap: .5rem;

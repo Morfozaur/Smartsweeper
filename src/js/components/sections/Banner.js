@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from "../elements/header/Logo";
 import NumericDisplay from "../elements/header/NumericDisplay";
 import {useSelector} from "react-redux";
+import Label from "../elements/Label";
 
 const Banner = () => {
     const {total, flagged} = useSelector(state => state.mines);
@@ -16,9 +17,15 @@ const Banner = () => {
 
     return (
         <div className="banner">
-            <NumericDisplay number={foundedArr}/>
+            <div className="banner__display">
+                <Label text={'Found'}/>
+                <NumericDisplay number={foundedArr}/>
+            </div>
             <Logo/>
-            <NumericDisplay number={lastArr}/>
+            <div className="banner__display">
+                <Label text={'Total'}/>
+                <NumericDisplay number={lastArr}/>
+            </div>
         </div>
     );
 }

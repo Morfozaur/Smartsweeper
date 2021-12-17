@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Arrow from "../Arrow";
 import Plate from "./RotatingPlate";
-import InfoPlate from "./InfoPlate";
+import Label from "../Label";
 
 const Disc = ({value, setter, pool, type}) => {
     const [rotation, setRotation] = useState(0)
@@ -31,7 +31,7 @@ const Disc = ({value, setter, pool, type}) => {
     };
     return (
         <div className='disc'>
-            <InfoPlate text={type}/>
+            <Label text={type}/>
             <div className="disc__controls">
                 <Arrow turn={'left'} size={8} wide={1.7} func={down}/>
                 <div className='disc__window'>

@@ -10,6 +10,7 @@ import {
     removeFlagSetter, revealFieldSetter
 } from "../../redux/actions/allActions";
 import Symbol from "./Symbol";
+import {playBomb, playReveal} from "../../logic/synth";
 const Field = ({row, col, field}) => {
     const dispatch = useDispatch();
     const {board, selectMode, mines} = useSelector(state => state);
@@ -24,9 +25,9 @@ const Field = ({row, col, field}) => {
     }
 
     const action = async () => {
-        if (selectMode === false) {
+        if (selectMode === false && board[col][row].visible) {
+            if (!bomb) await playReveal();
             if (board[col][row].flag) {
-                dispatch(revealFieldSetter());
                 board[col][row].flag = false;
                 dispatch(removeFlagSetter())
             }
@@ -35,9 +36,12 @@ const Field = ({row, col, field}) => {
             } else {
                 dispatch(revealFieldSetter());
                 board[col][row].visible = true;
-                if (bomb) console.log('boom!')
+                if (bomb) {
+                    console.log('boom!')
+                    await playBomb()
+                }
             }
-        } else {
+        } else if (selectMode) {
             if (board[col][row].visible === false) {
                 const {flag, question} = board[col][row]
                 let fieldCase = 'neutral';

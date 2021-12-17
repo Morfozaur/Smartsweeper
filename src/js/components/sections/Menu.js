@@ -11,7 +11,7 @@ import {
     totalFieldsSetter, screenSetter
 } from "../../redux/actions/allActions";
 import Disc from "../elements/menu/Disc";
-import {playNote} from "../../logic/synth";
+import {playStart} from "../../logic/synth";
 
 const Menu = () => {
     const dispatch = useDispatch();
@@ -25,14 +25,14 @@ const Menu = () => {
 
     const setBoardSize = (size) => dispatch(boardSizeSetter(size))
 
-    const setBoard = () => {
+    const setBoard = async () => {
         const mines = Math.ceil(Math.pow(boardSize, 2) * ((2 + boardSize) /100))
         const newBoard = boarding(boardSize, mines);
         dispatch(totalFieldsSetter({total: Math.pow(boardSize, 2), check: mines}))
         dispatch(boardSetter(newBoard));
         dispatch(minesSetter({total: mines, remain: mines, flagged: 0}));
-        dispatch(screenSetter('board'))
-        playNote('C4', '8n')
+        dispatch(screenSetter('board'));
+        await playStart();
     }
 
     return (

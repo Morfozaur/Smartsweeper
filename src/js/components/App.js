@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import Head from "./layout/Head";
 import Controls from "./layout/Controls";
 import Front from "./layout/Front";
+import * as Tone from "tone";
 
 function App() {
     const dispatch = useDispatch();
@@ -13,6 +14,9 @@ function App() {
     useEffect(()=> {
         qPress === false ? dispatch(selectModeSetter(false)) : dispatch(selectModeSetter(true));
     }, [dispatch, qPress])
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(async()=> await Tone.start(), [])
 
     return (
         <div className='container'>
