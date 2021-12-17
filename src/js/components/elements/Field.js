@@ -25,7 +25,7 @@ const Field = ({row, col, field}) => {
     }
 
     const action = async () => {
-        if (selectMode === false && board[col][row].visible) {
+        if (selectMode === false && !board[col][row].visible) {
             if (!bomb) await playReveal();
             if (board[col][row].flag) {
                 board[col][row].flag = false;
