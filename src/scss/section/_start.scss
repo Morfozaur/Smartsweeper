@@ -1,0 +1,20 @@
+.start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  &__logo {
+    position: relative;
+    color: $light-color;
+    font-family: $brush;
+    font-size: 4rem;
+    transform: rotate(-3deg);
+    &--span {
+      top: -1px;
+    }
+  }
+}

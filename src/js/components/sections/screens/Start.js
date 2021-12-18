@@ -2,18 +2,9 @@ import React from 'react';
 
 const Start = () => {
 
-    const styles = {
-        zIndex: 10,
-        background: '#FAEBD7FF',
-        padding: '2px',
-        borderRadius: '3px',
-        display: 'flex',
-        color: 'red',
-        fontFamily: 'serif'
-    }
     return (
-        <div className={'start'} style={styles}>
-            <p>HELLO!</p>
+        <div className={'start'}>
+            <p className={'start__logo'}>Smart <span className={'start__logo start__logo--span'}>Sweeper</span></p>
         </div>
     );
 }
