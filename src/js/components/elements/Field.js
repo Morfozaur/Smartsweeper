@@ -11,6 +11,7 @@ import {
 } from "../../redux/actions/allActions";
 import Symbol from "./Symbol";
 import {playBomb, playReveal} from "../../logic/synth";
+
 const Field = ({row, col, field}) => {
     const dispatch = useDispatch();
     const {board, selectMode, mines} = useSelector(state => state);
@@ -25,7 +26,7 @@ const Field = ({row, col, field}) => {
     }
 
     const action = async () => {
-        if (selectMode === false && !board[col][row].visible) {
+        if (selectMode === false && !visible) {
             if (!bomb) await playReveal();
             if (board[col][row].flag) {
                 board[col][row].flag = false;

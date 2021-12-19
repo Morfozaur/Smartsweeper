@@ -2,7 +2,7 @@ import React from 'react';
 import Panel from "../sections/Panel";
 import Banner from "../sections/Banner";
 
-const Head = () => {
+const Header = () => {
     return (
         <div className='head'>
             <div className="head__insert">
@@ -17,4 +17,4 @@ const Head = () => {
     );
 }
 
-export default Head;
+export default Header;

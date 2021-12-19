@@ -1,7 +1,5 @@
 import * as Tone from "tone";
 
-
-
 export const playStart = async () => {
     const synth = new Tone.Synth().toDestination();
     const now = Tone.now();

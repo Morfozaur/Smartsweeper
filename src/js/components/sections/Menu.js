@@ -23,8 +23,7 @@ const Menu = () => {
         dispatch(selectModeSetter(!selectMode))
     };
 
-    const setBoardSize = (size) => dispatch(boardSizeSetter(size))
-
+    const setBoardSize = (size) => dispatch(boardSizeSetter(size));
     const setBoard = async () => {
         const mines = Math.ceil(Math.pow(boardSize, 2) * ((2 + boardSize) /100))
         const newBoard = boarding(boardSize, mines);

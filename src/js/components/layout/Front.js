@@ -1,4 +1,5 @@
 import React from 'react';
+import Service from "../sections/Service";
 
 const Front = () => {
     return (
@@ -7,7 +8,7 @@ const Front = () => {
                 <div className="front__side front__side--left"/>
                 <div className="front__center">
                     <div className="front__top"/>
-                    <div className="front__middle"/>
+                    <Service/>
                     <div className="front__bottom"/>
                 </div>
                 <div className="front__side front__side--right"/>
