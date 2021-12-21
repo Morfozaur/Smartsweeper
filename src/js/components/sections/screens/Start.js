@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import * as Tone from "tone";
 
 const Start = () => {
@@ -8,9 +8,6 @@ const Start = () => {
         const synth = new Tone.MembraneSynth().connect(vol);
         synth.triggerAttackRelease("C2", "8n");
     };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(async ()=> await Tone.start(), [])
 
     return (
         <div className={'start'}>

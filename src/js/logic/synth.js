@@ -14,6 +14,12 @@ export const playReveal = async () => {
 
 }
 
+export const playPower = async () => {
+    const synth = new Tone.Synth().toDestination();
+    synth.triggerAttackRelease("g2", .1);
+
+}
+
 export const playBomb = async () => {
     const synth = new Tone.Synth().toDestination();
     const now = Tone.now();
