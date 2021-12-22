@@ -15,8 +15,19 @@ export const playReveal = async () => {
 }
 
 export const playPower = async () => {
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("g2", .1);
+    const synth = new Tone.Synth({
+        oscillator: {
+            type: 'sine',
+            modulationFrequency: 0.5
+        },
+        envelope: {
+            attack: 0,
+            decay: 0.1,
+            sustain: 0,
+            release: 0.1,
+        }
+    }).toDestination();
+    synth.triggerAttackRelease(1800, '32n');
 
 }
 

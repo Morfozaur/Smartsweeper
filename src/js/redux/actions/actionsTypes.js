@@ -10,5 +10,6 @@ export const actionsTypes = {
     addFlag: 'FLAG-ADD',
     removeFlag: 'FLAG-REM',
     totalFields: 'FIELDS-SUM',
-    revealField: 'FIELD-REV'
+    revealField: 'FIELD-REV',
+    power: 'SET-POWER'
 };

@@ -3,18 +3,23 @@ import Symbol from "../elements/Symbol";
 import classNames from "classnames";
 import {playPower} from "../../logic/synth";
 import * as Tone from "tone";
+import {useDispatch, useSelector} from "react-redux";
+import {powerSetter} from "../../redux/actions/allActions";
 
 const Service = () => {
-    const [power, setPower] = useState(false);
-    const [tone, setTone] = useState(false)
+    const [tone, setTone] = useState(false);
+    const {power} = useSelector(state => state);
+    const dispatch = useDispatch();
 
     const powerOn = async () => {
         if (!tone) {
             await Tone.start();
             setTone(true);
         }
-        if (!power) await playPower();
-        setPower(state => !state);
+        if (!power) {
+            await playPower();
+        }
+        dispatch(powerSetter());
     };
 
     return (

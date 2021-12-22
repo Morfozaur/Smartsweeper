@@ -9,7 +9,8 @@ const {
     totalMines,
     selectMine, unselectMine,
     addFlag, removeFlag,
-    totalFields, revealField
+    totalFields, revealField,
+    power
 } = actionsTypes
 
 export const screenSetter = data => {
@@ -58,4 +59,8 @@ export const totalFieldsSetter = data => {
 
 export const revealFieldSetter = () => {
     return {type: revealField};
+};
+
+export const powerSetter = () => {
+    return {type: power};
 };

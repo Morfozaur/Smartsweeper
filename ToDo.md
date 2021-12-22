@@ -2,6 +2,7 @@
 
 
 -skończyć logikę:
+  - Dodać włączanie i wyłączanie ekranu guzikiem power
   - Dodać system sprawdzania liczby pozostałych pól oraz poprawności rozwiązania
   - Dodać game over
   - dobrać kolor bomby
