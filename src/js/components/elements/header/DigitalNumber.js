@@ -76,6 +76,8 @@ const DigitalNumber = ({number}) => {
         case null:
             middle = true;
             break;
+        case 'off':
+            break;
         default:
             break;
     }

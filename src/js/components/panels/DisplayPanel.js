@@ -1,10 +1,10 @@
 import React from 'react';
-import Board from "./screens/Board";
-import Start from "./screens/Start";
+import Board from "../screens/Board";
+import Start from "../screens/Start";
 import {useSelector} from "react-redux";
 
-const Panel = () => {
-    const {screen} = useSelector(state => state);
+const DisplayPanel = () => {
+    const {screen, power} = useSelector(state => state);
     const screensList = {
         start: Start,
         board: Board
@@ -19,7 +19,7 @@ const Panel = () => {
                     <div className="panel__display">
                         <div className="panel__frame"/>
                         <div className="panel__frame panel__frame--second"/>
-                        <Screen/>
+                        {power && <Screen/>}
                     </div>
 
                 </div>
@@ -28,4 +28,4 @@ const Panel = () => {
     );
 }
 
-export default Panel;
+export default DisplayPanel;

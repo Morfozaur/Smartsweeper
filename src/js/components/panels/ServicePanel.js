@@ -4,9 +4,9 @@ import classNames from "classnames";
 import {playPower} from "../../logic/synth";
 import * as Tone from "tone";
 import {useDispatch, useSelector} from "react-redux";
-import {powerSetter} from "../../redux/actions/allActions";
+import {powerSetter, screenSetter} from "../../redux/actions/allActions";
 
-const Service = () => {
+const ServicePanel = () => {
     const [tone, setTone] = useState(false);
     const {power} = useSelector(state => state);
     const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const Service = () => {
             setTone(true);
         }
         if (!power) {
+            dispatch(screenSetter('start'));
             await playPower();
         }
         dispatch(powerSetter());
@@ -39,4 +40,4 @@ const Service = () => {
     );
 }
 
-export default Service;
+export default ServicePanel;

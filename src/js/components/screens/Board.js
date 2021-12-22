@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import Field from "../../elements/Field";
+import Field from "../elements/Field";
 import {useDispatch, useSelector} from "react-redux";
-import {boardSetter, reloadSetter} from "../../../redux/actions/allActions";
+import {boardSetter, reloadSetter} from "../../redux/actions/allActions";
 
 const Board = () => {
     const dispatch = useDispatch();

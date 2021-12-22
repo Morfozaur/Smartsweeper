@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from "../sections/Menu";
+import ControlPanel from "../panels/ControlPanel";
 
 const Controls = () => {
     return (
@@ -8,7 +8,7 @@ const Controls = () => {
                 <div className="controls__side"/>
                 <div className="controls__center">
                     <div className="controls__menu">
-                        <Menu/>
+                        <ControlPanel/>
                     </div>
                     <div className="controls__decor"/>
                 </div>
