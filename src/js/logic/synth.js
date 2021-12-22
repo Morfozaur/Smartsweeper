@@ -21,13 +21,13 @@ export const playPower = async () => {
             modulationFrequency: 0.5
         },
         envelope: {
-            attack: 0,
+            attack: 0.5,
             decay: 0.1,
             sustain: 0,
             release: 0.1,
         }
     }).toDestination();
-    synth.triggerAttackRelease(1800, '32n');
+    synth.triggerAttackRelease(1480, '16n');
 
 }
 

@@ -19,11 +19,11 @@ const Start = () => {
     const setBoard = async () => {
         const mines = Math.ceil(Math.pow(boardSize, 2) * ((2 + boardSize) /100))
         const newBoard = boarding(boardSize, mines);
+        await playStart();
         dispatch(totalFieldsSetter({total: Math.pow(boardSize, 2), check: mines}))
         dispatch(boardSetter(newBoard));
         dispatch(minesSetter({total: mines, remain: mines, flagged: 0}));
         dispatch(screenSetter('board'));
-        await playStart();
     }
 
     return (
