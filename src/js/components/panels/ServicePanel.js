@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
+import * as Tone from "tone";
 import Symbol from "../elements/Symbol";
 import classNames from "classnames";
-import {playPower} from "../../logic/synth";
-import * as Tone from "tone";
+import {playPowerOff, playPowerOn} from "../../logic/synth";
 import {useDispatch, useSelector} from "react-redux";
 import {powerSetter, screenSetter} from "../../redux/actions/allActions";
 
@@ -18,7 +18,9 @@ const ServicePanel = () => {
         }
         if (!power) {
             dispatch(screenSetter('start'));
-            await playPower();
+            await playPowerOn();
+        } else {
+            await playPowerOff();
         }
         dispatch(powerSetter());
     };

@@ -14,7 +14,7 @@ export const playReveal = async () => {
 
 }
 
-export const playPower = async () => {
+export const playPowerOn = async () => {
     const synth = new Tone.Synth({
         oscillator: {
             type: 'sine',
@@ -30,6 +30,14 @@ export const playPower = async () => {
     synth.triggerAttackRelease(1480, '16n');
 
 }
+
+export const playPowerOff = async () => {
+    const vol = new Tone.Volume(-10).toDestination();
+    const synth = new Tone.Oscillator("G4").connect(vol);
+    synth.frequency.rampTo("G2", 0.25);
+    synth.start();
+    synth.stop('+0.25');
+};
 
 export const playBomb = async () => {
     const synth = new Tone.Synth().toDestination();

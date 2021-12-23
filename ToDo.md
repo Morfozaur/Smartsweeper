@@ -2,11 +2,7 @@
 
 
 -skończyć logikę:
-  - Dodać włączanie i wyłączanie ekranu guzikiem power
-  - Dodać system sprawdzania liczby pozostałych pól oraz poprawności rozwiązania
-  - Dodać game over
-  - dobrać kolor bomby
-  - Dodać główny ekran
+  - Dodać game over/restart
 -Dodać wrzut monety
 -Dodać komiksowy napis boom przy odkryciu bomby (bomby wybuchają, zmieniają kolor na czerwony)
 
