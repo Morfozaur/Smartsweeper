@@ -4,12 +4,15 @@
   padding: 0;
   color: $text-color;
   font-family: $mono;
+  user-select: none;
 }
 
 a, a:hover, a:active, a:link, a:visited {
   text-decoration: none;
   color: $text-color;
 }
+
+
 body {
   min-width: 100vw;
   min-height: 100vh;

@@ -14,7 +14,6 @@
     font-family: $brush;
     font-size: 4rem;
     transform: rotate(-3deg);
-    user-select: none;
     &--span {
       top: -1px;
     }
@@ -30,7 +29,6 @@
     text-align: center;
     width: 100%;
     padding: 0 .2rem;
-    user-select: none;
     cursor: pointer;
     &:hover {
       color: $text-color;

@@ -7,14 +7,14 @@ import {
     reloadSetter,
     unselectMineSetter,
     addFlagSetter,
-    removeFlagSetter, revealFieldSetter
+    removeFlagSetter, revealFieldSetter, resolveSetter, endSetter
 } from "../../redux/actions/allActions";
 import Symbol from "./Symbol";
-import {playBomb, playReveal} from "../../logic/synth";
+import {playBomb, playFlag, playReveal} from "../../logic/synth";
 
 const Field = ({row, col, field}) => {
     const dispatch = useDispatch();
-    const {board, selectMode, mines} = useSelector(state => state);
+    const {board, selectMode, mines, result} = useSelector(state => state);
     const {adj, bomb, visible, flag, question} = field;
 
     const fieldClass = {
@@ -39,11 +39,14 @@ const Field = ({row, col, field}) => {
                 board[col][row].visible = true;
                 if (bomb) {
                     console.log('boom!')
-                    await playBomb()
+                    await playBomb();
+                    dispatch(resolveSetter('over'));
+                    dispatch(endSetter(new Date().getTime()))
                 }
             }
         } else if (selectMode) {
             if (board[col][row].visible === false) {
+                await playFlag();
                 const {flag, question} = board[col][row]
                 let fieldCase = 'neutral';
                 if (flag) fieldCase = 'flag';
@@ -84,7 +87,7 @@ const Field = ({row, col, field}) => {
                 {[flagClass]: !visible && flag},
                 {[questionClass]: !visible && question},
                 {[bombClass]: visible && bomb}, )}
-             onClick={action}>
+             onClick={async ()=> {if (!result.resolve) await action()}}>
 
 
             <div className={classNames("board__symbol", {[`board__symbol--n${adj}`]: visible && adj && !bomb})}>

@@ -1,7 +1,14 @@
 import React from 'react';
 import * as Tone from "tone";
 import {boarding} from "../../logic/boarding";
-import {boardSetter, minesSetter, screenSetter, totalFieldsSetter} from "../../redux/actions/allActions";
+import {
+    boardSetter,
+    minesSetter,
+    resolveSetter,
+    screenSetter,
+    startSetter,
+    totalFieldsSetter
+} from "../../redux/actions/allActions";
 import {playStart} from "../../logic/synth";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -24,6 +31,8 @@ const Start = () => {
         dispatch(boardSetter(newBoard));
         dispatch(minesSetter({total: mines, remain: mines, flagged: 0}));
         dispatch(screenSetter('board'));
+        dispatch(resolveSetter(false));
+        dispatch(startSetter(new Date().getTime()))
     }
 
     return (

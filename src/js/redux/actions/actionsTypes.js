@@ -11,5 +11,8 @@ export const actionsTypes = {
     removeFlag: 'FLAG-REM',
     totalFields: 'FIELDS-SUM',
     revealField: 'FIELD-REV',
-    power: 'SET-POWER'
+    power: 'SET-POWER',
+    resolve: 'RESOLVE',
+    start: 'START',
+    end: 'END'
 };

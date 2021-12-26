@@ -7,6 +7,7 @@ import {boardSizeReducer} from "./reducers/boardSizeReducer";
 import {boardFieldsReducer} from "./reducers/boardFieldsReducer";
 import {screenReducer} from "./reducers/screenReducer";
 import {powerReducer} from "./reducers/powerReducer";
+import {resultReducer} from "./reducers/resultReducer";
 
 const allReducers = combineReducers({
     screen: screenReducer,
@@ -16,7 +17,8 @@ const allReducers = combineReducers({
     selectMode: selectionModeReducer,
     mines: minesReducer,
     fieldsCounter: boardFieldsReducer,
-    power: powerReducer
+    power: powerReducer,
+    result: resultReducer
 });
 
 const enhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

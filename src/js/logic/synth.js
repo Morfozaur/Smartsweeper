@@ -32,11 +32,11 @@ export const playPowerOn = async () => {
 }
 
 export const playPowerOff = async () => {
-    const vol = new Tone.Volume(-10).toDestination();
+    const vol = new Tone.Volume(-20).toDestination();
     const synth = new Tone.Oscillator("G4").connect(vol);
-    synth.frequency.rampTo("G2", 0.25);
+    synth.frequency.rampTo("G2", 0.35);
     synth.start();
-    synth.stop('+0.25');
+    synth.stop('+0.35');
 };
 
 export const playBomb = async () => {
@@ -47,3 +47,18 @@ export const playBomb = async () => {
     synth.triggerAttackRelease("C2", 1, now + 0.25);
 }
 
+export const playFlag = async () => {
+    const synth = new Tone.Synth({
+        oscillator: {
+            type: 'sine',
+            modulationFrequency: 0.5
+        },
+        envelope: {
+            attack: 0.5,
+            decay: 0.1,
+            sustain: 0,
+            release: 0.1,
+        }
+    }).toDestination();
+    synth.triggerAttackRelease(392, '32n');
+};

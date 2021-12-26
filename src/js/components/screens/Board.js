@@ -2,10 +2,11 @@ import React, {useEffect} from 'react';
 import Field from "../elements/Field";
 import {useDispatch, useSelector} from "react-redux";
 import {boardSetter, reloadSetter} from "../../redux/actions/allActions";
+import GameOver from "../elements/board/GameOver";
 
 const Board = () => {
     const dispatch = useDispatch();
-    const {board, reload, mines, fieldsCounter} = useSelector(state => state);
+    const {board, reload, mines, fieldsCounter, result} = useSelector(state => state);
 
     if (mines.remain === 0 || fieldsCounter.left === fieldsCounter.check) {
         console.log('Winnie!')
@@ -30,6 +31,7 @@ const Board = () => {
                     </div>
                 )
             })}
+            {result.resolve === "over" && <GameOver/>}
         </div>
     );
 }

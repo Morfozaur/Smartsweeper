@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from "../elements/menu/Button";
 import Slider from "../elements/menu/Slider";
 import {useDispatch, useSelector} from "react-redux";
 import {

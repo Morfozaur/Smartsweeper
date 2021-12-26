@@ -10,7 +10,8 @@ const {
     selectMine, unselectMine,
     addFlag, removeFlag,
     totalFields, revealField,
-    power
+    power,
+    resolve, start, end
 } = actionsTypes
 
 export const screenSetter = data => {
@@ -63,4 +64,16 @@ export const revealFieldSetter = () => {
 
 export const powerSetter = () => {
     return {type: power};
+};
+
+export const resolveSetter = data => {
+    return {type: resolve, payload: data};
+};
+
+export const startSetter = data => {
+    return {type: start, payload: data};
+};
+
+export const endSetter = data => {
+    return {type: end, payload: data};
 };
