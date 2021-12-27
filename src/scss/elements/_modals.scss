@@ -26,11 +26,20 @@
     padding: .2rem 0;
     display: flex;
     justify-content: center;
-    gap: .5rem;
+    gap: .75rem;
   }
   &__btn {
     background: $light-border-color;
     padding: .2rem .4rem;
     border-radius: 5px;
+    &:hover {
+      background: $inactive-color;
+      color: $light-color;
+      transform: scale(1.2);
+    }
+    &:active {
+      transform-origin: center;
+      transform: scale(.9);
+    }
   }
 }

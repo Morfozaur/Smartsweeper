@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from 'redux'
+import {combineReducers, createStore, applyMiddleware, compose} from 'redux'
 import {boardReducer} from "./reducers/boardReducer";
 import {reloadReducer} from "./reducers/reloadReducer";
 import {selectionModeReducer} from "./reducers/selectionModeReducer";
@@ -8,6 +8,7 @@ import {boardFieldsReducer} from "./reducers/boardFieldsReducer";
 import {screenReducer} from "./reducers/screenReducer";
 import {powerReducer} from "./reducers/powerReducer";
 import {resultReducer} from "./reducers/resultReducer";
+import thunk from "redux-thunk";
 
 const allReducers = combineReducers({
     screen: screenReducer,
@@ -21,6 +22,8 @@ const allReducers = combineReducers({
     result: resultReducer
 });
 
-const enhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
-export const store = createStore(allReducers, enhancers);
+const composeEnhancers = compose(applyMiddleware(thunk), devTools)
+
+export const store = createStore(allReducers,composeEnhancers);

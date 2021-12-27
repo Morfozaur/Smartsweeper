@@ -62,3 +62,9 @@ export const playFlag = async () => {
     }).toDestination();
     synth.triggerAttackRelease(392, '32n');
 };
+
+export const playClick = () => {
+    const vol = new Tone.Volume(-20).toDestination();
+    const synth = new Tone.MembraneSynth().connect(vol);
+    synth.triggerAttackRelease("C2", "8n");
+};
