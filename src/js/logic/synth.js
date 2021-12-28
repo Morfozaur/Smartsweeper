@@ -47,6 +47,17 @@ export const playBomb = async () => {
     synth.triggerAttackRelease("C2", 1, now + 0.25);
 }
 
+export const playWin = () => {
+    const synth = new Tone.Synth().toDestination();
+    const now = Tone.now();
+    synth.triggerAttackRelease("D4", 0.125, now);
+    synth.triggerAttackRelease("D4", 0.125, now + 0.125);
+    synth.triggerAttackRelease("D4", 0.125, now + 0.25);
+    synth.triggerAttackRelease("G4", 0.25, now + 0.375);
+    synth.triggerAttackRelease("G4", 0.25, now + 0.625);
+    synth.triggerAttackRelease("E4", 1.125, now + 0.75);
+};
+
 export const playFlag = async () => {
     const synth = new Tone.Synth({
         oscillator: {

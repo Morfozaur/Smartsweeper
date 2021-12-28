@@ -5,6 +5,7 @@ import {boardSetter, reloadSetter, resolveSetter} from "../../redux/actions/allA
 import GameOver from "../elements/board/GameOver";
 import {Win} from "../elements/board/Win";
 import {revealAll} from "../../logic/revealAll";
+import {playWin} from "../../logic/synth";
 
 const Board = () => {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Board = () => {
 
     const winChecker = useCallback(async () => {
         await revealAll();
+        playWin()
         setTimeout(() => dispatch(resolveSetter('win')), 2000);
     },[dispatch]);
 
