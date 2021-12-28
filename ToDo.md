@@ -2,8 +2,7 @@
 
 
 -skończyć logikę:
-  - Dodać game over/restart
--Dodać wrzut monety
+  - Dodać Win/Scoreboard
 -Dodać komiksowy napis boom przy odkryciu bomby (bomby wybuchają, zmieniają kolor na czerwony)
 
 

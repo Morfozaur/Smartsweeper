@@ -7,10 +7,11 @@ import {
     reloadSetter,
     unselectMineSetter,
     addFlagSetter,
-    removeFlagSetter, revealFieldSetter, resolveSetter, endSetter
+    removeFlagSetter, revealFieldSetter, resolveSetter
 } from "../../redux/actions/allActions";
 import Symbol from "./Symbol";
 import {playBomb, playFlag, playReveal} from "../../logic/synth";
+import {revealAll} from "../../logic/revealAll";
 
 const Field = ({row, col, field}) => {
     const dispatch = useDispatch();
@@ -39,9 +40,12 @@ const Field = ({row, col, field}) => {
                 board[col][row].visible = true;
                 if (bomb) {
                     console.log('boom!')
+                    console.log(new Date().getTime())
                     await playBomb();
-                    dispatch(resolveSetter('over'));
-                    dispatch(endSetter(new Date().getTime()))
+                    await revealAll();
+                    setTimeout(()=> {
+                        dispatch(resolveSetter('over'));
+                    }, 2000)
                 }
             }
         } else if (selectMode) {
@@ -87,7 +91,7 @@ const Field = ({row, col, field}) => {
                 {[flagClass]: !visible && flag},
                 {[questionClass]: !visible && question},
                 {[bombClass]: visible && bomb}, )}
-             onClick={async ()=> {if (!result.resolve) await action()}}>
+             onClick={async ()=> {if (result.resolve === false) await action()}}>
 
 
             <div className={classNames("board__symbol", {[`board__symbol--n${adj}`]: visible && adj && !bomb})}>

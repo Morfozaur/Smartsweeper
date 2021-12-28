@@ -1,16 +1,32 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import Field from "../elements/Field";
 import {useDispatch, useSelector} from "react-redux";
-import {boardSetter, reloadSetter} from "../../redux/actions/allActions";
+import {boardSetter, reloadSetter, resolveSetter} from "../../redux/actions/allActions";
 import GameOver from "../elements/board/GameOver";
+import {Win} from "../elements/board/Win";
+import {revealAll} from "../../logic/revealAll";
 
 const Board = () => {
     const dispatch = useDispatch();
     const {board, reload, mines, fieldsCounter, result} = useSelector(state => state);
+    const [remain, resolve] = [mines.remain, result.resolve];
+    const {left, check} = fieldsCounter;
 
-    if (mines.remain === 0 || fieldsCounter.left === fieldsCounter.check) {
-        console.log('Winnie!')
-    }
+    const winChecker = useCallback(async () => {
+        await revealAll();
+        setTimeout(() => dispatch(resolveSetter('win')), 2000);
+    },[dispatch]);
+
+    useEffect(()=> {
+        (async function() {
+            if (resolve === false) {
+                if (remain === 0 || left === check) {
+                    dispatch(resolveSetter('waiting'));
+                    await winChecker();
+                }
+            }
+        })()
+    }, [resolve, check, dispatch, left, remain, winChecker])
 
 
     useEffect(()=> {
@@ -31,7 +47,8 @@ const Board = () => {
                     </div>
                 )
             })}
-            {result.resolve === "over" && <GameOver/>}
+            {resolve === "over" && <GameOver/>}
+            {resolve === "win" && <Win/>}
         </div>
     );
 }
