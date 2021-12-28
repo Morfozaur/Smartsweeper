@@ -3,11 +3,17 @@ import {useDispatch, useSelector} from "react-redux";
 import {resultCalc} from "../../../logic/baseFunctions";
 import {playClick} from "../../../logic/synth";
 import {thunkBoard} from "../../../redux/actions/thunkBoard";
-import {screenSetter} from "../../../redux/actions/allActions";
+import {minesSetter, screenSetter} from "../../../redux/actions/allActions";
+import {defaultMines} from "../../../redux/reducers/minesReducer";
 
 export const Win = () => {
     const { time } = useSelector(state => state.result);
     const dispatch = useDispatch();
+
+    const mainMenu = () => {
+        dispatch(minesSetter(defaultMines));
+        dispatch(screenSetter('start'));
+    };
 
     return (
         <div className={'board__modal'}>
@@ -19,7 +25,7 @@ export const Win = () => {
                      onClick={() => dispatch(thunkBoard())}
                      onMouseEnter={playClick}>Try Again</div>
                 <div className="board__btn"
-                     onClick={()=>dispatch(screenSetter('start'))}
+                     onClick={mainMenu}
                      onMouseEnter={playClick}>Main Menu</div>
             </div>
         </div>

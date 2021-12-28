@@ -1,12 +1,12 @@
 import {actionsTypes} from "../actions/actionsTypes";
 
-const defaultState = {
+export const defaultMines = {
     total: null,
     remain: null,
     flagged: null
 }
 
-export const minesReducer = (state = defaultState, {type, payload}) => {
+export const minesReducer = (state = defaultMines, {type, payload}) => {
     switch (type) {
         case actionsTypes.totalMines:
             return payload;
