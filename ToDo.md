@@ -3,7 +3,7 @@
 
 -skończyć logikę:
   - Dodać podgląd planszy przy oknach końcowych
-  - Dodać Win/Scoreboard
+  - Dodać Modal/Scoreboard
 -Dodać komiksowy napis boom przy odkryciu bomby (bomby wybuchają, zmieniają kolor na czerwony)
 
 

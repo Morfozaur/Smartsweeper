@@ -39,6 +39,7 @@ const Field = ({row, col, field}) => {
                 dispatch(revealFieldSetter());
                 board[col][row].visible = true;
                 if (bomb) {
+                    dispatch(resolveSetter('waiting'));
                     await playBomb();
                     await revealAll();
                     setTimeout(()=> {

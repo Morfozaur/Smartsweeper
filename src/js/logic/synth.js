@@ -49,13 +49,13 @@ export const playBomb = async () => {
 
 export const playWin = () => {
     const synth = new Tone.Synth().toDestination();
-    const now = Tone.now();
-    synth.triggerAttackRelease("D4", 0.125, now);
-    synth.triggerAttackRelease("D4", 0.125, now + 0.125);
+    const now = Tone.now() + 0.25;
+    synth.triggerAttackRelease("E3", 0.125, now);
+    synth.triggerAttackRelease("C4", 0.125, now + 0.125);
     synth.triggerAttackRelease("D4", 0.125, now + 0.25);
-    synth.triggerAttackRelease("G4", 0.25, now + 0.375);
-    synth.triggerAttackRelease("G4", 0.25, now + 0.625);
-    synth.triggerAttackRelease("E4", 1.125, now + 0.75);
+    synth.triggerAttackRelease("E4", 0.25, now + 0.375);
+    synth.triggerAttackRelease("C4", 0.25, now + 0.625);
+    synth.triggerAttackRelease("G4", 1.125, now + 0.75);
 };
 
 export const playFlag = async () => {

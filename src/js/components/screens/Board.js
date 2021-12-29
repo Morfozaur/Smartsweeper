@@ -2,8 +2,7 @@ import React, {useCallback, useEffect} from 'react';
 import Field from "../elements/Field";
 import {useDispatch, useSelector} from "react-redux";
 import {boardSetter, reloadSetter, resolveSetter} from "../../redux/actions/allActions";
-import GameOver from "../elements/board/GameOver";
-import {Win} from "../elements/board/Win";
+import {Modal} from "../elements/Modal";
 import {revealAll} from "../../logic/revealAll";
 import {playWin} from "../../logic/synth";
 
@@ -15,7 +14,7 @@ const Board = () => {
 
     const winChecker = useCallback(async () => {
         await revealAll();
-        playWin()
+        playWin();
         setTimeout(() => dispatch(resolveSetter('win')), 2000);
     },[dispatch]);
 
@@ -49,8 +48,8 @@ const Board = () => {
                     </div>
                 )
             })}
-            {resolve === "over" && <GameOver/>}
-            {resolve === "win" && <Win/>}
+            {resolve === 'win' && <Modal type={'win'}/>}
+            {resolve === 'over' && <Modal type={'over'}/>}
         </div>
     );
 }

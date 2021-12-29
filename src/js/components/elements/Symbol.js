@@ -5,7 +5,8 @@ const Symbol = ({type}) => {
         flag: 'flag',
         bomb: 'bomb',
         question: 'question',
-        power: 'power-off'
+        power: 'power-off',
+        eye: 'eye'
     }
 
     return (
