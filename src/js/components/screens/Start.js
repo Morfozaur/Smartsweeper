@@ -1,7 +1,7 @@
 import React from 'react';
 import {playClick} from "../../logic/synth";
 import {useDispatch} from "react-redux";
-import {thunkBoard} from "../../redux/actions/thunkBoard";
+import {screenSetter} from "../../redux/actions/allActions";
 
 
 const Start = () => {
@@ -15,7 +15,7 @@ const Start = () => {
             <div className="start__menu">
                 <p className="start__option"
                    onMouseEnter={playClick}
-                   onClick={() => dispatch(thunkBoard())}>NEW GAME</p>
+                   onClick={() => dispatch(screenSetter('setup'))}>NEW GAME</p>
                 <p className="start__option"
                    onMouseEnter={playClick}>HELP</p>
                 <p className="start__option"

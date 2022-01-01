@@ -27,6 +27,9 @@
       border-bottom-color: $brass-bright-color;
       border-radius: .3rem;
     }
+    &--inactive:after {
+      background: rgba($dark-color, .6);
+    }
   }
   &__container {
     position: relative;
