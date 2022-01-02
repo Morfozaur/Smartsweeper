@@ -63,9 +63,29 @@
     }
   }
   &__text {
-    position: absolute;
+    position: relative;
     font-family: $acme;
     color: $panel-color;
     @include engraving('Size');
+  }
+  &__pin {
+    position: absolute;
+    height: 4px;
+    width: 4px;
+    background: radial-gradient(circle, $accent-color, $brass-color);
+    border-top: 1px solid rgba(158,138,38, .5);
+    border-right: 1px solid rgba(158,138,38, .8);
+    border-bottom: 1px solid rgba(158,138,38, .2);
+    border-left: 1px solid rgba(158,138,38, .5);
+    border-radius: 50%;
+    box-shadow: 0 1px 2px 0 $panel-color;
+    &--left {
+      top: 6px;
+      left: 2px;
+    }
+    &--right {
+      top: 6px;
+      right: 2px;
+    }
   }
 }

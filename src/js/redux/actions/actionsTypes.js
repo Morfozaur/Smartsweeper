@@ -14,5 +14,6 @@ export const actionsTypes = {
     power: 'SET-POWER',
     resolve: 'RESOLVE',
     start: 'START',
-    end: 'END'
+    end: 'END',
+    backlight: 'BCK-LGH'
 };
