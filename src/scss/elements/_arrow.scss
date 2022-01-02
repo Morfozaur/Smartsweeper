@@ -1,0 +1,61 @@
+.arrow {
+  z-index: 0;
+  position: relative;
+  width: 1.125rem;
+  height: 1.125rem;
+  background: $button-ring-gradient;
+  border-radius: 50%;
+  box-shadow: 0 1px 0px 0 $panel-color;
+  &__button {
+    position: absolute;
+    top:-2px;
+    left: 1px;
+    height: 1rem;
+    width: 1rem;
+    margin-bottom: 3px;
+    background: $power-on-color;
+    border-radius: 50%;
+    &:active {
+      top:-1px;
+      &:before {
+        top:2px;
+      }
+      &:after {
+        bottom: 5px;
+      }
+    }
+    &:before, &:after {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      background: $power-off-color;
+      width: 1rem;
+    }
+    &:before {
+      top: 3px;
+      height: 1rem;
+      border-radius: 50%;
+    }
+    &:after {
+      bottom: 4px;
+      height: 5px;
+    }
+    &--inactive {
+      background: $power-off-color;
+      &:before, &:after {
+        background: $inactive-color;
+      }
+    }
+  }
+  &__symbol {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: .5rem;
+    &--left {
+      left: .4rem;
+    }
+    &--right {
+      left: .6rem;
+    }
+  }
+}

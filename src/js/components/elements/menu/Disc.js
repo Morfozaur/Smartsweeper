@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Arrow from "../Arrow";
+import PushButton from "../PushButton";
 import Plate from "./RotatingPlate";
 import Label from "../Label";
 
@@ -33,13 +33,13 @@ const Disc = ({value, setter, pool, type}) => {
         <div className='disc'>
             <Label text={type}/>
             <div className="disc__controls">
-                <Arrow turn={'left'} size={8} wide={1.7} func={down}/>
+                <PushButton turn={'left'} size={5} wide={1.7} func={down}/>
                 <div className='disc__window'>
                     <div className="disc__container">
                         <Plate rotation={rotation} pool={pool}/>
                     </div>
                 </div>
-                <Arrow turn={'right'} size={8} wide={1.7} func={up}/>
+                <PushButton turn={'right'} size={5} wide={1.7} func={up}/>
             </div>
         </div>
     );

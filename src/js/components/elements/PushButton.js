@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Arrow = ({turn, size = 10, wide = false, color = `#D2BE96FF`, func}) => {
+const PushButton = ({turn, size = 10, wide = false, color = `#FAEBD7`, func}) => {
 
     const style = {width: 0, height: 0}
 
@@ -39,8 +39,12 @@ const Arrow = ({turn, size = 10, wide = false, color = `#D2BE96FF`, func}) => {
     }
     if (wide) style[arrow[turn]] = size * wide;
     return (
-        <div className={`arrow--${turn}`} style={style} onClick={func}/>
+        <div className='arrow'>
+            <div className='arrow__button' onClick={func}>
+                <div className={`arrow__symbol arrow__symbol--${turn}`} style={style}/>
+            </div>
+        </div>
     );
 }
 
-export default Arrow;
+export default PushButton;

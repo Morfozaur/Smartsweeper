@@ -40,7 +40,7 @@ $bomb-nums:
 
 
 // GRADIENTS
-
+$button-ring-gradient: linear-gradient(to top, $brass-bright-color 0%, $panel-color 60%);
 $round-gradient: radial-gradient(circle, $brass-color 0%, $brass-lite-color 80%);
 $rings-gradient: radial-gradient(circle,
         $brass-color 0%, $accent-color 4%,
