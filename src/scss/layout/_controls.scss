@@ -33,6 +33,12 @@
     width: 100%;
     border-top: 2px solid $panel-darkest-color;
   }
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
   &__decor {
     height: 50px;
     width: 100%;

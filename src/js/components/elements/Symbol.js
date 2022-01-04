@@ -1,6 +1,7 @@
 import React from 'react';
+import classNames from "classnames";
 
-const Symbol = ({type}) => {
+const Symbol = ({type, addClass}) => {
     const symbols = {
         flag: 'flag',
         bomb: 'bomb',
@@ -10,7 +11,7 @@ const Symbol = ({type}) => {
     }
 
     return (
-        <i className={`symbol fas fa-${symbols[type]}`}/>
+        <i className={classNames(`symbol fas fa-${symbols[type]}`, {[addClass]: addClass})}/>
     );
 }
 

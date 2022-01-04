@@ -30,11 +30,11 @@ const Disc = ({value, setter, pool, type}) => {
         setRotation(state => state + 1)
     };
     return (
-        <div className='disc'>
+        <div className='menu__section'>
             <Label text={type}/>
-            <div className="disc__controls">
+            <div className="menu__controls">
                 <Button symbol={'left'} func={down}/>
-                <div className='disc__window'>
+                <div className='disc'>
                     <div className="disc__container">
                         <Plate rotation={rotation} pool={pool}/>
                     </div>

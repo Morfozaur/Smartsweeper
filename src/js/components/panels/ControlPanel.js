@@ -21,20 +21,22 @@ const ControlPanel = () => {
 
     const setBoardSize = (size) => dispatch(boardSizeSetter(size));
 
-
+    let selectClass = 'button__symbol button__symbol--flag';
+    if (!selectMode) selectClass += ' button__symbol--inactive'
     return (
         <div className='menu'>
-            <div className="menu__settings">
-                <div className="switch">
-                    <Label text={'Flag'}/>
-                    <Button func={smartTrigger}/>
+            <div className="menu__section">
+                <Label text={'Check'}/>
+                <div className="menu__controls">
+                    <Button func={smartTrigger}
+                            symbol={'flag'}
+                            addClass={selectClass}/>
                 </div>
-                <Disc value={boardSize}
-                      setter={setBoardSize}
-                      pool={boardPool}
-                      type={'Size'}/>
-                <Slider active={selectMode} func={smartTrigger}/>
             </div>
+            <Disc value={boardSize}
+                  setter={setBoardSize}
+                  pool={boardPool}
+                  type={'Size'}/>
         </div>
     );
 }

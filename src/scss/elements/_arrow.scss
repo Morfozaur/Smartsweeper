@@ -40,12 +40,12 @@
       bottom: 4px;
       height: 5px;
     }
-    &--inactive {
-      background: $power-off-color;
-      &:before, &:after {
-        background: $inactive-color;
-      }
-    }
+    //&--inactive {
+    //  background: $power-off-color;
+    //  &:before, &:after {
+    //    background: $inactive-color;
+    //  }
+    //}
   }
   &__symbol {
     position: absolute;
@@ -56,6 +56,14 @@
     }
     &--right {
       left: .6rem;
+    }
+    &--flag {
+      left: .5rem;
+      font-size: .6rem;
+      color: $light-color;
+    }
+    &--inactive {
+      color: $power-off-color;
     }
   }
 }

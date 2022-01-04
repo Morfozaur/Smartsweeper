@@ -1,35 +1,27 @@
 .disc {
-  flex-direction: column;
-  &, &__controls {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
+  position: relative;
+  height: 30px;
+  width: 45px;
+  border: 2px solid $brass-color;
+  border-left-color: $brass-lite-color;
+  border-top-color: $brass-lite-color;
+  border-radius: 5px;
+  background: #38310D;
+  &:after {
+    position: absolute;
+    z-index: 33;
+    content: '';
+    top: -1px;
+    left: -1px;
+    height: 26px;
+    width: 41px;
+    border: 1px solid $accent-bright-color;
+    border-right-color: $brass-bright-color;
+    border-bottom-color: $brass-bright-color;
+    border-radius: .3rem;
   }
-  &__window {
-    position: relative;
-    height: 30px;
-    width: 45px;
-    border: 2px solid $brass-color;
-    border-left-color: $brass-lite-color;
-    border-top-color: $brass-lite-color;
-    border-radius: 5px;
-    background: #38310D;
-    &:after {
-      position: absolute;
-      z-index: 33;
-      content: '';
-      top: -1px;
-      left: -1px;
-      height: 26px;
-      width: 41px;
-      border: 1px solid $accent-bright-color;
-      border-right-color: $brass-bright-color;
-      border-bottom-color: $brass-bright-color;
-      border-radius: .3rem;
-    }
-    &--inactive:after {
-      background: rgba($dark-color, .7);
-    }
+  &--inactive:after {
+    background: rgba($dark-color, .7);
   }
   &__container {
     position: relative;
