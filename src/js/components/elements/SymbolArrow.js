@@ -1,11 +1,10 @@
 import React from 'react';
 
-const PushButton = ({turn, size = 10, wide = false, color = `#FAEBD7`, func}) => {
-
+const SymbolArrow = ({turn, color}) => {
     const style = {width: 0, height: 0}
 
-    const transparent = `${size}px solid transparent`;
-    const colorful = `${size}px solid ${color}`;
+    const transparent = `5px solid transparent`;
+    const colorful = `5px solid ${color}`;
 
     // eslint-disable-next-line default-case
     switch (turn)  {
@@ -37,14 +36,10 @@ const PushButton = ({turn, size = 10, wide = false, color = `#FAEBD7`, func}) =>
         up: 'borderDownWidth',
         down: 'borderTopWidth',
     }
-    if (wide) style[arrow[turn]] = size * wide;
+    style[arrow[turn]] = 5 * 1.7;
     return (
-        <div className='arrow'>
-            <div className='arrow__button' onClick={func}>
-                <div className={`arrow__symbol arrow__symbol--${turn}`} style={style}/>
-            </div>
-        </div>
+        <div className={`button__symbol button__symbol--${turn}`} style={style}/>
     );
 }
 
-export default PushButton;
+export default SymbolArrow;

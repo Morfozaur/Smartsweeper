@@ -6,6 +6,8 @@ import {
     selectModeSetter,
 } from "../../redux/actions/allActions";
 import Disc from "../elements/menu/Disc";
+import Label from "../elements/Label";
+import Button from "../elements/Button";
 
 const ControlPanel = () => {
     const dispatch = useDispatch();
@@ -23,6 +25,10 @@ const ControlPanel = () => {
     return (
         <div className='menu'>
             <div className="menu__settings">
+                <div className="switch">
+                    <Label text={'Flag'}/>
+                    <Button func={smartTrigger}/>
+                </div>
                 <Disc value={boardSize}
                       setter={setBoardSize}
                       pool={boardPool}

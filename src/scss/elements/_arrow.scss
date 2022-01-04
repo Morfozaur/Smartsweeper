@@ -1,4 +1,4 @@
-.arrow {
+.button {
   z-index: 0;
   position: relative;
   width: 1.125rem;
@@ -6,7 +6,7 @@
   background: $button-ring-gradient;
   border-radius: 50%;
   box-shadow: 0 1px 0 0 $panel-color;
-  &__button {
+  &__center {
     position: absolute;
     top:-2px;
     left: 1px;
