@@ -51,11 +51,25 @@
     position: absolute;
     transform: translate(-50%, -50%);
     top: .5rem;
+    &--left, &--right {
+      border: 5px solid transparent;
+      transition: 0s linear 0.2s;
+    }
     &--left {
-      left: .4rem;
+      border-right-color: $light-color;
+      border-right-width: 8px;
+      left: .3rem;
+      &--inactive {
+        border-right-color: $power-off-color;
+      }
     }
     &--right {
-      left: .6rem;
+      border-left-color: $light-color;
+      border-left-width: 8px;
+      left: .7rem;
+      &--inactive {
+        border-left-color: $power-off-color;
+      }
     }
     &--flag {
       left: .5rem;
