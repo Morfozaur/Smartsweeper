@@ -10,12 +10,12 @@ import Button from "../elements/Button";
 
 const ControlPanel = () => {
     const dispatch = useDispatch();
-    const {selectMode, boardSize, power} = useSelector(state => state)
+    const {selectMode, boardSize, power, result, settings } = useSelector(state => state)
 
     const boardPool = [10, 15, 20];
 
     const smartTrigger = () => {
-        if (power) dispatch(selectModeSetter(!selectMode))
+        if (power && !result.resolve) dispatch(selectModeSetter(!selectMode))
     };
 
     const setBoardSize = (size) => dispatch(boardSizeSetter(size));
@@ -35,6 +35,7 @@ const ControlPanel = () => {
             <Disc value={boardSize}
                   setter={setBoardSize}
                   pool={boardPool}
+                  active={settings.sizeActive}
                   type={'Size'}/>
         </div>
     );

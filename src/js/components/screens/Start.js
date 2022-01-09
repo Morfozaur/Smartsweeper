@@ -1,11 +1,16 @@
 import React from 'react';
 import {playClick} from "../../logic/synth";
 import {useDispatch} from "react-redux";
-import {screenSetter} from "../../redux/actions/allActions";
+import {backlightSetter, screenSetter} from "../../redux/actions/allActions";
 
 
 const Start = () => {
     const dispatch = useDispatch();
+
+    const start = () => {
+        dispatch(screenSetter('setup'));
+        dispatch(backlightSetter(true))
+    };
 
     return (
         <div className={'start'}>
@@ -15,7 +20,7 @@ const Start = () => {
             <div className="start__menu">
                 <p className="start__option"
                    onMouseEnter={playClick}
-                   onClick={() => dispatch(screenSetter('setup'))}>NEW GAME</p>
+                   onClick={start}>NEW GAME</p>
                 <p className="start__option"
                    onMouseEnter={playClick}>HELP</p>
                 <p className="start__option"

@@ -9,6 +9,7 @@ import {screenReducer} from "./reducers/screenReducer";
 import {powerReducer} from "./reducers/powerReducer";
 import {resultReducer} from "./reducers/resultReducer";
 import thunk from "redux-thunk";
+import {settingsReducer} from "./reducers/settingsReducer";
 
 const allReducers = combineReducers({
     screen: screenReducer,
@@ -19,7 +20,8 @@ const allReducers = combineReducers({
     mines: minesReducer,
     fieldsCounter: boardFieldsReducer,
     power: powerReducer,
-    result: resultReducer
+    result: resultReducer,
+    settings: settingsReducer
 });
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

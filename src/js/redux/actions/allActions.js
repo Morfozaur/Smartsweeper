@@ -11,7 +11,8 @@ const {
     addFlag, removeFlag,
     totalFields, revealField,
     power,
-    resolve, start, end
+    resolve, start, end,
+    backlight, sizeActive
 } = actionsTypes
 
 const setter = (type, data) => {
@@ -45,4 +46,5 @@ export const startSetter = data => setter(start, data);
 export const endSetter = data => setter(end, data)
 
 // SETTING SETTERS
-export const backlightSetter = data => setter(end, data);
+export const backlightSetter = data => setter(backlight, data);
+export const sizeConfigSetter = data => setter(sizeActive, data);

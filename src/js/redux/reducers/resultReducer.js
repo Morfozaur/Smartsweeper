@@ -1,23 +1,26 @@
 import {actionsTypes} from "../actions/actionsTypes";
 
 const defaultState = {
-    resolve: null,
+    resolve: 'init',
     start: null,
     end: null,
     time: 0
 }
 
+const { resolve, start, end} = actionsTypes
+
 export const resultReducer = (state = defaultState, {type, payload}) => {
     switch (type) {
-        case actionsTypes.resolve:
+        case resolve:
             return {...state, resolve: payload};
-        case actionsTypes.start:
+        case start:
             return {...state, start: payload};
-        case actionsTypes.end:
+        case end:
+            const time = Number(((payload - state.start)/1000).toFixed(2))
             return {
                 ...state,
                 end: payload,
-                time: Number(((payload - state.start)/1000).toFixed(2))};
+                time};
         default:
             return state;
     }

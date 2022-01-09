@@ -15,5 +15,6 @@ export const actionsTypes = {
     resolve: 'RESOLVE',
     start: 'START',
     end: 'END',
-    backlight: 'BCK-LGH'
+    backlight: 'CONFIG-LIGHT',
+    sizeActive: 'CONFIG-SIZE'
 };

@@ -1,8 +1,6 @@
 
 1. Skończyć logikę:
-  - Dodać podgląd planszy przy oknach końcowych
-  - Dodać Modal/Scoreboard 
-  - Dodać komiksowy napis boom przy odkryciu bomby (bomby wybuchają, zmieniają kolor na czerwony)
+  - Dodać Modal/Scoreboard
 
 2. Dodać sterowanie:
   - Wybór trybu:
@@ -21,7 +19,10 @@
     - Kolory (symbol kolorów w stylu Windowsa)
     - Wskaźnik (position absolut, miernik w stylu pieca gitarowego)
     - Skaner - klikniesz przycisk na klawce, skanuje kilka pól wokół
-  - Timer (opcjonalnie)
+
+3. Opcjonalne:
+  - Timer
+  - Dodać komiksowy napis boom przy odkryciu bomby (bomby wybuchają, zmieniają kolor na czerwony)
 
 
 
