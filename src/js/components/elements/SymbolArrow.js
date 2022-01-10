@@ -3,9 +3,9 @@ import {useSelector} from "react-redux";
 import classNames from "classnames";
 
 const SymbolArrow = ({turn}) => {
-    const {power} = useSelector(state => state);
+    const {power, settings: {backlight}} = useSelector(state => state);
     return (
-        <div className={classNames(`button__symbol button__symbol--${turn}`, {[`button__symbol--${turn}--inactive`] : !power})}/>
+        <div className={classNames(`button__symbol button__symbol--${turn}`, {[`button__symbol--${turn}--inactive`] : (!power || !backlight)})}/>
     );
 }
 

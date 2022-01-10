@@ -9,14 +9,14 @@ import Front from "./layout/Front";
 function App() {
     const dispatch = useDispatch();
     const qPress = useKeyPress('q', 'short');
-    const { power, result } = useSelector(state => state)
+    const { power, result: {resolve} } = useSelector(state => state)
 
 
     useEffect(()=> {
-        if (power && !result.resolve) {
+        if (power && !resolve) {
             qPress === false ? dispatch(selectModeSetter(false)) : dispatch(selectModeSetter(true));
         }
-    }, [dispatch, qPress])
+    }, [dispatch, qPress, power, resolve])
 
     return (
         <div className='container'>

@@ -4,7 +4,13 @@ import Symbol from "../elements/Symbol";
 import classNames from "classnames";
 import {playPowerOff, playPowerOn} from "../../logic/synth";
 import {useDispatch, useSelector} from "react-redux";
-import {backlightSetter, powerSetter, screenSetter, selectModeSetter} from "../../redux/actions/allActions";
+import {
+    backlightSetter,
+    powerSetter,
+    resolveSetter,
+    screenSetter,
+    selectModeSetter
+} from "../../redux/actions/allActions";
 
 const ServicePanel = () => {
     const [tone, setTone] = useState(false);
@@ -19,12 +25,19 @@ const ServicePanel = () => {
         if (!power) {
             dispatch(screenSetter('start'));
             await playPowerOn();
+            dispatch(backlightSetter(true));
+            setTimeout(()=> dispatch(selectModeSetter(true)), 200)
+            setTimeout(()=> {
+                dispatch(backlightSetter(false));
+                setTimeout(()=> dispatch(selectModeSetter(false)), 200)
+            }, 500)
         } else {
             dispatch(selectModeSetter(false))
             await playPowerOff();
+            dispatch(backlightSetter(false))
         }
+        dispatch(resolveSetter('init'))
         dispatch(powerSetter());
-        dispatch(backlightSetter(false))
     };
 
     return (

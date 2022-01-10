@@ -9,7 +9,7 @@ const Start = () => {
 
     const start = () => {
         dispatch(screenSetter('setup'));
-        dispatch(backlightSetter(true))
+        dispatch(backlightSetter(true));
     };
 
     return (

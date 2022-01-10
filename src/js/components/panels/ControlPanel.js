@@ -10,18 +10,18 @@ import Button from "../elements/Button";
 
 const ControlPanel = () => {
     const dispatch = useDispatch();
-    const {selectMode, boardSize, power, result, settings } = useSelector(state => state)
+    const {selectMode, boardSize, power, result: {resolve}, settings: {sizeActive} } = useSelector(state => state)
 
     const boardPool = [10, 15, 20];
 
     const smartTrigger = () => {
-        if (power && !result.resolve) dispatch(selectModeSetter(!selectMode))
+        if (power && !resolve) dispatch(selectModeSetter(!selectMode))
     };
 
     const setBoardSize = (size) => dispatch(boardSizeSetter(size));
 
     let selectClass = 'button__symbol button__symbol--flag';
-    if (!selectMode || !power) selectClass += ' button__symbol--inactive'
+    if (!selectMode || !power) selectClass += ' button__symbol--inactive';
     return (
         <div className='menu'>
             <div className="menu__section">
@@ -35,7 +35,7 @@ const ControlPanel = () => {
             <Disc value={boardSize}
                   setter={setBoardSize}
                   pool={boardPool}
-                  active={settings.sizeActive}
+                  active={sizeActive}
                   type={'Size'}/>
         </div>
     );

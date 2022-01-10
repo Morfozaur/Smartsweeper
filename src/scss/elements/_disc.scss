@@ -19,8 +19,10 @@
     border-right-color: $brass-bright-color;
     border-bottom-color: $brass-bright-color;
     border-radius: .3rem;
+    transition: 0s linear 0.2s;
   }
   &--inactive:after {
+    transition: 0s linear 0.2s;
     background: rgba($dark-color, .55);
   }
   &__container {
