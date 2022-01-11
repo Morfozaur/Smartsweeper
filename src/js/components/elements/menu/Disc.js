@@ -9,11 +9,11 @@ const Disc = ({value, setter, pool, type, active}) => {
     const [rotation, setRotation] = useState(0)
     const [currState, setCurrState] = useState(pool.findIndex(el => el === value));
 
-    const {backlight} = useSelector(state => state.settings);
+    const {backlight, editable} = useSelector(state => state.settings);
 
     const available = active && backlight;
     const down = () => {
-        if (available) {
+        if (available && editable) {
             if (currState === 0) {
                 setCurrState(pool.length - 1);
                 setter(pool[pool.length - 1]);
@@ -26,7 +26,7 @@ const Disc = ({value, setter, pool, type, active}) => {
         }
     };
     const up = () => {
-        if (available) {
+        if (available && editable) {
             if (currState === pool.length - 1) {
                 setCurrState(0);
                 setter(pool[0]);

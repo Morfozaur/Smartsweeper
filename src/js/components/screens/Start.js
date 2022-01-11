@@ -1,7 +1,7 @@
 import React from 'react';
 import {playClick} from "../../logic/synth";
 import {useDispatch} from "react-redux";
-import {backlightSetter, screenSetter} from "../../redux/actions/allActions";
+import {backlightSetter, editableSetter, screenSetter} from "../../redux/actions/allActions";
 
 
 const Start = () => {
@@ -9,6 +9,7 @@ const Start = () => {
 
     const start = () => {
         dispatch(screenSetter('setup'));
+        dispatch(editableSetter(true));
         dispatch(backlightSetter(true));
     };
 

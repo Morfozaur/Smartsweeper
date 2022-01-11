@@ -3,7 +3,7 @@ import React from 'react';
 const Label = ({text}) => {
     return (
         <div className='label'>
-            <p className='label__text'>{text}</p>
+            <p className={`label__text label__text--${text}`}>{text}</p>
             <div className="label__frame">
                 <div className="label__pin label__pin--left"/>
                 <div className="label__pin label__pin--right"/>

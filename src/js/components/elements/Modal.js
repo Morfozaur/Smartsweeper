@@ -3,7 +3,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {resultCalc} from "../../logic/baseFunctions";
 import {playClick} from "../../logic/synth";
 import {thunkBoard} from "../../redux/actions/thunkBoard";
-import {endSetter, minesSetter, resolveSetter, screenSetter, startSetter} from "../../redux/actions/allActions";
+import {
+    backlightSetter,
+    endSetter,
+    minesSetter,
+    resolveSetter,
+    screenSetter,
+    startSetter
+} from "../../redux/actions/allActions";
 import {defaultMines} from "../../redux/reducers/minesReducer";
 import Symbol from "./Symbol";
 
@@ -18,6 +25,7 @@ export const Modal = ({type}) => {
         dispatch(resolveSetter('init'));
         dispatch(startSetter(null));
         dispatch(endSetter(null));
+        dispatch(backlightSetter(false));
     };
 
     const header = {

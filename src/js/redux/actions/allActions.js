@@ -12,7 +12,8 @@ const {
     totalFields, revealField,
     power,
     resolve, start, end,
-    backlight, sizeActive
+    backlight, editable,
+    style, mode, sizeActive
 } = actionsTypes
 
 const setter = (type, data) => {
@@ -48,3 +49,6 @@ export const endSetter = data => setter(end, data)
 // SETTING SETTERS
 export const backlightSetter = data => setter(backlight, data);
 export const sizeConfigSetter = data => setter(sizeActive, data);
+export const modeSetter = data => setter(mode, data);
+export const styleSetter = data => setter(style, data);
+export const editableSetter = data => setter(editable, data);

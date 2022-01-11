@@ -66,7 +66,11 @@
     position: relative;
     font-family: $acme;
     color: $panel-color;
-    @include engraving('Size');
+    @each $label in $labels {
+      &--#{$label} {
+        @include engraving($label);
+      }
+    }
   }
   &__pin {
     position: absolute;

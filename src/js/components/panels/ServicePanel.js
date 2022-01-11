@@ -5,7 +5,7 @@ import classNames from "classnames";
 import {playPowerOff, playPowerOn} from "../../logic/synth";
 import {useDispatch, useSelector} from "react-redux";
 import {
-    backlightSetter,
+    backlightSetter, editableSetter,
     powerSetter,
     resolveSetter,
     screenSetter,
@@ -26,17 +26,19 @@ const ServicePanel = () => {
             dispatch(screenSetter('start'));
             await playPowerOn();
             dispatch(backlightSetter(true));
-            setTimeout(()=> dispatch(selectModeSetter(true)), 200)
+            dispatch(editableSetter(true));
+            setTimeout(()=> dispatch(selectModeSetter(true)), 200);
             setTimeout(()=> {
+                dispatch(editableSetter(false));
                 dispatch(backlightSetter(false));
-                setTimeout(()=> dispatch(selectModeSetter(false)), 200)
+                setTimeout(()=> dispatch(selectModeSetter(false)), 200);
             }, 500)
         } else {
-            dispatch(selectModeSetter(false))
+            dispatch(selectModeSetter(false));
             await playPowerOff();
-            dispatch(backlightSetter(false))
+            dispatch(backlightSetter(false));
         }
-        dispatch(resolveSetter('init'))
+        dispatch(resolveSetter('init'));
         dispatch(powerSetter());
     };
 

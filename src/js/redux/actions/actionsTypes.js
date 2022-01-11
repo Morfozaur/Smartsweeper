@@ -1,7 +1,6 @@
 export const actionsTypes = {
     screen: 'SCR- SET',
     board: 'SET-BOARD',
-    boardSize: 'SET-BOARD-SIZE',
     reload: 'RELOAD',
     selectMode: 'BTN-PRESS',
     totalMines: 'MINES',
@@ -15,6 +14,10 @@ export const actionsTypes = {
     resolve: 'RESOLVE',
     start: 'START',
     end: 'END',
+    editable: 'CONFIG-EDIT',
     backlight: 'CONFIG-LIGHT',
-    sizeActive: 'CONFIG-SIZE'
+    sizeActive: 'CONFIG-SIZE',
+    boardSize: 'GAMEPLAY-SIZE',
+    mode: 'GAMEPLAY-MODE',
+    style: 'GAMEPLAY-STYLE',
 };
