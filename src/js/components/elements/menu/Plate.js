@@ -1,6 +1,7 @@
 import React from 'react';
+import Symbol from "../Symbol";
 
-const Plate = ({rotation, pool}) => {
+const Plate = ({rotation, pool, ico}) => {
 
     const arc = 360 / pool.length;
     const rotateStyle = {
@@ -13,9 +14,13 @@ const Plate = ({rotation, pool}) => {
                     const styles = {
                         transform: `translateX(-50%) rotate(${arc * idx}deg)`
                     }
-                    return <p key={`p${arc}-${num}-${idx}`}
-                              className='disc__number'
-                              style={styles}>{num}</p>
+
+                    return (
+                        <div key={`p${arc}-${num}-${idx}`} className={'disc__number'} style={styles}>
+                            {!ico && <>{num}</>}
+                            {ico && <Symbol type={num} addClass={'symbol--disc'}/>}
+                        </div>
+                    )
                 })}
             </div>
         </div>

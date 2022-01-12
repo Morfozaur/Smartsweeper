@@ -29,4 +29,7 @@ body {
 .symbol {
   color: inherit;
   font-size: inherit;
+  &--disc {
+    font-size: .9rem;
+  }
 }

@@ -19,10 +19,8 @@ const ControlPanel = () => {
     } = useSelector(state => state)
 
     const boardPool = [10, 15, 20];
-    // const modePool = ['classic', 'rotating', 'smart', 'rise'];
-    const modePool = ['C', 'R', 'S', 'G'];
-    // const stylePool = ['classic', 'colors', 'meter', 'scanner'];
-    const stylePool = ['C', 'K', 'M', 'S'];
+    const modePool = ['classic', 'smart', 'rotating', 'rise'];
+    const stylePool = ['classic', 'colors', 'detector', 'scanner'];
 
     const smartTrigger = () => {
         if (power && !resolve) dispatch(selectModeSetter(!selectMode))
@@ -53,12 +51,14 @@ const ControlPanel = () => {
                   setter={setMode}
                   pool={modePool}
                   active={sizeActive}
-                  type={'Mode'}/>
+                  type={'Mode'}
+                  ico={true}/>
             <Disc value={style}
                   setter={setStyle}
                   pool={stylePool}
                   active={sizeActive}
-                  type={'Style'}/>
+                  type={'Style'}
+                  ico={true}/>
         </div>
     );
 }

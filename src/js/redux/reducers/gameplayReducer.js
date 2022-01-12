@@ -2,8 +2,8 @@ import {actionsTypes} from "../actions/actionsTypes";
 
 const gameplay = {
     boardSize: 10,
-    mode: 'C',
-    style: 'C'
+    mode: 'classic',
+    style: 'classic'
 }
 
 const { boardSize, mode, style } = actionsTypes

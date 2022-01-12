@@ -5,9 +5,16 @@ const Symbol = ({type, addClass}) => {
     const symbols = {
         flag: 'flag',
         bomb: 'bomb',
+        classic: 'bomb',
         question: 'question',
         power: 'power-off',
-        eye: 'eye'
+        eye: 'eye',
+        smart: 'brain',
+        rotating: 'sync',
+        rise: 'angle-double-up',
+        colors: 'palette',
+        detector: 'tachometer-alt',
+        scanner: 'broadcast-tower'
     }
 
     return (

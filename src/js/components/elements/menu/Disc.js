@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import Button from "../Button";
-import Plate from "./RotatingPlate";
+import Plate from "./Plate";
 import Label from "../Label";
 import classNames from "classnames";
 import {useSelector} from "react-redux";
 
-const Disc = ({value, setter, pool, type, active}) => {
+const Disc = ({value, setter, pool, type, active, ico}) => {
     const [rotation, setRotation] = useState(0)
     const [currState, setCurrState] = useState(pool.findIndex(el => el === value));
 
@@ -45,7 +45,7 @@ const Disc = ({value, setter, pool, type, active}) => {
                 <Button symbol={'left'} func={down}/>
                 <div className={classNames('disc', {'disc--inactive': !available})}>
                     <div className="disc__container">
-                        <Plate rotation={rotation} pool={pool}/>
+                        <Plate rotation={rotation} pool={pool} ico={ico}/>
                     </div>
                 </div>
                 <Button symbol={'right'} func={up}/>
