@@ -13,7 +13,8 @@ const {
     power,
     resolve, start, end,
     backlight, editable,
-    style, mode, sizeActive
+    style, mode, sizeActive,
+    detector
 } = actionsTypes
 
 const setter = (type, data) => {
@@ -44,7 +45,8 @@ export const revealFieldSetter = () => setter(revealField);
 // GAMEPLAY SETTERS
 export const resolveSetter = data => setter(resolve, data);
 export const startSetter = data => setter(start, data);
-export const endSetter = data => setter(end, data)
+export const endSetter = data => setter(end, data);
+export const detectorSetter = data => setter(detector, data);
 
 // SETTING SETTERS
 export const backlightSetter = data => setter(backlight, data);

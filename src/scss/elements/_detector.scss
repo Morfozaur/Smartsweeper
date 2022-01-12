@@ -1,0 +1,23 @@
+.detector {
+  position: absolute;
+  bottom: .375rem;
+  display: flex;
+  gap: 0.0625rem;
+  height: 1.125rem;
+  width: 4.3125rem;
+  padding: 0.0625rem;
+  border: 2px solid $brass-color;
+  border-left-color: $brass-lite-color;
+  border-top-color: $brass-lite-color;
+  border-radius: 4px;
+  &__field {
+    height: 0.75rem;
+    width: .4375rem;
+    @each $color in $bomb-nums {
+      $i: index($bomb-nums, $color);
+      &--#{$i} {
+        background: $color;
+      }
+    }
+  }
+}

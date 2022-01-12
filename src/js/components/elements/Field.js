@@ -7,7 +7,7 @@ import {
     reloadSetter,
     unselectMineSetter,
     addFlagSetter,
-    removeFlagSetter, revealFieldSetter, resolveSetter
+    removeFlagSetter, revealFieldSetter, resolveSetter, detectorSetter
 } from "../../redux/actions/allActions";
 import Symbol from "./Symbol";
 import {playBomb, playFlag, playReveal} from "../../logic/synth";
@@ -15,7 +15,7 @@ import {revealAll} from "../../logic/revealAll";
 
 const Field = ({row, col, field}) => {
     const dispatch = useDispatch();
-    const {board, selectMode, mines, result} = useSelector(state => state);
+    const {board, selectMode, mines, result: {resolve}, gameplay: {style}} = useSelector(state => state);
     const {adj, bomb, visible, flag, question} = field;
 
     const fieldClass = {
@@ -80,6 +80,19 @@ const Field = ({row, col, field}) => {
         }
         dispatch(reloadSetter(true));
     };
+
+
+    const detect = () => {
+        if (style === 'detector' && visible && !resolve) dispatch(detectorSetter(adj));
+    }
+
+    const click = async () => {
+        if (!resolve) {
+            if (!bomb) dispatch(detectorSetter(adj));
+            await action();
+        }
+    }
+
     const {adjClass, bombClass, revClass, flagClass, questionClass} = fieldClass;
     return (
         <div className={
@@ -90,11 +103,13 @@ const Field = ({row, col, field}) => {
                 {[flagClass]: !visible && flag},
                 {[questionClass]: !visible && question},
                 {[bombClass]: visible && bomb}, )}
-             onClick={async ()=> {if (result.resolve === false) await action()}}>
+             onClick={click}
+             onMouseEnter={detect}
+             onMouseLeave={()=> dispatch(detectorSetter(0))}>
 
 
-            <div className={classNames("board__symbol", {[`board__symbol--n${adj}`]: visible && adj && !bomb})}>
-                {(adj > 0 && !bomb && visible) && <>{adj}</>}
+            <div className={classNames("board__symbol", {[`board__symbol--n${adj}`]: visible && adj && !bomb && (style === 'classic' || resolve)})}>
+                {(adj > 0 && !bomb && visible && (style === 'classic' || resolve)) && <>{adj}</>}
                 {(!visible && flag) && <Symbol type={'flag'}/>}
                 {(!visible && question) && <Symbol type={'question'}/>}
                 {(bomb && visible) && <Symbol type={'bomb'}/>}

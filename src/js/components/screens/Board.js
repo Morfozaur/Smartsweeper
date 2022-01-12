@@ -5,10 +5,11 @@ import {boardSetter, reloadSetter, resolveSetter} from "../../redux/actions/allA
 import {Modal} from "../elements/Modal";
 import {revealAll} from "../../logic/revealAll";
 import {playWin} from "../../logic/synth";
+import Detector from "../elements/Detector";
 
 const Board = () => {
     const dispatch = useDispatch();
-    const {board, reload, mines, fieldsCounter, result} = useSelector(state => state);
+    const {board, reload, mines, fieldsCounter, result, gameplay: {style}} = useSelector(state => state);
     const [remain, resolve] = [mines.remain, result.resolve];
     const {left, check} = fieldsCounter;
 
@@ -38,19 +39,22 @@ const Board = () => {
     }, [reload, dispatch, board])
 
     return (
-        <div className='board'>
-            {board.map((col, c) => {
-                return (
-                    <div key={`col-${c}`} className='board__col'>
-                        {col.map((row, r) => {
-                            return <Field key={`row-${r}`} field={row} col={c} row={r}/>
-                        })}
-                    </div>
-                )
-            })}
-            {resolve === 'win' && <Modal type={'win'}/>}
-            {resolve === 'over' && <Modal type={'over'}/>}
-        </div>
+        <>
+            <div className='board'>
+                {board.map((col, c) => {
+                    return (
+                        <div key={`col-${c}`} className='board__col'>
+                            {col.map((row, r) => {
+                                return <Field key={`row-${r}`} field={row} col={c} row={r}/>
+                            })}
+                        </div>
+                    )
+                })}
+                {resolve === 'win' && <Modal type={'win'}/>}
+                {resolve === 'over' && <Modal type={'over'}/>}
+            </div>
+            {style === 'detector' && <Detector/>}
+        </>
     );
 }
 

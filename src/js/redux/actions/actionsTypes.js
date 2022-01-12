@@ -20,4 +20,5 @@ export const actionsTypes = {
     boardSize: 'GAMEPLAY-SIZE',
     mode: 'GAMEPLAY-MODE',
     style: 'GAMEPLAY-STYLE',
+    detector: 'DETECT'
 };

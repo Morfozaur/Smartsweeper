@@ -4,7 +4,7 @@ import {thunkBoard} from "../../redux/actions/thunkBoard";
 import {firstBig} from "../../logic/baseFunctions";
 
 const Setup = () => {
-    const {mode, style} = useSelector(store => store.gameplay)
+    const {mode, style} = useSelector(state => state.gameplay)
     const dispatch = useDispatch();
     const modeDesc = {
         classic: 'Traditional minesweeper with static board and bombs position',
