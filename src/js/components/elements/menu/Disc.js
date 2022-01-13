@@ -9,33 +9,47 @@ const Disc = ({value, setter, pool, type, active, ico}) => {
     const [rotation, setRotation] = useState(0)
     const [currState, setCurrState] = useState(pool.findIndex(el => el === value));
 
-    const {backlight, editable} = useSelector(state => state.settings);
+    const {
+        settings: {backlight, editable},
+        gameplay: {mode, boardSize}} = useSelector(state => state);
 
     const available = active && backlight;
     const down = () => {
         if (available && editable) {
+            let rotatingMod = 0;
             if (currState === 0) {
-                setCurrState(pool.length - 1);
-                setter(pool[pool.length - 1]);
+                if (type === 'Size' && mode === 'rotating') {
+                    setCurrState(pool.length - 2);
+                    setter(pool[pool.length - 2]);
+                    rotatingMod += 1;
+                } else {
+                    setCurrState(pool.length - 1);
+                    setter(pool[pool.length - 1]);
+                }
             } else {
                 const nextState = currState - 1
                 setCurrState(nextState);
                 setter(pool[nextState]);
             }
-            setRotation(state => state - 1)
+            setRotation(state => state - 1 - rotatingMod)
         }
     };
     const up = () => {
         if (available && editable) {
+            let rotatingMod = 0;
             if (currState === pool.length - 1) {
                 setCurrState(0);
                 setter(pool[0]);
+            } else if (type === 'Size' && mode === 'rotating' && currState === 1) {
+                setCurrState(0);
+                setter(pool[0]);
+                rotatingMod += 1;
             } else {
                 const nextState = currState + 1
                 setCurrState(nextState);
                 setter(pool[nextState]);
             }
-            setRotation(state => state + 1)
+            setRotation(state => state + 1 + rotatingMod)
         }
     };
     return (

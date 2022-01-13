@@ -9,8 +9,8 @@
     - Zmiana położenia bomb:
     - Narastająca liczba bomb
   - Wybór metody wyświetlania podpowiedzi:
-    - Cyfry
-    - Kolory (symbol kolorów w stylu Windowsa)
+    X Cyfry
+    X Kolory (symbol kolorów w stylu Windowsa)
     X Wskaźnik (position absolut, miernik w stylu pieca gitarowego)
     - Skaner - klikniesz przycisk na klawce, skanuje kilka pól wokół
 
