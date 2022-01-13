@@ -86,6 +86,10 @@ const Field = ({row, col, field}) => {
         if (style === 'detector' && visible && !resolve) dispatch(detectorSetter(adj));
     }
 
+    const detectorReset = () => {
+        if (style === 'detector' && visible && !resolve) dispatch(detectorSetter(0))
+    };
+
     const click = async () => {
         if (!resolve) {
             if (!bomb) dispatch(detectorSetter(adj));
@@ -93,28 +97,43 @@ const Field = ({row, col, field}) => {
         }
     }
 
-    const {adjClass, bombClass, revClass, flagClass, questionClass} = fieldClass;
+    const {bombClass, revClass, flagClass, questionClass} = fieldClass;
+    const classTypes = {
+        revealed: visible && !bomb,
+        flagged: !visible && flag,
+        question: !visible && question,
+        bombed: visible && bomb,
+    }
+    const fieldTypes = {
+        number: visible && adj && !bomb && (style === 'classic' || resolve),
+        color: visible && adj && !bomb && (style === 'colors'),
+        revealed: adj > 0 && !bomb && visible && (style === 'classic' || resolve),
+        flagged: !visible && flag,
+        question: !visible && question,
+        bombed: bomb && visible
+    }
+
     return (
         <div className={
             classNames(
                 'board__field',
-                {[revClass]: visible && !adj && !bomb},
-                {[adjClass]: visible && adj && !bomb},
-                {[flagClass]: !visible && flag},
-                {[questionClass]: !visible && question},
-                {[bombClass]: visible && bomb}, )}
+                {[revClass]: classTypes.revealed},
+                {[flagClass]: classTypes.flagged},
+                {[questionClass]: classTypes.question},
+                {[bombClass]: classTypes.bombed},
+                {[`board__field--color board__field--b${adj}`]: fieldTypes.color})}
              onClick={click}
              onMouseEnter={detect}
-             onMouseLeave={()=> dispatch(detectorSetter(0))}>
+             onMouseLeave={detectorReset}>
 
 
-            <div className={classNames("board__symbol", {[`board__symbol--n${adj}`]: visible && adj && !bomb && (style === 'classic' || resolve)})}>
-                {(adj > 0 && !bomb && visible && (style === 'classic' || resolve)) && <>{adj}</>}
-                {(!visible && flag) && <Symbol type={'flag'}/>}
-                {(!visible && question) && <Symbol type={'question'}/>}
-                {(bomb && visible) && <Symbol type={'bomb'}/>}
+            <div className={
+                classNames("board__symbol", {[`board__symbol--n${adj}`]: fieldTypes.number})}>
+                {fieldTypes.revealed && <>{adj}</>}
+                {fieldTypes.flagged && <Symbol type={'flag'}/>}
+                {fieldTypes.question && <Symbol type={'question'}/>}
+                {fieldTypes.bombed && <Symbol type={'bomb'}/>}
             </div>
-
         </div>
     );
 }
