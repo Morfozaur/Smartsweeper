@@ -1,7 +1,7 @@
 import {boarding} from "../../logic/boarding";
 import {playStart} from "../../logic/synth";
 import {
-    boardSetter, editableSetter,
+    boardSetter, detectorSetter, editableSetter,
     minesSetter,
     resolveSetter,
     screenSetter,
@@ -22,6 +22,7 @@ export const thunkBoard = () => {
         dispatch(screenSetter('board'));
         dispatch(editableSetter(false));
         dispatch(resolveSetter(false));
+        dispatch(detectorSetter(0))
         dispatch(startSetter(new Date().getTime()));
     }
 };

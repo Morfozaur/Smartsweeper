@@ -106,7 +106,7 @@ const Field = ({row, col, field}) => {
     }
     const fieldTypes = {
         number: visible && adj && !bomb && (style === 'classic' || resolve),
-        color: visible && adj && !bomb && (style === 'colors'),
+        color: visible && adj && !bomb && (style === 'colors' && !resolve),
         revealed: adj > 0 && !bomb && visible && (style === 'classic' || resolve),
         flagged: !visible && flag,
         question: !visible && question,

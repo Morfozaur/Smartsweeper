@@ -1,6 +1,6 @@
 
 1. Skończyć logikę:
-  - Dodać Modal/Scoreboard
+  - Dodać  scoreboard
 
 2. Dodać sterowanie:
   - Wybór trybu:
@@ -17,7 +17,15 @@
 3. Opcjonalne:
   - Timer
   - Dodać komiksowy napis boom przy odkryciu bomby (bomby wybuchają, zmieniają kolor na czerwony)
-
+  - Obrotowa plansza (tylko dwa pierwsze poziomy):
+      - Szybkość (1, 2, 3)
+      - Dynamika (Płynnie, skokowo)
+  - Zmiana położenia bomb:
+    - Częstotliwość w sekundach (2, 5, 10)
+    - Częstotliwość w ruchach (3, 5, 7)
+    - Liczba zmienianych bomb (1, 2, 3)
+  - Narastająca liczba bomb
+      - Częstotliwość w ruchach (3, 5, 7)
 
 
 - timer resetu - co x sekund jest cyknięcie. Jeśli obok odkrytego pola coś się zmieni, zamiast liczby, pojawia się znak zapytania. Trzeba kliknąć go jeszcze raz, żeby się pojawiła liczba
@@ -32,12 +40,3 @@
 - Aktywne wskaźniki - świeci się lampka nad danym okienkiem, a wewnątrz świeci sie światło - gradient. Jak w danym trybie jest nieaktywne, przyciemnia się
 
 Opcjonalne ustawienia:
-- Obrotowa plansza (tylko dwa pierwsze poziomy):
-  - Szybkość (1, 2, 3)
-  - Dynamika (Płynnie, skokowo)
-- Zmiana położenia bomb:
-       - Częstotliwość w sekundach (2, 5, 10)
-       - Częstotliwość w ruchach (3, 5, 7)
-       - Liczba zmienianych bomb (1, 2, 3)
-- Narastająca liczba bomb
-    - Częstotliwość w ruchach (3, 5, 7)

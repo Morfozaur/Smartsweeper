@@ -19,13 +19,17 @@ const Disc = ({value, setter, pool, type, active, ico}) => {
             let rotatingMod = 0;
             if (currState === 0) {
                 if (type === 'Size' && mode === 'rotating') {
-                    setCurrState(pool.length - 2);
-                    setter(pool[pool.length - 2]);
+                    setCurrState(1);
+                    setter(pool[1]);
                     rotatingMod += 1;
                 } else {
                     setCurrState(pool.length - 1);
                     setter(pool[pool.length - 1]);
                 }
+            } else if (type === 'Mode' && boardSize === 20 && currState === 3) {
+                setCurrState(1);
+                setter(pool[1]);
+                rotatingMod +=1;
             } else {
                 const nextState = currState - 1
                 setCurrState(nextState);
@@ -43,6 +47,10 @@ const Disc = ({value, setter, pool, type, active, ico}) => {
             } else if (type === 'Size' && mode === 'rotating' && currState === 1) {
                 setCurrState(0);
                 setter(pool[0]);
+                rotatingMod += 1;
+            } else if (type === 'Mode' && boardSize === 20 && currState === 1) {
+                setCurrState(3);
+                setter(pool[3]);
                 rotatingMod += 1;
             } else {
                 const nextState = currState + 1
