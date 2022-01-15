@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Field from "../elements/Field";
 import {useDispatch, useSelector} from "react-redux";
 import {boardSetter, reloadSetter, resolveSetter} from "../../redux/actions/allActions";
@@ -8,10 +8,17 @@ import {playWin} from "../../logic/synth";
 import Detector from "../elements/Detector";
 
 const Board = () => {
+    const [rotateStage, setRotateStage] = useState(0);
+    const {
+        board, reload,
+        mines : {remain},
+        fieldsCounter: {left, check},
+        result: {resolve},
+        gameplay: {style, mode}} = useSelector(state => state);
+    const intervalRef = useRef(null);
+
     const dispatch = useDispatch();
-    const {board, reload, mines, fieldsCounter, result, gameplay: {style}} = useSelector(state => state);
-    const [remain, resolve] = [mines.remain, result.resolve];
-    const {left, check} = fieldsCounter;
+
 
     const winChecker = useCallback(async () => {
         await revealAll();
@@ -38,9 +45,28 @@ const Board = () => {
         }
     }, [reload, dispatch, board])
 
+    useEffect(()=> {
+        if (!resolve) {
+            intervalRef.current = setInterval(()=> {
+                setRotateStage(state => state + 1)
+            }, 5000)
+            return () => clearInterval(intervalRef.current)
+        }
+    }, [resolve])
+
+    useEffect(()=> {
+       if (mode === 'rotating' && resolve === 'waiting') {
+           setRotateStage(stage => (stage % 4 === 0) ? stage : stage + (4 - (stage % 4)))
+           clearInterval(intervalRef.current);
+           intervalRef.current = null;
+       }
+    },[mode, resolve])
+
+    const rotateStyle = (mode === 'rotating') ? { transform: `rotate(${rotateStage * 90}deg)` } : {}
+
     return (
         <>
-            <div className='board'>
+            <div className='board' style={rotateStyle}>
                 {board.map((col, c) => {
                     return (
                         <div key={`col-${c}`} className='board__col'>
