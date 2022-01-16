@@ -8,12 +8,10 @@ import {
     startSetter,
     totalFieldsSetter
 } from "./allActions";
-import {startingMines} from "../../logic/startingMines";
 
-export const thunkBoard = () => {
+export const thunkBoard = (mines) => {
     return async (dispatch, getState) => {
         const {gameplay: {boardSize}} = getState();
-        const mines = startingMines(boardSize);
         const newBoard = boarding(boardSize, mines);
         await playStart();
         dispatch(totalFieldsSetter({total: Math.pow(boardSize, 2), check: mines}));

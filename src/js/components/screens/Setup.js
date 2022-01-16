@@ -6,7 +6,7 @@ import {minesSetter} from "../../redux/actions/allActions";
 import {startingMines} from "../../logic/startingMines";
 
 const Setup = () => {
-    const {mode, style, boardSize} = useSelector(state => state.gameplay)
+    const {mines: {total}, gameplay: {mode, style, boardSize}} = useSelector(state => state)
     const dispatch = useDispatch();
     const modeDesc = {
         classic: 'Traditional minesweeper with static board and bombs position',
@@ -46,7 +46,7 @@ const Setup = () => {
                     <div className="setup__text setup__text--desc">{styleDesc[style]}</div>
                 </div>
             </div>
-            <div className="setup__btn" onClick={() => dispatch(thunkBoard())}>Start!</div>
+            <div className="setup__btn" onClick={() => dispatch(thunkBoard(total))}>Start!</div>
         </div>
     );
 }

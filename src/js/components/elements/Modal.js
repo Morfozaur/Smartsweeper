@@ -16,7 +16,7 @@ import Symbol from "./Symbol";
 
 export const Modal = ({type}) => {
     const [visibility, setVisibility] = useState(1);
-    const { time } = useSelector(state => state.result);
+    const { mines: {total}, result: {time} } = useSelector(state => state);
     const dispatch = useDispatch();
 
     const mainMenu = () => {
@@ -49,7 +49,7 @@ export const Modal = ({type}) => {
 
             <div className="board__buttons" style={opStyle}>
                 <div className="board__btn"
-                     onClick={() => dispatch(thunkBoard())}
+                     onClick={() => dispatch(thunkBoard(total))}
                      onMouseEnter={playClick}>Try Again</div>
                 <div className="board__btn"
                      onClick={mainMenu}

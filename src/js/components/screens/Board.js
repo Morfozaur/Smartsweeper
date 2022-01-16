@@ -19,7 +19,6 @@ const Board = () => {
 
     const dispatch = useDispatch();
 
-
     const winChecker = useCallback(async () => {
         await revealAll();
         playWin();

@@ -1,12 +1,12 @@
 import {actionsTypes} from "../actions/actionsTypes"
 
-const fields = {
+export const allFields = {
     total: null,
     left: null,
     check: null
 }
 
-export const boardFieldsReducer = (state = fields, {type, payload}) => {
+export const boardFieldsReducer = (state = allFields, {type, payload}) => {
     switch (type) {
         case actionsTypes.totalFields:
             const {total, check} = payload
