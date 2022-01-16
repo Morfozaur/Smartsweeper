@@ -1,7 +1,7 @@
 import React from 'react';
 import {playClick} from "../../logic/synth";
 import {useDispatch} from "react-redux";
-import {backlightSetter, editableSetter, screenSetter} from "../../redux/actions/allActions";
+import {backlightSetter, editableSetter, minesSetter, screenSetter} from "../../redux/actions/allActions";
 
 
 const Start = () => {
@@ -11,6 +11,7 @@ const Start = () => {
         dispatch(screenSetter('setup'));
         dispatch(editableSetter(true));
         dispatch(backlightSetter(true));
+        dispatch(minesSetter({total: 12, remain:12, flagged: 0}))
     };
 
     return (

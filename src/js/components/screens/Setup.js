@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {thunkBoard} from "../../redux/actions/thunkBoard";
 import {firstBig} from "../../logic/baseFunctions";
+import {minesSetter} from "../../redux/actions/allActions";
+import {startingMines} from "../../logic/startingMines";
 
 const Setup = () => {
     const {mode, style, boardSize} = useSelector(state => state.gameplay)
@@ -18,6 +20,15 @@ const Setup = () => {
         detector: 'Move cursor over cell to activate mine indicator',
         scanner: 'Click on the cell to reveal mines counters on adjacent cells',
     }
+
+    const updateDisplay = () => {
+        const mines = startingMines(boardSize)
+        dispatch(minesSetter({total: mines, remain: mines, flagged: 0}))
+    }
+
+    useEffect(()=> {
+        updateDisplay()
+    }, [boardSize])
 
     return (
         <div className='setup'>

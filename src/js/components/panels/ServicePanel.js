@@ -5,11 +5,11 @@ import classNames from "classnames";
 import {playPowerOff, playPowerOn} from "../../logic/synth";
 import {useDispatch, useSelector} from "react-redux";
 import {
-    backlightSetter, editableSetter,
+    backlightSetter, boardSetter, editableSetter, minesSetter,
     powerSetter,
     resolveSetter,
     screenSetter,
-    selectModeSetter
+    selectModeSetter, totalFieldsSetter
 } from "../../redux/actions/allActions";
 
 const ServicePanel = () => {
@@ -24,6 +24,7 @@ const ServicePanel = () => {
         }
         if (!power) {
             dispatch(screenSetter('start'));
+            dispatch(totalFieldsSetter({total:null, check: null}))
             await playPowerOn();
             dispatch(backlightSetter(true));
             dispatch(editableSetter(true));
@@ -34,6 +35,8 @@ const ServicePanel = () => {
                 setTimeout(()=> dispatch(selectModeSetter(false)), 200);
             }, 500)
         } else {
+            dispatch(minesSetter({total: null, remain: null, flagged: null}));
+            dispatch(boardSetter([]));
             dispatch(selectModeSetter(false));
             await playPowerOff();
             dispatch(backlightSetter(false));

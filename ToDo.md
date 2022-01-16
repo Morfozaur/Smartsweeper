@@ -5,7 +5,7 @@
 2. Dodać sterowanie:
   - Wybór trybu:
     X Klasyczny
-    - Obrotowa plansza (tylko dwa pierwsze poziomy)
+    X Obrotowa plansza (tylko dwa pierwsze poziomy)
     - Zmiana położenia bomb:
     - Narastająca liczba bomb
   - Wybór metody wyświetlania podpowiedzi:
