@@ -15,6 +15,7 @@
     - Skaner - klikniesz przycisk na klawce, skanuje kilka pól wokół
 
 3. Opcjonalne:
+  - Randomizer
   - Timer
   - Dodać komiksowy napis boom przy odkryciu bomby (bomby wybuchają, zmieniają kolor na czerwony)
   - Obrotowa plansza (tylko dwa pierwsze poziomy):

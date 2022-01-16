@@ -92,7 +92,7 @@ const Field = ({row, col, field}) => {
 
     const click = async () => {
         if (!resolve) {
-            if (!bomb) dispatch(detectorSetter(adj));
+            if (!bomb && style === 'detector') dispatch(detectorSetter(adj));
             await action();
         }
     }

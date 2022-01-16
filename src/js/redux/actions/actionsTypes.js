@@ -20,5 +20,10 @@ export const actionsTypes = {
     boardSize: 'GAMEPLAY-SIZE',
     mode: 'GAMEPLAY-MODE',
     style: 'GAMEPLAY-STYLE',
-    detector: 'DETECT'
+    detector: 'DETECT',
+    setHidden: 'HIDDEN-CFG',
+    addMine: 'HIDDEN-ADD',
+    removeMine: 'HIDDEN-DEL',
+    addField: 'HIDDEN-F-ADD',
+    removeField: 'HIDDEN-F-DEL',
 };

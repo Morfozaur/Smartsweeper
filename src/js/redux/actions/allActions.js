@@ -14,7 +14,8 @@ const {
     resolve, start, end,
     backlight, editable,
     style, mode, sizeActive,
-    detector
+    detector,
+    setHidden, addMine, removeMine
 } = actionsTypes
 
 const setter = (type, data) => {
@@ -41,6 +42,14 @@ export const addFlagSetter = () => setter(addFlag);
 export const removeFlagSetter = () => setter(removeFlag);
 export const totalFieldsSetter = data => setter(totalFields, data);
 export const revealFieldSetter = () => setter(revealField);
+
+// SMART HELPERS
+export const setHiddenSetter = (data) => setter(setHidden, data);
+export const addMineSetter = (data) => setter(addMine, data);
+export const removeMineSetter = (data) => setter(removeMine, data);
+export const addFieldSetter = (data) => setter(removeMine, data);
+export const removeFieldSetter = (data) => setter(removeMine, data);
+
 
 // GAMEPLAY SETTERS
 export const resolveSetter = data => setter(resolve, data);

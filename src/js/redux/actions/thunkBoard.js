@@ -4,7 +4,7 @@ import {
     boardSetter, detectorSetter, editableSetter,
     minesSetter,
     resolveSetter,
-    screenSetter,
+    screenSetter, setHiddenSetter,
     startSetter,
     totalFieldsSetter
 } from "./allActions";
@@ -12,7 +12,7 @@ import {
 export const thunkBoard = (mines) => {
     return async (dispatch, getState) => {
         const {gameplay: {boardSize}} = getState();
-        const newBoard = boarding(boardSize, mines);
+        const {newBoard, fieldsManager} = boarding(boardSize, mines);
         await playStart();
         dispatch(totalFieldsSetter({total: Math.pow(boardSize, 2), check: mines}));
         dispatch(boardSetter(newBoard));
@@ -21,6 +21,7 @@ export const thunkBoard = (mines) => {
         dispatch(editableSetter(false));
         dispatch(resolveSetter(false));
         dispatch(detectorSetter(0))
+        dispatch(setHiddenSetter(fieldsManager))
         dispatch(startSetter(new Date().getTime()));
     }
 };

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {thunkBoard} from "../../redux/actions/thunkBoard";
 import {firstBig} from "../../logic/baseFunctions";
@@ -9,26 +9,26 @@ const Setup = () => {
     const {mines: {total}, gameplay: {mode, style, boardSize}} = useSelector(state => state)
     const dispatch = useDispatch();
     const modeDesc = {
-        classic: 'Traditional minesweeper with static board and bombs position',
-        smart: 'Once per 5 second one of the mine move to random covered cell',
-        rotating: 'Once per 5 second board rotates 90 degree (available only on small and medium board)',
-        rise: 'Once per 5 second new mine is placed on random cell',
+        classic: 'Traditional minesweeper with a static board and fixed bombs position',
+        smart: 'Once per 5 second a random mine moves to the random covered cell without the flag',
+        rotating: 'Once per 5 second the board rotates 90 degree (available only on small and medium boards)',
+        rise: 'Once per 5 second a new mine is placed on the random cell',
     }
     const styleDesc = {
         classic: 'Each cell shows the number of mines adjacent to it',
         colors: 'Number of adjacent mines is marked by color code',
-        detector: 'Move cursor over cell to activate mine indicator',
+        detector: 'Move a cursor over the cell to activate the mine indicator',
         scanner: 'Click on the cell to reveal mines counters on adjacent cells',
     }
 
-    const updateDisplay = () => {
+    const updateDisplay = useCallback( () => {
         const mines = startingMines(boardSize)
         dispatch(minesSetter({total: mines, remain: mines, flagged: 0}))
-    }
+    },[boardSize, dispatch])
 
     useEffect(()=> {
         updateDisplay()
-    }, [boardSize])
+    }, [boardSize, updateDisplay])
 
     return (
         <div className='setup'>
