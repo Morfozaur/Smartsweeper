@@ -7,7 +7,7 @@ import {
     reloadSetter,
     unselectMineSetter,
     addFlagSetter,
-    removeFlagSetter, revealFieldSetter, resolveSetter, detectorSetter
+    removeFlagSetter, revealFieldSetter, resolveSetter, detectorSetter, removeFieldListSetter
 } from "../../redux/actions/allActions";
 import Symbol from "./Symbol";
 import {playBomb, playFlag, playReveal} from "../../logic/synth";
@@ -38,6 +38,7 @@ const Field = ({row, col, field}) => {
             } else {
                 dispatch(revealFieldSetter());
                 board[col][row].visible = true;
+                dispatch(removeFieldListSetter({remCol:col, remRow:row}))
                 if (bomb) {
                     dispatch(resolveSetter('waiting'));
                     await playBomb();

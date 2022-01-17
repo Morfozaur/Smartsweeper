@@ -3,8 +3,8 @@ import {random} from "./baseFunctions";
 export const mineBoard = (data, board, mines) => {
     const pool = [...data];
     const targetBoard = [...board];
-
     const availableFields = {};
+    const fieldList = [];
     for (let col = 0; col < targetBoard.length; col++) {
         availableFields[col] = [];
         for (let row = 0; row < targetBoard.length; row++) {
@@ -31,5 +31,12 @@ export const mineBoard = (data, board, mines) => {
         }
         pool.splice(pick, 1);
     }
-    return { newBoard: targetBoard, fieldsManager: { mineList, availableFields } }
+    for (const col in availableFields) {
+        for (let x = 0; x < availableFields[col].length; x++) {
+            fieldList.push([parseInt(col), availableFields[col][x]])
+        }
+    }
+    // console.log(availableFields, mineList, fieldList)
+
+    return { newBoard: targetBoard, fieldsManager: { mineList, availableFields, fieldList } }
 };
