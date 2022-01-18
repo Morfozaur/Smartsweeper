@@ -12,11 +12,12 @@ import {
 import Symbol from "./Symbol";
 import {playBomb, playFlag, playReveal} from "../../logic/synth";
 import {revealAll} from "../../logic/revealAll";
+import {revealAdjacent} from "../../logic/adjacentControl";
 
 const Field = ({row, col, field}) => {
     const dispatch = useDispatch();
-    const {board, selectMode, mines, result: {resolve}, gameplay: {style}} = useSelector(state => state);
-    const {adj, bomb, visible, flag, question, smart} = field;
+    const {board, selectMode, mines, result: {resolve}, gameplay: {style, mode}} = useSelector(state => state);
+    const {adj, bomb, visible, flag, question, unknown} = field;
 
     const fieldClass = {
         revClass: 'board__field--reveal',
@@ -27,6 +28,7 @@ const Field = ({row, col, field}) => {
     }
 
     const action = async () => {
+        revealAdjacent(board, col, row)
         if (selectMode === false && !visible) {
             if (!bomb) await playReveal();
             if (board[col][row].flag) {
@@ -38,7 +40,7 @@ const Field = ({row, col, field}) => {
             } else {
                 dispatch(revealFieldSetter());
                 board[col][row].visible = true;
-                dispatch(removeFieldListSetter({remCol:col, remRow:row}))
+                if (mode === 'rise' || mode === 'smart') dispatch(removeFieldListSetter({remCol:col, remRow:row}))
                 if (bomb) {
                     dispatch(resolveSetter('waiting'));
                     await playBomb();
@@ -100,20 +102,22 @@ const Field = ({row, col, field}) => {
 
     const {bombClass, revClass, flagClass, questionClass} = fieldClass;
     const classTypes = {
-        revealed: visible && !bomb,
+        revealed: (visible && !bomb) || resolve,
         flagged: !visible && flag,
         question: !visible && question,
         bombed: visible && bomb,
     }
+
+    const fieldNearBomb = visible && (adj > 0) && !bomb;
+    const classicAndResolve = style === 'classic' || resolve;
     const fieldTypes = {
-        number: visible && adj && !bomb && (style === 'classic' || resolve) && (!smart || resolve),
-        unknown: smart && visible && !bomb && !resolve,
-        color: visible && adj && !bomb && (style === 'colors' && !resolve),
-        revealed: adj > 0 && !bomb && visible && (style === 'classic' || resolve) && (!smart || resolve),
+        number: fieldNearBomb && (classicAndResolve || (style === 'scanner' && !unknown)),
+        unknown: fieldNearBomb && style === 'scanner' && unknown && !resolve,
+        color: fieldNearBomb && (style === 'colors' && !resolve),
+        revealed: fieldNearBomb || resolve,
         flagged: !visible && flag,
         question: !visible && question,
-        bombed: bomb
-        // bombed: bomb && visible
+        bombed: bomb && visible
     }
 
     return (
@@ -135,7 +139,7 @@ const Field = ({row, col, field}) => {
                     "board__symbol",
                     {[`board__symbol--n${adj}`]: fieldTypes.number},
                     {'board__symbol--unknown': fieldTypes.unknown})}>
-                {fieldTypes.revealed && <>{adj}</>}
+                {fieldTypes.number && <>{adj}</>}
                 {fieldTypes.unknown && <>?</>}
                 {fieldTypes.flagged && <Symbol type={'flag'}/>}
                 {fieldTypes.question && <Symbol type={'question'}/>}

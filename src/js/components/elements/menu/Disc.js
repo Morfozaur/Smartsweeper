@@ -11,7 +11,7 @@ const Disc = ({value, setter, pool, type, active, ico}) => {
 
     const {
         settings: {backlight, editable},
-        gameplay: {mode, boardSize}} = useSelector(state => state);
+        gameplay: {mode, boardSize, style}} = useSelector(state => state);
 
     const available = active && backlight;
     const down = () => {
@@ -30,6 +30,12 @@ const Disc = ({value, setter, pool, type, active, ico}) => {
                 setCurrState(1);
                 setter(pool[1]);
                 rotatingMod +=1;
+            } else if (type === 'Mode' && currState === 2 && style !== 'detector') {
+                setCurrState(0);
+                setter(pool[0]);
+                rotatingMod +=1;
+            } else if (type === 'Style' && mode === 'smart') {
+                rotatingMod +=3;
             } else {
                 const nextState = currState - 1
                 setCurrState(nextState);
@@ -38,6 +44,9 @@ const Disc = ({value, setter, pool, type, active, ico}) => {
             setRotation(state => state - 1 - rotatingMod)
         }
     };
+
+
+
     const up = () => {
         if (available && editable) {
             let rotatingMod = 0;
@@ -52,6 +61,12 @@ const Disc = ({value, setter, pool, type, active, ico}) => {
                 setCurrState(3);
                 setter(pool[3]);
                 rotatingMod += 1;
+            } else if (type === 'Mode' && currState === 0 && style !== 'detector') {
+                setCurrState(2);
+                setter(pool[2]);
+                rotatingMod += 1;
+            } else if (type === 'Style' && mode === 'smart') {
+                rotatingMod +=3;
             } else {
                 const nextState = currState + 1
                 setCurrState(nextState);

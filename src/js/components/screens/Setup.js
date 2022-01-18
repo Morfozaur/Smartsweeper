@@ -12,13 +12,13 @@ const Setup = () => {
     const modeDesc = {
         classic: 'Traditional minesweeper with a static board and fixed bombs position',
         smart: 'Once per 5 second random mine change field (available only with detector style)',
-        rotating: 'Once per 5 second the board rotates 90 degree (available only on small and medium boards)',
+        rotating: 'Once per 5 second the board rotates 90 degree (available on small and medium boards)',
         rise: 'Once per 10 second a new mine is placed on the random cell',
     }
     const styleDesc = {
         classic: 'Each cell shows the number of mines adjacent to it',
         colors: 'Number of adjacent mines is marked by color code',
-        detector: 'Move a cursor over the cell to activate the mine indicator',
+        detector: 'Move a cursor over the cell to activate the mine indicator (unlock Smart mode)',
         scanner: 'Click on the cell to reveal mines counters on adjacent cells',
     }
 

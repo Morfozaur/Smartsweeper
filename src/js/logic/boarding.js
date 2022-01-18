@@ -13,7 +13,7 @@ export const boarding = (size, mines, mode) => {
                 flag: false,
                 question: false,
                 adj:0,
-                smart: false});
+                unknown: true});
             fields.push({col: i, row: j});
         }
         board.push(row);

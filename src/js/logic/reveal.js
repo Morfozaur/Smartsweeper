@@ -4,15 +4,17 @@ import {removeFieldListSetter, removeFlagSetter, revealFieldSetter} from "../red
 
 
 export const reveal = async (col, row, main) => {
-    let board = [...store.getState().board];
+    let {board, gameplay: {mode}} = store.getState();
 
     const size = board.length;
+    const smartChecker = (mode === 'rise' || mode === 'smart')
+
     board[col][row].visible = true;
     if (board[col][row].flag) store.dispatch(removeFlagSetter());
     board[col][row].flag = false;
     board[col][row].question = false;
     store.dispatch(revealFieldSetter());
-    store.dispatch(removeFieldListSetter({remCol:col, remRow:row}))
+    if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col, remRow:row}))
 
 
     const passer = (data) => (data.adj <= 0) && (data.visible === false);
@@ -22,7 +24,7 @@ export const reveal = async (col, row, main) => {
         else if (!board[col - 1][row - 1].visible) {
             store.dispatch(revealFieldSetter());
             board[col - 1][row - 1].visible = true;
-            store.dispatch(removeFieldListSetter({remCol:col - 1, remRow:row - 1}))
+            if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col - 1, remRow:row - 1}))
         }
     }
     if (ifFieldExist(col, row, up)) {
@@ -30,7 +32,7 @@ export const reveal = async (col, row, main) => {
         else if (!board[col][row - 1].visible) {
             store.dispatch(revealFieldSetter());
             board[col][row - 1].visible = true;
-            store.dispatch(removeFieldListSetter({remCol:col, remRow:row - 1}))
+            if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col, remRow:row - 1}))
         }
     }
     if (ifFieldExist(col, row, upRight, size)) {
@@ -38,7 +40,7 @@ export const reveal = async (col, row, main) => {
         else if(!board[col + 1][row - 1].visible) {
             store.dispatch(revealFieldSetter());
             board[col + 1][row - 1].visible = true;
-            store.dispatch(removeFieldListSetter({remCol:col + 1, remRow:row - 1}))
+            if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col + 1, remRow:row - 1}))
         }
     }
     if (ifFieldExist(col, row, right, size)) {
@@ -46,7 +48,7 @@ export const reveal = async (col, row, main) => {
         else if(!board[col + 1][row].visible) {
             store.dispatch(revealFieldSetter());
             board[col + 1][row].visible = true;
-            store.dispatch(removeFieldListSetter({remCol:col + 1, remRow:row}))
+            if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col + 1, remRow:row}))
         }
     }
     if (ifFieldExist(col, row, downRight, size)) {
@@ -54,7 +56,7 @@ export const reveal = async (col, row, main) => {
         else if(!board[col + 1][row + 1].visible) {
             store.dispatch(revealFieldSetter());
             board[col + 1][row + 1].visible = true;
-            store.dispatch(removeFieldListSetter({remCol:col + 1, remRow:row + 1}))
+            if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col + 1, remRow:row + 1}))
         }
     }
     if (ifFieldExist(col, row, down, size)) {
@@ -62,7 +64,7 @@ export const reveal = async (col, row, main) => {
         else if(!board[col][row + 1].visible) {
             store.dispatch(revealFieldSetter());
             board[col][row + 1].visible = true;
-            store.dispatch(removeFieldListSetter({remCol:col, remRow:row + 1}))
+            if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col, remRow:row + 1}))
         }
     }
     if (ifFieldExist(col, row, downLeft, size)) {
@@ -70,7 +72,7 @@ export const reveal = async (col, row, main) => {
         else if(!board[col - 1][row + 1].visible) {
             store.dispatch(revealFieldSetter());
             board[col - 1][row + 1].visible = true;
-            store.dispatch(removeFieldListSetter({remCol:col - 1, remRow:row + 1}))
+            if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col - 1, remRow:row + 1}))
         }
     }
     if (ifFieldExist(col, row, left)) {
@@ -78,7 +80,7 @@ export const reveal = async (col, row, main) => {
         else if(!board[col - 1][row].visible) {
             store.dispatch(revealFieldSetter());
             board[col - 1][row].visible = true;
-            store.dispatch(removeFieldListSetter({remCol:col - 1, remRow:row}))
+            if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col - 1, remRow:row}))
         }
     }
     if (main) return board

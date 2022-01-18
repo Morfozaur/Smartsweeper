@@ -9,5 +9,4 @@ export const revealAll = async () => {
             board[col][row].visible = true;
         }
     }
-    // return board
 };
