@@ -13,10 +13,11 @@ import {
 } from "../../redux/actions/allActions";
 import {defaultMines} from "../../redux/reducers/minesReducer";
 import Symbol from "./Symbol";
+import {startingMines} from "../../logic/startingMines";
 
 export const Modal = ({type}) => {
     const [visibility, setVisibility] = useState(1);
-    const { mines: {total}, result: {time} } = useSelector(state => state);
+    const {gameplay: {boardSize}, result: {time} } = useSelector(state => state);
     const dispatch = useDispatch();
 
     const mainMenu = () => {
@@ -27,6 +28,11 @@ export const Modal = ({type}) => {
         dispatch(endSetter(null));
         dispatch(backlightSetter(false));
     };
+
+    const restart = () => {
+        const mines = startingMines(boardSize)
+        dispatch(thunkBoard(mines))
+    }
 
     const header = {
         win: 'YOU WIN!',
@@ -49,7 +55,7 @@ export const Modal = ({type}) => {
 
             <div className="board__buttons" style={opStyle}>
                 <div className="board__btn"
-                     onClick={() => dispatch(thunkBoard(total))}
+                     onClick={restart}
                      onMouseEnter={playClick}>Try Again</div>
                 <div className="board__btn"
                      onClick={mainMenu}

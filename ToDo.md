@@ -1,13 +1,14 @@
+0. NAPRAWIĆ WYŚIETLANIE SMARTÓW
 
 1. Skończyć logikę:
   - Dodać  scoreboard
 
 2. Dodać sterowanie:
-  - Wybór trybu:
+  X Wybór trybu:
     X Klasyczny
     X Obrotowa plansza (tylko dwa pierwsze poziomy)
-    - Zmiana położenia bomb:
-    - Narastająca liczba bomb
+    X Zmiana położenia bomb:
+    X Narastająca liczba bomb
   - Wybór metody wyświetlania podpowiedzi:
     X Cyfry
     X Kolory (symbol kolorów w stylu Windowsa)

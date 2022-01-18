@@ -4,8 +4,8 @@ export const actionsTypes = {
     reload: 'RELOAD',
     selectMode: 'BTN-PRESS',
     totalMines: 'MINES',
-    selectMine: 'MINE-ADD',
-    unselectMine: 'MINE-REM',
+    increaseMinesToFind: 'MINE-ADD',
+    reduceMinesToFind: 'MINE-REM',
     addFlag: 'FLAG-ADD',
     removeFlag: 'FLAG-REM',
     totalFields: 'FIELDS-SUM',
@@ -26,4 +26,6 @@ export const actionsTypes = {
     removeMine: 'HIDDEN-DEL',
     addField: 'HIDDEN-F-ADD',
     removeField: 'HIDDEN-F-DEL',
+    increaseMinesLimit: 'MINE-LMT',
+    increaseChecker: 'CHECK-ADD'
 };

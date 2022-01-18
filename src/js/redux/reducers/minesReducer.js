@@ -10,10 +10,10 @@ export const minesReducer = (state = defaultMines, {type, payload}) => {
     switch (type) {
         case actionsTypes.totalMines:
             return payload;
-        case actionsTypes.selectMine:
+        case actionsTypes.increaseMinesToFind:
             return {...state,
                 remain: state.remain + 1};
-        case actionsTypes.unselectMine:
+        case actionsTypes.reduceMinesToFind:
             return {...state,
                 remain: state.remain - 1};
         case actionsTypes.addFlag:
@@ -22,6 +22,10 @@ export const minesReducer = (state = defaultMines, {type, payload}) => {
         case actionsTypes.removeFlag:
             return {...state,
                 flagged: state.flagged - 1};
+        case actionsTypes.increaseMinesLimit:
+            return {...state,
+                remain: state.remain + payload,
+                total: state.total + 1}
         default:
             return state;
     }

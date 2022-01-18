@@ -6,15 +6,17 @@ import {Modal} from "../elements/Modal";
 import {revealAll} from "../../logic/revealAll";
 import {playWin} from "../../logic/synth";
 import Detector from "../elements/Detector";
+import {moveMine} from "../../logic/smart/moveMine";
+import {addMine} from "../../logic/smart/addMine";
 
 const Board = () => {
     const [rotateStage, setRotateStage] = useState(0);
     const {
-        board, reload,
-        mines : {remain},
+        board, reload, selectMode,
+        mines : {remain, total},
         fieldsCounter: {left, check},
         result: {resolve},
-        gameplay: {style, mode}} = useSelector(state => state);
+        gameplay: {style, mode, mineLimit}} = useSelector(state => state);
     const intervalRef = useRef(null);
 
     const dispatch = useDispatch();
@@ -44,21 +46,44 @@ const Board = () => {
         }
     }, [reload, dispatch, board])
 
+
+    // ROTATING MODE
     useEffect(()=> {
-        if (!resolve) {
+        if (!resolve && mode === 'rotating') {
             intervalRef.current = setInterval(()=> {
                 setRotateStage(state => state + 1)
             }, 5000)
             return () => clearInterval(intervalRef.current)
         }
-    }, [resolve])
+    }, [mode, resolve])
 
+    // SMART MODE
     useEffect(()=> {
-       if (mode === 'rotating' && resolve === 'waiting') {
-           setRotateStage(stage => (stage % 4 === 0) ? stage : stage + (4 - (stage % 4)))
-           clearInterval(intervalRef.current);
-           intervalRef.current = null;
-       }
+        if (!resolve && mode === 'smart') {
+            intervalRef.current = setInterval(()=> {
+                moveMine();
+            }, 5000)
+            return () => clearInterval(intervalRef.current)
+        }
+    }, [mode, resolve])
+
+    // RISE MODE
+    useEffect(()=> {
+        if (!resolve && mode === 'rise') {
+            intervalRef.current = setInterval(()=> {
+                    addMine();
+            }, 10000)
+            return () => clearInterval(intervalRef.current)
+        }
+    }, [mode, resolve])
+
+    // CLEAR MODE INTERVALS
+    useEffect(()=> {
+        if (resolve === 'waiting' && mode !== 'classic') {
+            if (mode === 'rotating') setRotateStage(stage => (stage % 4 === 0) ? stage : stage + (4 - (stage % 4)))
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        }
     },[mode, resolve])
 
     const rotateStyle = (mode === 'rotating') ? { transform: `rotate(${rotateStage * 90}deg)` } : {}

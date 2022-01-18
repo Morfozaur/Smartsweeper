@@ -11,8 +11,8 @@ import {
 
 export const thunkBoard = (mines) => {
     return async (dispatch, getState) => {
-        const {gameplay: {boardSize}} = getState();
-        const {newBoard, fieldsManager} = boarding(boardSize, mines);
+        const {gameplay: {boardSize, mode}} = getState();
+        const {newBoard, fieldsManager} = boarding(boardSize, mines, mode);
         await playStart();
         dispatch(totalFieldsSetter({total: Math.pow(boardSize, 2), check: mines}));
         dispatch(boardSetter(newBoard));

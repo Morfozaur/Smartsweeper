@@ -15,7 +15,6 @@ export const reveal = async (col, row, main) => {
     store.dispatch(removeFieldListSetter({remCol:col, remRow:row}))
 
 
-
     const passer = (data) => (data.adj <= 0) && (data.visible === false);
 
     if (ifFieldExist(col, row, upLeft)) {

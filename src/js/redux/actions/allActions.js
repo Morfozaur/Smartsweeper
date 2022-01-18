@@ -7,7 +7,7 @@ const {
     reload,
     selectMode,
     totalMines,
-    selectMine, unselectMine,
+    increaseMinesToFind, reduceMinesToFind,
     addFlag, removeFlag,
     totalFields, revealField,
     power,
@@ -15,7 +15,8 @@ const {
     backlight, editable,
     style, mode, sizeActive,
     detector,
-    setHidden, addMine, removeMine, addField, removeField
+    setHidden, addMine, removeMine, addField, removeField,
+    increaseMinesLimit, increaseChecker
 } = actionsTypes
 
 const setter = (type, data) => {
@@ -36,8 +37,8 @@ export const boardSizeSetter = data => setter(boardSize, data);
 
 // FIELDS SETTERS
 export const minesSetter = data => setter(totalMines, data);
-export const selectMineSetter = () => setter(selectMine);
-export const unselectMineSetter = () => setter(unselectMine);
+export const increaseMinesToFindSetter = () => setter(increaseMinesToFind);
+export const reduceMinesToFindSetter = () => setter(reduceMinesToFind);
 export const addFlagSetter = () => setter(addFlag);
 export const removeFlagSetter = () => setter(removeFlag);
 export const totalFieldsSetter = data => setter(totalFields, data);
@@ -49,6 +50,8 @@ export const addMineSetter = data => setter(addMine, data);
 export const removeMineSetter = data => setter(removeMine, data);
 export const addFieldListSetter = data => setter(addField, data);
 export const removeFieldListSetter = data => setter(removeField, data);
+export const increaseMinesLimitSetter = data => setter(increaseMinesLimit, data);
+export const increaseCheckerLimitSetter = () => setter(increaseChecker);
 
 
 // GAMEPLAY SETTERS

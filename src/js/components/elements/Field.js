@@ -3,9 +3,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {reveal} from "../../logic/reveal";
 import classNames from "classnames";
 import {
-    selectMineSetter,
+    increaseMinesToFindSetter,
     reloadSetter,
-    unselectMineSetter,
+    reduceMinesToFindSetter,
     addFlagSetter,
     removeFlagSetter, revealFieldSetter, resolveSetter, detectorSetter, removeFieldListSetter
 } from "../../redux/actions/allActions";
@@ -16,7 +16,7 @@ import {revealAll} from "../../logic/revealAll";
 const Field = ({row, col, field}) => {
     const dispatch = useDispatch();
     const {board, selectMode, mines, result: {resolve}, gameplay: {style}} = useSelector(state => state);
-    const {adj, bomb, visible, flag, question} = field;
+    const {adj, bomb, visible, flag, question, smart} = field;
 
     const fieldClass = {
         revClass: 'board__field--reveal',
@@ -59,7 +59,7 @@ const Field = ({row, col, field}) => {
                     case "neutral":
                         if (mines.flagged < mines.total) {
                             board[col][row].flag = true;
-                            if (board[col][row].bomb) dispatch(unselectMineSetter())
+                            if (board[col][row].bomb) dispatch(reduceMinesToFindSetter())
                             dispatch(addFlagSetter())
                         } else {
                             board[col][row].question = true;
@@ -68,7 +68,7 @@ const Field = ({row, col, field}) => {
                     case "flag":
                         board[col][row].flag = false;
                         board[col][row].question = true;
-                        if (board[col][row].bomb) dispatch(selectMineSetter())
+                        if (board[col][row].bomb) dispatch(increaseMinesToFindSetter())
                         dispatch(removeFlagSetter())
                         break;
                     case "question":
@@ -106,12 +106,14 @@ const Field = ({row, col, field}) => {
         bombed: visible && bomb,
     }
     const fieldTypes = {
-        number: visible && adj && !bomb && (style === 'classic' || resolve),
+        number: visible && adj && !bomb && (style === 'classic' || resolve) && (!smart || resolve),
+        unknown: smart && visible && !bomb && !resolve,
         color: visible && adj && !bomb && (style === 'colors' && !resolve),
-        revealed: adj > 0 && !bomb && visible && (style === 'classic' || resolve),
+        revealed: adj > 0 && !bomb && visible && (style === 'classic' || resolve) && (!smart || resolve),
         flagged: !visible && flag,
         question: !visible && question,
-        bombed: bomb && visible
+        bombed: bomb
+        // bombed: bomb && visible
     }
 
     return (
@@ -129,8 +131,12 @@ const Field = ({row, col, field}) => {
 
 
             <div className={
-                classNames("board__symbol", {[`board__symbol--n${adj}`]: fieldTypes.number})}>
+                classNames(
+                    "board__symbol",
+                    {[`board__symbol--n${adj}`]: fieldTypes.number},
+                    {'board__symbol--unknown': fieldTypes.unknown})}>
                 {fieldTypes.revealed && <>{adj}</>}
+                {fieldTypes.unknown && <>?</>}
                 {fieldTypes.flagged && <Symbol type={'flag'}/>}
                 {fieldTypes.question && <Symbol type={'question'}/>}
                 {fieldTypes.bombed && <Symbol type={'bomb'}/>}

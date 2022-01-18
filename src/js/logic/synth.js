@@ -32,9 +32,9 @@ export const playPowerOn = async () => {
 }
 
 export const playPowerOff = async () => {
-    const vol = new Tone.Volume(-20).toDestination();
+    const vol = new Tone.Volume(-40).toDestination();
     const synth = new Tone.Oscillator("G4").connect(vol);
-    synth.frequency.rampTo("G2", 0.35);
+    synth.frequency.rampTo("G3", 0.35);
     synth.start();
     synth.stop('+0.35');
 };

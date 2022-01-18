@@ -14,6 +14,9 @@ export const boardFieldsReducer = (state = allFields, {type, payload}) => {
         case actionsTypes.revealField:
             return {...state,
                 left: state.left - 1};
+        case actionsTypes.increaseChecker:
+            return {...state,
+                check: state.check + 1}
         default:
             return state;
     }

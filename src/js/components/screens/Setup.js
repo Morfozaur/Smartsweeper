@@ -7,12 +7,13 @@ import {startingMines} from "../../logic/startingMines";
 
 const Setup = () => {
     const {mines: {total}, gameplay: {mode, style, boardSize}} = useSelector(state => state)
+
     const dispatch = useDispatch();
     const modeDesc = {
         classic: 'Traditional minesweeper with a static board and fixed bombs position',
-        smart: 'Once per 5 second a random mine moves to the random covered cell without the flag',
+        smart: 'Once per 5 second random mine change field (available only with detector style)',
         rotating: 'Once per 5 second the board rotates 90 degree (available only on small and medium boards)',
-        rise: 'Once per 5 second a new mine is placed on the random cell',
+        rise: 'Once per 10 second a new mine is placed on the random cell',
     }
     const styleDesc = {
         classic: 'Each cell shows the number of mines adjacent to it',

@@ -5,3 +5,7 @@ export const resultCalc = (total) => {
     const seconds = total - (minutes * 60);
     return minutes === 0 ? `${seconds}s` :`${minutes}min ${seconds.toFixed(2)}s`
 }
+
+export const filterMineArray = (el, payload) => {
+    return el[0] !== payload[0] || el[1] !== payload[1]
+};
