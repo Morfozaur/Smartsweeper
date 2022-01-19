@@ -1,21 +1,32 @@
 0. NAPRAWIĆ WYŚIETLANIE SMARTÓW
 
 1. Skończyć logikę:
-  - Dodać  scoreboard
+  - Dodać  scoreboard:
+    - czas
+    - liczba min
+    - liczba kliknięć
 
-2. Dodać sterowanie:
+2. Dodać stylowanie przestrzeni:
+   - tło
+   - modal do zmiany kolorów automatu (przypisać podstawowe zmienne do roota):
+     - czerwony-żółty
+     - czarny-kość słoniowa
+     - fioletowy-zielony
+     - jasnoszary-czerwony
+
+3. Dodać sterowanie:
   X Wybór trybu:
     X Klasyczny
     X Obrotowa plansza (tylko dwa pierwsze poziomy)
     X Zmiana położenia bomb:
     X Narastająca liczba bomb
-  - Wybór metody wyświetlania podpowiedzi:
+  X Wybór metody wyświetlania podpowiedzi:
     X Cyfry
     X Kolory (symbol kolorów w stylu Windowsa)
     X Wskaźnik (position absolut, miernik w stylu pieca gitarowego)
-    - Skaner - klikniesz przycisk na klawce, skanuje kilka pól wokół
+    X Skaner - klikniesz przycisk na klawce, skanuje kilka pól wokół
 
-3. Opcjonalne:
+4. Opcjonalne:
   - Randomizer
   - Timer
   - Dodać komiksowy napis boom przy odkryciu bomby (bomby wybuchają, zmieniają kolor na czerwony)

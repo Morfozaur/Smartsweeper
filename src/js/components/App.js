@@ -20,7 +20,10 @@ function App() {
 
     return (
         <div className='container'>
-            <div className="test"/>
+            <div className="background">
+                <div className="background__top"/>
+                <div className="background__bottom"/>
+            </div>
             <Header/>
             <Controls/>
             <Front/>

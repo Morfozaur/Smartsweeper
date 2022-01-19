@@ -16,6 +16,9 @@
     transform-style: preserve-3d;
     transform: rotateX(19deg);
     background: $banner-lite-color;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+
   }
   &__side {
     width: 15px;
@@ -25,6 +28,14 @@
     //border-bottom: 2px solid $panel-darkest-color;
     border-left: 2px solid $panel-darkest-color;
     border-right: 2px solid $panel-darkest-color;
+    &--left {
+      border-left-width: 3px;
+      border-bottom-left-radius: 2px;
+    }
+    &--right {
+      border-right-width: 3px;
+      border-bottom-right-radius: 2px;
+    }
   }
   &__center {
     display: flex;

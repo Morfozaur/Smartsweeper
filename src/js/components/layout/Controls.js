@@ -5,7 +5,7 @@ const Controls = () => {
     return (
         <div className='controls'>
             <div className="controls__insert">
-                <div className="controls__side"/>
+                <div className="controls__side controls__side--left"/>
                 <div className="controls__center">
                     <div className="controls__menu">
                         <ControlPanel/>

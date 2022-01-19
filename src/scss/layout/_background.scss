@@ -1,0 +1,18 @@
+.background {
+  position: absolute;
+  min-height: 100vh;
+  height: 100%;
+  min-width: 100vw;
+  width: 100%;
+  &__top {
+    height: 73%;
+    background: $text-color linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.2) 50%);
+    background-size: 2px 3px;
+    border-bottom: $text-color 2px solid;
+  }
+  &__bottom {
+    height: 27%;
+    background: $panel-color linear-gradient(180deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%);
+    background-size: 3px 3px;
+  }
+}

@@ -30,9 +30,11 @@
     border-right: 2px solid $panel-darkest-color;
     &--left {
       border-top-left-radius: 20px;
+      border-left-width: 3px;
     }
     &--right {
       border-top-right-radius: 20px;
+      border-right-width: 3px;
     }
   }
   &__center {

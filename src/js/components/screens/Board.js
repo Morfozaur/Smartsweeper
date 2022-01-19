@@ -12,11 +12,11 @@ import {addMine} from "../../logic/smart/addMine";
 const Board = () => {
     const [rotateStage, setRotateStage] = useState(0);
     const {
-        board, reload, selectMode,
-        mines : {remain, total},
+        board, reload,
+        mines : {remain},
         fieldsCounter: {left, check},
         result: {resolve},
-        gameplay: {style, mode, mineLimit}} = useSelector(state => state);
+        gameplay: {style, mode}} = useSelector(state => state);
     const intervalRef = useRef(null);
 
     const dispatch = useDispatch();
