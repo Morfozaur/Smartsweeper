@@ -1,4 +1,4 @@
-0. NAPRAWIĆ WYŚIETLANIE SMARTÓW
+0. ZAMIENIĆ PX NA REM
 
 1. Skończyć logikę:
   - Dodać  scoreboard:
@@ -13,6 +13,7 @@
      - czarny-kość słoniowa
      - fioletowy-zielony
      - jasnoszary-czerwony
+   - Plakaty reklamujące  CSN i  Hexplorist
 
 3. Dodać sterowanie:
   X Wybór trybu:

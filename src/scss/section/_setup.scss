@@ -47,4 +47,10 @@
       transform: scale(.95);
     }
   }
+  @include big {
+    &__btn {
+      border-width: 0.125rem;
+      border-radius: 0.3125rem;
+    }
+  }
 }

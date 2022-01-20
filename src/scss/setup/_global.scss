@@ -1,3 +1,9 @@
+html {
+  font-size: 16px;
+  @media (min-height: 1000px) {
+    font-size: 1.6vh;
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;

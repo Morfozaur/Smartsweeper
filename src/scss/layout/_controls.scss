@@ -55,6 +55,39 @@
     width: 100%;
     background: orange;
     border-top: 2px solid $panel-darkest-color;
-
+  }
+  @include big {
+    width: 37.5rem;
+    height: 12.5rem;
+    perspective: 18.75rem;
+    &__insert {
+      width: 39.125rem;
+      height: 11.25rem;
+      top: 0.5625rem;
+      left: -0.8125rem;
+      border-bottom-left-radius: 0.375rem;
+      border-bottom-right-radius: 0.375rem;
+    }
+    &__side {
+      width: 0.9375rem;
+      border-top-width: 0.125rem;
+      border-left-width: 0.125rem;
+      border-right-width: 0.125rem;
+      &--left {
+        border-left-width: 0.1875rem;
+        border-bottom-left-radius: 0.125rem;
+      }
+      &--right {
+        border-right-width: 0.1875rem;
+        border-bottom-right-radius: 0.125rem;
+      }
+    }
+    &__center {
+      border-top-width: 0.125rem;
+    }
+    &__decor {
+      height: 3.125rem;
+      border-top-width: 0.125rem;
+    }
   }
 }

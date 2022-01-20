@@ -8,3 +8,9 @@
     opacity: .2;
   }
 }
+
+@mixin big {
+  @media (min-height: 1000px) {
+    @content;
+  }
+}

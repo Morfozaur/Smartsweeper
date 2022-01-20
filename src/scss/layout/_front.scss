@@ -1,6 +1,7 @@
 .front {
   position: relative;
   width: 580px;
+  margin: 0 auto;
   height: 110px;
   perspective: 300px;
   background: $banner-lite-color;
@@ -83,5 +84,58 @@
     height: 16px;
     background: $panel-color;
     border-bottom: 3px solid $panel-darkest-color;
+  }
+  @include big {
+    width: 36.25rem;
+    height: 6.875rem;
+    perspective: 18.75rem;
+    border-left-width: 0.1875rem;
+    border-right-width: 0.1875rem;
+    &__border {
+      width: 0.75rem;
+      &--left {
+        border-right-width: 0.125rem;
+        left: -0.0625rem;
+      }
+      &--right {
+        right: -0.0625rem;
+        border-left-width: 0.125rem;
+      }
+    }
+    &__insert {
+      height: 6.0625rem;
+      width: 40.9375rem;
+      top: -0.4375rem;
+      left: -2.5rem;
+      border-radius: 0 0 0.8125rem 0.8125rem;
+    }
+    &__side {
+      width: 0.8125rem;
+      border-bottom-width: 0.1875rem;
+      border-top-width: 0.125rem;
+      &--left {
+        border-left-width: 0.1875rem;
+        border-bottom-left-radius: 3.125rem;
+        border-top-left-radius: 0.3125rem;
+      }
+      &--right {
+        border-right-width: 0.1875rem;
+        border-bottom-right-radius: 3.125rem;
+        border-top-right-radius: 0.3125rem;
+      }
+    }
+    &__top {
+      height: 2.5rem;
+      border-width: 0.125rem;
+    }
+    &__middle {
+      border-width: 0.125rem;
+      border-bottom-right-radius: 0.625rem;
+      border-bottom-left-radius: 0.625rem;
+    }
+    &__bottom {
+      height: 1rem;
+      border-bottom-width: 0.1875rem;
+    }
   }
 }

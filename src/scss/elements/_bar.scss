@@ -29,4 +29,83 @@
       border-left: 2px solid $display-active;
     }
   }
+  &__top {
+    top: -3px;
+    left: -3px;
+  }
+  &__topL {
+    top: 5px;
+    right: 4px;
+  }
+  &__topR {
+    top: 5px;
+    left: 4px;
+  }
+  &__middle {
+    top: 13px;
+    left: -3px;
+  }
+  &__bottomR {
+    bottom: 5px;
+    left: 4px;
+  }
+  &__bottomL {
+    bottom: 5px;
+    right: 4px;
+  }
+  &__bottom {
+    bottom: -3px;
+    left: -3px;
+  }
+  @include big {
+    width: 1.125rem;
+    &__center {
+      height: 0.25rem;
+      width: 0.625rem;
+    }
+    &__arrow  {
+      border-top-width: 0.125rem;
+      border-bottom-width: 0.125rem;
+      border-right-width: 0.125rem;
+      &--right {
+        border-left-width: 0.125rem;
+      }
+    }
+    &__lighten {
+      &--left {
+        border-right-width: 0.125rem;
+      }
+      &--right {
+        border-left-width: 0.125rem;
+      }
+    }
+    &__top {
+      top: -0.1875rem;
+      left: -0.1875rem;
+    }
+    &__topL {
+      top: 0.3125rem;
+      right: 0.25rem;
+    }
+    &__topR {
+      top: 0.3125rem;
+      left: 0.25rem;
+    }
+    &__middle {
+      top: 0.8125rem;
+      left: -0.1875rem;
+    }
+    &__bottomR {
+      bottom: 0.3125rem;
+      left: 0.25rem;
+    }
+    &__bottomL {
+      bottom: 0.3125rem;
+      right: 0.25rem;
+    }
+    &__bottom {
+      bottom: -0.1875rem;
+      left: -0.1875rem;
+    }
+  }
 }

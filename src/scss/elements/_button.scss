@@ -80,4 +80,35 @@
       color: $power-off-color;
     }
   }
+  @include big {
+    box-shadow: 0 0.0625rem 0 0 $panel-color;
+    &__center {
+      top:-0.125rem;
+      left: 0.0625rem;
+      margin-bottom: 0.1875rem;
+      &:active {
+        top:-0.0625rem;
+        &:before { top: 0.125rem; }
+        &:after { bottom: 0.3125rem; }
+      }
+      &:before {
+        top: 0.1875rem;
+      }
+      &:after {
+        bottom: 0.2rem;
+        height: 0.3125rem;
+      }
+    }
+    &__symbol {
+      &--left, &--right {
+        border-width: 0.3125rem;
+      }
+      &--left {
+        border-right-width: 0.5rem;
+      }
+      &--right {
+        border-left-width: 0.5rem;
+      }
+    }
+  }
 }

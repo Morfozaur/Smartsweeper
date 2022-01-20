@@ -69,4 +69,33 @@
       transition: 0s linear .2s;
     }
   }
+  @include big {
+    padding: 0.1875rem;
+    border-width: 0.125rem;
+    &__button {
+      border-radius: 0.1875rem;
+    }
+    &__filler {
+      height: 0.3125rem;
+      width: 0.3125rem;
+      &--top {
+        top: 0.0625rem;
+        right: -0.0625rem;
+        border-top-left-radius: 0.0625rem;
+      }
+      &--bottom {
+        left: 0.0625rem;
+        bottom: -0.0625rem;
+        border-bottom-left-radius: 0.0625rem;
+      }
+    }
+    &__front {
+      top: 0.1875rem;
+      left: 0.1875rem;
+      &--on {
+        top: 0.0625rem;
+        left: 0.0625rem;
+      }
+    }
+  }
 }

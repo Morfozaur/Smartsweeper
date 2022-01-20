@@ -35,4 +35,9 @@
       background: $light-color;
     }
   }
+  @include big {
+    &__logo--span {
+      top: -0.0625rem;
+    }
+  }
 }

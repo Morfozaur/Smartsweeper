@@ -58,6 +58,31 @@
       }
     }
   }
+  @include big {
+    padding: 0.125rem;
+    border-radius: 0.1875rem;
+    &__field {
+      height: 1.1875rem;
+      width: 1.1875rem;
+      border-width: 0.0625rem;
+      border-radius: 0.1875rem;
+      box-shadow: -0.0625rem -0.0625rem 0.25rem #f4f4f4;
+      &--reveal {
+        border-width: 0.0625rem;
+        box-shadow: inset 0.3125rem 0.3125rem 0.375rem #e4d6c4,
+        inset -0.3125rem -0.3125rem 0.375rem #ffffea;
+      }
+      &--adj {
+        box-shadow: inset 0.3125rem 0.3125rem 0.375rem #e4d6c4,
+        inset -0.3125rem -0.3125rem 0.375rem #ffffea;
+      }
+      &--color::before {
+        height: 1.0625rem;
+        width: 1.0625rem;
+        border-radius: 0.1875rem;
+      }
+    }
+  }
 }
 
 @each $color in $bomb-nums {

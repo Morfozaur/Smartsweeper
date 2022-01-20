@@ -85,4 +85,38 @@
     color: $panel-color;
     text-shadow: 1px 1px  $brass-color;
   }
+  @include big {
+    height: 1.875rem;
+    width: 2.8125rem;
+    border-width: 0.125rem;
+    border-radius: 0.3125rem;
+    &:after {
+      top: -0.0625rem;
+      left: -0.0625rem;
+      height: 1.6872rem;
+      width: 2.5625rem;
+      border-width: 0.0625rem;
+    }
+    &__container {
+      height: 1.6875rem;
+      width: 2.5625rem;
+      border-radius: 0.1875rem;
+    }
+    &__plate {
+      top: 0.0625rem;
+      left: -0.5625rem;
+      height: 3.75rem;
+      width: 3.75rem;
+      border-width: 0.0625rem;
+
+    }
+    &__background {
+      border-width: 0.0625rem;
+    }
+    &__number {
+      height: 1.875rem;
+      top: -0.125rem;
+      text-shadow: 0.0625rem 0.0625rem  $brass-color;
+    }
+  }
 }

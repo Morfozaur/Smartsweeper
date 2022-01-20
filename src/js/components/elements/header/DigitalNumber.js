@@ -85,13 +85,13 @@ const DigitalNumber = ({number}) => {
 
     return (
         <div className='number'>
-            <NumberBar top={-3} left={-3} active={top}/>
-            <NumberBar top={5} right={4} rotate={true} active={topLeft}/>
-            <NumberBar top={5} left={4} rotate={true} active={topRight}/>
-            <NumberBar top={13} left={-3} active={middle}/>
-            <NumberBar bottom={5} left={4} rotate={true} active={bottomRight}/>
-            <NumberBar bottom={5} right={4} rotate={true} active={bottomLeft}/>
-            <NumberBar bottom={-3} left={-3} active={bottom}/>
+            <NumberBar top={-3} left={-3} active={top} addClass={'top'}/>
+            <NumberBar top={5} right={4} rotate={true} active={topLeft} addClass={'topL'}/>
+            <NumberBar top={5} left={4} rotate={true} active={topRight} addClass={'topR'}/>
+            <NumberBar top={13} left={-3} active={middle} addClass={'middle'}/>
+            <NumberBar bottom={5} left={4} rotate={true} active={bottomRight} addClass={'bottomR'}/>
+            <NumberBar bottom={5} right={4} rotate={true} active={bottomLeft} addClass={'bottomL'}/>
+            <NumberBar bottom={-3} left={-3} active={bottom} addClass={'bottom'}/>
         </div>
     );
 }

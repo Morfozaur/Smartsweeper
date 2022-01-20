@@ -24,9 +24,11 @@ function App() {
                 <div className="background__top"/>
                 <div className="background__bottom"/>
             </div>
-            <Header/>
-            <Controls/>
-            <Front/>
+            <div className="arcade">
+                <Header/>
+                <Controls/>
+                <Front/>
+            </div>
         </div>
   );
 }

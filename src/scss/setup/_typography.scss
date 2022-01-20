@@ -8,4 +8,7 @@ $awesome: "Font Awesome 5 Free";
 
 .fas {
   font-size: 12px;
+  @media (min-height: 1000px) {
+    font-size: 0.75rem;
+  }
 }

@@ -53,4 +53,18 @@
       transform: scale(.9);
     }
   }
+  @include big {
+    &__modal {
+      border-radius: 0.3125rem;
+    }
+    &__preview {
+      border: 0.0625rem solid $light-border-color;
+      padding: 0.125rem;
+      top: 0.3125rem;
+      right: 0.3125rem;
+    }
+    &__btn {
+      border-radius: 0.3125rem;
+    }
+  }
 }

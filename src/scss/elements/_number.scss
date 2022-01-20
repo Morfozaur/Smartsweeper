@@ -3,4 +3,9 @@
   height: 36px;
   width: 18px;
   border: 3px solid rgba(0,0,0,0);
+  @include big {
+    height: 2.25rem;
+    width: 1.125rem;
+    border-width: 0.1875rem;
+  }
 }

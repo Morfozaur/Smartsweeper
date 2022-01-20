@@ -20,4 +20,14 @@
     border-top-color: $accent-bright-color;
     border-radius: .3rem;
   }
+  @include big {
+    border-width: 0.1875rem;
+    &:after {
+      top: -0.1875rem;
+      left: -0.1875rem;
+      height: 3.0625rem;
+      width: 3.25rem;
+      border-width: 0.0625rem;
+    }
+  }
 }

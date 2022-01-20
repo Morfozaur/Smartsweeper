@@ -22,4 +22,22 @@
       transition: .5s ease-in;
     }
   }
+  @include big {
+    &__slider {
+      height: 1.375rem;
+      width: 2.625rem;
+      border-radius: 1.125rem;
+      border-width: 0.0625rem;
+    }
+    &__ball {
+      top: 0.0625rem;
+      left: 0.0625rem;
+      height: 1.125rem;
+      width: 1.125rem;
+      border-radius: 0.5625rem;
+      &--active {
+        transform: translateX(1.25rem);
+      }
+    }
+  }
 }

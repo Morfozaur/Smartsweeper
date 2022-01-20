@@ -15,4 +15,10 @@
     align-items: center;
     gap: .25rem;
   }
+  @include big {
+    height: 6.25rem;
+    border-top-width: 0.25rem;
+    border-bottom-width: 0.125rem;
+    background-size: 3.125rem 3.125rem;
+  }
 }

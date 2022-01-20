@@ -23,6 +23,7 @@ const ControlPanel = () => {
     const stylePool = ['classic', 'colors', 'detector', 'scanner'];
 
     const smartTrigger = () => {
+        console.log(window.innerHeight)
         if (power && !resolve) dispatch(selectModeSetter(!selectMode))
     };
 

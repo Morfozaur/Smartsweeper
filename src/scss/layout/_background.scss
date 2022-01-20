@@ -15,4 +15,13 @@
     background: $panel-color linear-gradient(180deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%);
     background-size: 3px 3px;
   }
+  @include big {
+    &__top {
+      background-size: 0.125rem 0.1875rem;
+      border-bottom: $text-color 0.125rem solid;
+    }
+    &__bottom {
+      background-size: 0.1875rem 0.1875rem;
+    }
+  }
 }
