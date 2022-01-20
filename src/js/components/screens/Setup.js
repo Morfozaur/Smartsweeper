@@ -32,7 +32,7 @@ const Setup = () => {
     }, [boardSize, updateDisplay])
 
     return (
-        <div className='setup'>
+        <div className='setup gui'>
             <p className='setup__header'>Set up match and press Start!</p>
             <p className="setup__text setup__text--lead">SIZE: {boardSize}x{boardSize}</p>
             <div className="setup__chosen">

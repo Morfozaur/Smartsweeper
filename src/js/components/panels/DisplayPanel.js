@@ -3,13 +3,15 @@ import Board from "../screens/Board";
 import Start from "../screens/Start";
 import {useSelector} from "react-redux";
 import Setup from "../screens/Setup";
+import Scoreboard from "../screens/Scoreboard";
 
 const DisplayPanel = () => {
     const {screen, power} = useSelector(state => state);
     const screensList = {
         start: Start,
         board: Board,
-        setup: Setup
+        setup: Setup,
+        score: Scoreboard
     };
 
     const Screen = screensList[screen];

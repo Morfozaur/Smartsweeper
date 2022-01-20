@@ -23,6 +23,9 @@ const ServicePanel = () => {
             setTone(true);
         }
         if (!power) {
+            if (localStorage.getItem("morfozaurSmartSweeper") === null) {
+
+            }
             dispatch(screenSetter('start'));
             dispatch(totalFieldsSetter({total:null, check: null}))
             await playPowerOn();

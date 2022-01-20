@@ -25,7 +25,7 @@ const Start = () => {
     };
 
     return (
-        <div className={'start'}>
+        <div className={'start gui'}>
             <p className={'start__logo'}>
                 Smart <span className={'start__logo start__logo--span'}>Sweeper</span>
             </p>
@@ -33,6 +33,9 @@ const Start = () => {
                 <p className="start__option"
                    onMouseEnter={playClick}
                    onClick={start}>NEW GAME</p>
+                <p className="start__option"
+                   onMouseEnter={playClick}
+                   onClick={()=>dispatch(screenSetter('score'))}>HIGH SCORES</p>
                 <p className="start__option"
                    onMouseEnter={playClick}>HELP</p>
                 <p className="start__option"

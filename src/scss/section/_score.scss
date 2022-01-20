@@ -1,0 +1,40 @@
+.scoreboard {
+  &__text {
+    color: $light-color;
+  }
+  &__header {
+    font-size: 2.5rem;
+  }
+  &__line {
+    width: 11rem;
+  }
+  &__menu {
+    display: flex;
+    margin-top: .5rem;
+    gap: 1rem;
+  }
+  &__selector {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    color: $light-color;
+  }
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 6rem;
+  }
+  &__button {
+    border: 6px solid transparent;
+    &--left {
+      border-right-color: $light-color;
+      border-right-width: 6px;
+    }
+    &--right {
+      border-left-color: $light-color;
+      border-left-width: 6px;
+    }
+  }
+}
