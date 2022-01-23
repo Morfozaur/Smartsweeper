@@ -2,6 +2,7 @@ import React from 'react';
 import Symbol from "../elements/Symbol";
 import SymbolArrow from "../elements/SymbolArrow";
 import ScoreboardMenu from "../elements/ScoreboardMenu";
+import ScoreboardTable from "../elements/ScoreboardTable";
 
 const Scoreboard = () => {
     console.log(localStorage)
@@ -17,6 +18,7 @@ const Scoreboard = () => {
             <p className={'scoreboard__header scoreboard__text'}>HIGH SCORES</p>
             <hr className={'scoreboard__line'}/>
             <ScoreboardMenu/>
+            <ScoreboardTable table={x}/>
         </div>
     );
 }

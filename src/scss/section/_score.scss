@@ -37,4 +37,20 @@
       border-left-width: 6px;
     }
   }
+  &__table {
+    margin-top: 1.5rem;
+    width: 20rem;
+  }
+  &__row {
+    &--head {
+      margin-bottom: 1rem;
+    }
+  }
+  &__cell {
+    width: 33%;
+    text-align: center;
+    &--head {
+      font-size: 1.5rem;
+    }
+  }
 }
