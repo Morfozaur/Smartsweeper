@@ -8,12 +8,12 @@ const ScoreboardTable = ({table}) => {
                 <th className="scoreboard__cell scoreboard__cell--head">TIME</th>
                 <th className="scoreboard__cell scoreboard__cell--head">CLICKS</th>
             </tr>
-            {table.map(score => {
+            {table.map(({name, time, clicks}) => {
                 return (
                     <tr className="scoreboard__row">
-                        <td className="scoreboard__cell">{score.a}</td>
-                        <td className="scoreboard__cell">{score.b}</td>
-                        <td className="scoreboard__cell">{score.c}</td>
+                        <td className="scoreboard__cell">{name}</td>
+                        <td className="scoreboard__cell">{time}</td>
+                        <td className="scoreboard__cell">{clicks}</td>
                     </tr>
                 )
             })}

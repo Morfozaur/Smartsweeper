@@ -1,17 +1,19 @@
 import React from 'react';
-import Symbol from "../elements/Symbol";
-import SymbolArrow from "../elements/SymbolArrow";
+
 import ScoreboardMenu from "../elements/ScoreboardMenu";
 import ScoreboardTable from "../elements/ScoreboardTable";
+import {screenSetter} from "../../redux/actions/allActions";
+import {useDispatch} from "react-redux";
 
 const Scoreboard = () => {
     console.log(localStorage)
+    const dispatch = useDispatch();
     const x = [
-        {a:'sss', b:'10h', c:100},
-        {a:'sss', b:'10h', c:100},
-        {a:'sss', b:'10h', c:100},
-        {a:'sss', b:'10h', c:100},
-        {a:'sss', b:'10h', c:100},
+        {name:'sss', time:'10h', clicks:100},
+        {name:'sss', time:'10h', clicks:100},
+        {name:'sss', time:'10h', clicks:100},
+        {name:'sss', time:'10h', clicks:100},
+        {name:'sss', time:'10h', clicks:100},
     ]
     return (
         <div className='scoreboard gui'>
@@ -19,6 +21,7 @@ const Scoreboard = () => {
             <hr className={'scoreboard__line'}/>
             <ScoreboardMenu/>
             <ScoreboardTable table={x}/>
+            <div className="scoreboard__btn" onClick={()=>dispatch(screenSetter('start'))}>Back</div>
         </div>
     );
 }

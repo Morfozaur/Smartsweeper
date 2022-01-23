@@ -10,8 +10,9 @@
   }
   &__menu {
     display: flex;
-    margin-top: .5rem;
-    gap: 1rem;
+    justify-content: space-around;
+    margin-top: 1rem;
+    width: 24rem;
   }
   &__selector {
     display: flex;
@@ -19,6 +20,14 @@
     justify-items: center;
     align-items: center;
     color: $light-color;
+    width: 33%;
+  }
+  &__lead {
+    font-size: 1.25rem;
+  }
+  &__option {
+    padding-top: .125rem;
+    font-size: 1.125rem;
   }
   &__controls {
     display: flex;
@@ -27,30 +36,56 @@
     width: 6rem;
   }
   &__button {
-    border: 6px solid transparent;
-    &--left {
-      border-right-color: $light-color;
-      border-right-width: 6px;
+    position: relative;
+    height: .75rem;
+    width: .75rem;
+    background: $light-color;
+    border-radius: 50%;
+    &::after {
+      position: absolute;
+      content: '';
+      top: .125rem;
+      border: .25rem solid transparent;
     }
-    &--right {
-      border-left-color: $light-color;
-      border-left-width: 6px;
+    &--left::after {
+      border-right-color: $text-color;
+      border-right-width: .375rem;
+      left:-.125rem;
+    }
+    &--right::after {
+      border-left-color: $text-color;
+      border-left-width: .375rem;
+      right: -.125rem;
     }
   }
   &__table {
-    margin-top: 1.5rem;
-    width: 20rem;
+    margin-top: 1rem;
+    width: 24rem;
   }
   &__row {
     &--head {
-      margin-bottom: 1rem;
+      padding-bottom: 1rem;
     }
   }
   &__cell {
     width: 33%;
+    font-size: 1.5rem;
     text-align: center;
+    padding: .125rem 0;
+    color: $light-color;
     &--head {
-      font-size: 1.5rem;
+      font-size: 2rem;
+    }
+  }
+  &__btn {
+    background: #FAEBD7FF;
+    font-size: 1.5rem;
+    padding: 0.2rem 0.5rem;
+    margin-top: 1rem;
+    border: .125rem solid #ADA28C;
+    border-radius: 0.3125rem;
+    &:active {
+      transform: scale(.95);
     }
   }
 }
