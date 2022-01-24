@@ -22,11 +22,9 @@ function App() {
     return (
         <div className='container'>
             <Background/>
-            <div className="arcade">
                 <Header/>
                 <Controls/>
                 <Front/>
-            </div>
         </div>
   );
 }

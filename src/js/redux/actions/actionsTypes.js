@@ -27,5 +27,8 @@ export const actionsTypes = {
     addField: 'HIDDEN-F-ADD',
     removeField: 'HIDDEN-F-DEL',
     increaseMinesLimit: 'MINE-LMT',
-    increaseChecker: 'CHECK-ADD'
+    increaseChecker: 'CHECK-ADD',
+    scoreSize: 'SCORE-SIZE',
+    scoreMode: 'SCORE-MODE',
+    scoreStyle: 'SCORE-STYLE'
 };

@@ -16,7 +16,8 @@ const {
     style, mode, sizeActive,
     detector,
     setHidden, addMine, removeMine, addField, removeField,
-    increaseMinesLimit, increaseChecker
+    increaseMinesLimit, increaseChecker,
+    scoreSize ,scoreMode, scoreStyle
 } = actionsTypes
 
 const setter = (type, data) => {
@@ -66,3 +67,9 @@ export const sizeConfigSetter = data => setter(sizeActive, data);
 export const modeSetter = data => setter(mode, data);
 export const styleSetter = data => setter(style, data);
 export const editableSetter = data => setter(editable, data);
+
+// SCOREBOARD SETTERS
+export const scoreSizeSetter = data => setter(scoreSize, data);
+export const scoreModeSetter = data => setter(scoreMode, data);
+export const scoreStyleSetter = data => setter(scoreStyle, data);
+// export const newHighScoreSetter = data => setter(editable, data);

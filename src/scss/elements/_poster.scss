@@ -1,17 +1,21 @@
 .poster {
   position: absolute;
-  height: 30rem;
-  width: 22rem;
+  height: 37rem;
+  width: 25rem;
   top: 50%;
   background: $light-color;
+  border: 0.0625rem solid $brass-bright-color;
+  border-right-color: $brass-color;
+  border-bottom-color: $brass-color;
+  border-radius: 2px;
   &__left {
     right: 50%;
     background: $light-color;
-    transform: translate(calc(-50% - 15rem), calc(-50% - 10rem));
+    transform: translate(calc(-50% - 14.5rem), calc(-50% - 7rem));
   }
   &__right {
     left: 50%;
     background: $light-color;
-    transform: translate(calc(50% + 15rem), calc(-50% - 10rem));
+    transform: translate(calc(50% + 14.5rem), calc(-50% - 7rem));
   }
 }

@@ -2,18 +2,24 @@
   position: absolute;
   min-height: 100vh;
   height: 100%;
-  min-width: 100vw;
   width: 100%;
+  overflow-x: hidden;
   &__top {
-    height: 73%;
-    background: $text-color linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.2) 50%);
-    background-size: 2px 3px;
-    border-bottom: $text-color 2px solid;
+    height: 77%;
+    border-bottom: $text-color 0.125rem solid;
+    background-color: $text-color;
+    background-image:
+            repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 0.0625rem, transparent 0.0625rem, transparent 3.75rem),
+            repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 0.0625rem, transparent 0.0625rem, transparent 3.75rem),
+            linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+            linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+    background-size: 4.375rem 7.5rem;
   }
   &__bottom {
-    height: 27%;
+    height: 23%;
     background: $panel-color linear-gradient(180deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%);
-    background-size: 3px 3px;
+    background-size: 0.125rem 0.125rem;
+
   }
   @include big {
     &__top {

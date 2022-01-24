@@ -6,6 +6,9 @@ import {screenSetter} from "../../redux/actions/allActions";
 import {useDispatch} from "react-redux";
 
 const Scoreboard = () => {
+    // const [scoreSize, setScoreSize] = useState(10);
+    // const [scoreMode, setScoreMode] = useState('classic');
+    // const [scoreStyle, setScoreStyle] = useState('classic');
     console.log(localStorage)
     const dispatch = useDispatch();
     const x = [
