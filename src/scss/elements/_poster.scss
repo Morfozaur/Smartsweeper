@@ -1,0 +1,17 @@
+.poster {
+  position: absolute;
+  height: 30rem;
+  width: 22rem;
+  top: 50%;
+  background: $light-color;
+  &__left {
+    right: 50%;
+    background: $light-color;
+    transform: translate(calc(-50% - 15rem), calc(-50% - 10rem));
+  }
+  &__right {
+    left: 50%;
+    background: $light-color;
+    transform: translate(calc(50% + 15rem), calc(-50% - 10rem));
+  }
+}

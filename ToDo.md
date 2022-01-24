@@ -1,9 +1,10 @@
 
 1. Skończyć logikę:
-  - Dodać  scoreboard:
-    - czas
-    - liczba min
-    - liczba kliknięć
+  - Skończyć scoreboard:
+    - Fake dane dla poszczególnych trybów (inne inicjały)
+    - Zapis danych do locala
+    - System przełączania wyświetlania tabel
+    - Wpisywanie high score po wygraniu planszy
 
 2. Dodać stylowanie przestrzeni:
    - tło

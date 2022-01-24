@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import Header from "./layout/Header";
 import Controls from "./layout/Controls";
 import Front from "./layout/Front";
+import Background from "./elements/Background";
 
 function App() {
     const dispatch = useDispatch();
@@ -20,10 +21,7 @@ function App() {
 
     return (
         <div className='container'>
-            <div className="background">
-                <div className="background__top"/>
-                <div className="background__bottom"/>
-            </div>
+            <Background/>
             <div className="arcade">
                 <Header/>
                 <Controls/>
