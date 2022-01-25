@@ -1,0 +1,28 @@
+.board {
+  &__name, &__initial  {
+    display: flex;
+    justify-content: center;
+  }
+  &__name {
+    padding: .5rem 0;
+    margin-bottom: .5rem;
+  }
+  &__letter {
+    position: relative;
+    padding: 0 .5rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+  &__arrow {
+    left: 0.25rem;
+    transform: translateX(25%);
+    position: absolute;
+    font-size: 1.5rem;
+    &--up {
+      bottom: 1.5rem;
+    }
+    &--down {
+      top: 1.5rem;
+    }
+  }
+}

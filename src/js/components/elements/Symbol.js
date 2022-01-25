@@ -14,7 +14,9 @@ const Symbol = ({type, addClass}) => {
         rise: 'angle-double-up',
         colors: 'palette',
         detector: 'tachometer-alt',
-        scanner: 'broadcast-tower'
+        scanner: 'broadcast-tower',
+        up: 'caret-up',
+        down: 'caret-down',
     }
 
     return (
