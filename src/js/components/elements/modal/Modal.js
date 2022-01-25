@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {resultCalc} from "../../logic/baseFunctions";
-import {playClick} from "../../logic/synth";
-import {thunkBoard} from "../../redux/actions/thunkBoard";
+import {resultCalc} from "../../../logic/baseFunctions";
+import {playClick} from "../../../logic/synth";
+import {thunkBoard} from "../../../redux/actions/thunkBoard";
 import {
     backlightSetter,
     endSetter,
@@ -10,11 +10,11 @@ import {
     resolveSetter,
     screenSetter,
     startSetter
-} from "../../redux/actions/allActions";
-import {defaultMines} from "../../redux/reducers/minesReducer";
-import Symbol from "./Symbol";
-import {startingMines} from "../../logic/startingMines";
-import {scoresTemplate} from "../../logic/scoresTemplate";
+} from "../../../redux/actions/allActions";
+import {defaultMines} from "../../../redux/reducers/minesReducer";
+import Symbol from "../Symbol";
+import {startingMines} from "../../../logic/startingMines";
+import {scoresTemplate} from "../../../logic/scoresTemplate";
 import ModalRecord from "./ModalRecord";
 
 export const Modal = ({type}) => {

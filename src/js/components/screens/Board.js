@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Field from "../elements/Field";
 import {useDispatch, useSelector} from "react-redux";
 import {boardSetter, reloadSetter, resolveSetter} from "../../redux/actions/allActions";
-import {Modal} from "../elements/Modal";
+import {Modal} from "../elements/modal/Modal";
 import {revealAll} from "../../logic/revealAll";
 import {playWin} from "../../logic/synth";
 import Detector from "../elements/Detector";

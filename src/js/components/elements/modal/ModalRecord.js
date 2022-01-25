@@ -1,5 +1,5 @@
 import React from 'react';
-import Symbol from "./Symbol";
+import Symbol from "../Symbol";
 import RecordLetter from "./RecordLetter";
 
 const ModalRecord = ({name, setName}) => {
