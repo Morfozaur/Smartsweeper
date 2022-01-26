@@ -8,6 +8,8 @@ import {playWin} from "../../logic/synth";
 import Detector from "../elements/Detector";
 import {moveMine} from "../../logic/smart/moveMine";
 import {addMine} from "../../logic/smart/addMine";
+import ModalRecord from "../elements/modal/ModalRecord";
+import {recordChecker} from "../../logic/recordChecker";
 
 const Board = () => {
     const [rotateStage, setRotateStage] = useState(0);
@@ -24,7 +26,14 @@ const Board = () => {
     const winChecker = useCallback(async () => {
         await revealAll();
         playWin();
-        setTimeout(() => dispatch(resolveSetter('win')), 2000);
+        setTimeout(() => {
+            const record = recordChecker();
+            if (record) {
+                dispatch(resolveSetter('record'))
+            } else {
+                dispatch(resolveSetter('win'))
+            }
+        }, 2000);
     },[dispatch]);
 
     useEffect(()=> {
@@ -100,6 +109,7 @@ const Board = () => {
                         </div>
                     )
                 })}
+                {resolve === 'record' && <ModalRecord/>}
                 {resolve === 'win' && <Modal type={'win'}/>}
                 {resolve === 'over' && <Modal type={'over'}/>}
             </div>

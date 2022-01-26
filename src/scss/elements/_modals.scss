@@ -8,6 +8,10 @@
     left: 50%;
     width: 14rem;
   }
+  &__record {
+    background: $light-color;
+    border: 0.125rem solid $light-border-color;
+  }
   &__preview {
     background: white;
     border-radius: 50%;

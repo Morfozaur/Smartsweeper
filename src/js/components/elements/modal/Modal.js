@@ -14,35 +14,11 @@ import {
 import {defaultMines} from "../../../redux/reducers/minesReducer";
 import Symbol from "../Symbol";
 import {startingMines} from "../../../logic/startingMines";
-import {scoresTemplate} from "../../../logic/scoresTemplate";
-import ModalRecord from "./ModalRecord";
 
 export const Modal = ({type}) => {
-    const [name, setName] = useState([65, 65, 65])
     const [visibility, setVisibility] = useState(1);
-    const {gameplay: {boardSize, mode, style}, result: {time} } = useSelector(state => state);
+    const {gameplay: {boardSize}, result: {time} } = useSelector(state => state);
     const dispatch = useDispatch();
-
-
-    const sizeKey = boardSize === 10 ? 's' : (boardSize === 15 ? 'm' : 'l');
-    console.log(scoresTemplate[sizeKey][mode][style]);
-    const current = scoresTemplate[sizeKey][mode][style].filter(el => el.time > 0)
-    const newScoreboard = [];
-    let pusher = false;
-    current.forEach(score => {
-        if (score.time > time && !pusher) {
-            newScoreboard.push({name: 'xxx', time, clicks: 12});
-            newScoreboard.push(score)
-            pusher = true;
-        } else {
-            newScoreboard.push(score)
-        }
-    })
-
-    if (newScoreboard.length > 5) newScoreboard.length = 5;
-    console.log(newScoreboard)
-
-
 
     const mainMenu = () => {
         dispatch(minesSetter(defaultMines));
@@ -70,13 +46,14 @@ export const Modal = ({type}) => {
     const opStyle = {opacity: visibility};
     const bgStyle = {
         backgroundColor: `rgba(250, 235, 215, ${visibility})`,
-        border: `2px solid rgba(210, 190, 150, ${visibility})`};
+        border: `0.125rem solid rgba(210, 190, 150, ${visibility})`};
 
     return (
         <div className={'board__modal'} style={bgStyle}>
             <p className={'board__header'} style={opStyle}>{header[type]}</p>
-            <p className={'board__text'} style={opStyle}>{text[type]} <span className={'board__bolded'}>{resultCalc(time)}</span>!</p>
-            {type === 'over' && <ModalRecord name={name} setName={setName}/>}
+            <p className={'board__text'} style={opStyle}>
+                {text[type]} <span className={'board__bolded'}>{resultCalc(time)}</span>!
+            </p>
             <div className="board__buttons" style={opStyle}>
                 <div className="board__btn"
                      onClick={restart}
