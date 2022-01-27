@@ -1,7 +1,8 @@
 import * as Tone from "tone";
 
 export const playStart = async () => {
-    const synth = new Tone.Synth().toDestination();
+    const vol = new Tone.Volume(-20).toDestination();
+    const synth = new Tone.Synth().connect(vol);
     const now = Tone.now();
     synth.triggerAttackRelease("C4", 0.125, now)
     synth.triggerAttackRelease("E4", 0.125, now + 0.125)
@@ -9,7 +10,8 @@ export const playStart = async () => {
 }
 
 export const playReveal = async () => {
-    const synth = new Tone.Synth().toDestination();
+    const vol = new Tone.Volume(-20).toDestination();
+    const synth = new Tone.Synth().connect(vol);
     synth.triggerAttackRelease("G3", .125);
 
 }
@@ -32,7 +34,7 @@ export const playPowerOn = async () => {
 }
 
 export const playPowerOff = async () => {
-    const vol = new Tone.Volume(-40).toDestination();
+    const vol = new Tone.Volume(-30).toDestination();
     const synth = new Tone.Oscillator("G4").connect(vol);
     synth.frequency.rampTo("G3", 0.35);
     synth.start();
@@ -40,7 +42,8 @@ export const playPowerOff = async () => {
 };
 
 export const playBomb = async () => {
-    const synth = new Tone.Synth().toDestination();
+    const vol = new Tone.Volume(-10).toDestination();
+    const synth = new Tone.Synth().connect(vol);
     const now = Tone.now();
     synth.triggerAttackRelease("G2", 0.125, now)
     synth.triggerAttackRelease("E2", 0.125, now + 0.125)
@@ -48,7 +51,8 @@ export const playBomb = async () => {
 }
 
 export const playWin = () => {
-    const synth = new Tone.Synth().toDestination();
+    const vol = new Tone.Volume(-10).toDestination();
+    const synth = new Tone.Synth().connect(vol);
     const now = Tone.now() + 0.25;
     synth.triggerAttackRelease("E3", 0.125, now);
     synth.triggerAttackRelease("C4", 0.125, now + 0.125);
@@ -75,7 +79,7 @@ export const playFlag = async () => {
 };
 
 export const playClick = () => {
-    const vol = new Tone.Volume(-20).toDestination();
+    const vol = new Tone.Volume(-30).toDestination();
     const synth = new Tone.MembraneSynth().connect(vol);
     synth.triggerAttackRelease("C2", "8n");
 };

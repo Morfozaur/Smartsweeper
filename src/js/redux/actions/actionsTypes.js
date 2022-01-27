@@ -30,5 +30,7 @@ export const actionsTypes = {
     increaseChecker: 'CHECK-ADD',
     scoreSize: 'SCORE-SIZE',
     scoreMode: 'SCORE-MODE',
-    scoreStyle: 'SCORE-STYLE'
+    scoreStyle: 'SCORE-STYLE',
+    clickCounter: 'COUNT-CLICK',
+    newGame: 'RESET'
 };

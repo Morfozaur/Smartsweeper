@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ScoreboardMenu = () => {
+const ScoreboardMenu = ({controls}) => {
     return (
         <div className="scoreboard__menu">
             <div className="scoreboard__selector">

@@ -1,0 +1,13 @@
+.hexplorist {
+  &__logo {
+    font-family: $sigmar;
+    text-align: center;
+    font-size: 2.5rem;
+    color: $dark-hex;
+    text-shadow: 0 0 2px #404040, 0 0 2px #000;
+    user-select: none;
+    &--span {
+      color: $light-hex;
+    }
+  }
+}

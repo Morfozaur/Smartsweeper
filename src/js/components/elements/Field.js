@@ -7,7 +7,7 @@ import {
     reloadSetter,
     reduceMinesToFindSetter,
     addFlagSetter,
-    removeFlagSetter, revealFieldSetter, resolveSetter, detectorSetter, removeFieldListSetter
+    removeFlagSetter, revealFieldSetter, resolveSetter, detectorSetter, removeFieldListSetter, clickAddSetter
 } from "../../redux/actions/allActions";
 import Symbol from "./Symbol";
 import {playBomb, playFlag, playReveal} from "../../logic/synth";
@@ -30,6 +30,7 @@ const Field = ({row, col, field}) => {
     const action = async () => {
         revealAdjacent(board, col, row)
         if (selectMode === false && !visible) {
+            dispatch(clickAddSetter());
             if (!bomb) await playReveal();
             if (board[col][row].flag) {
                 board[col][row].flag = false;
@@ -52,6 +53,7 @@ const Field = ({row, col, field}) => {
             }
         } else if (selectMode) {
             if (board[col][row].visible === false) {
+                dispatch(clickAddSetter());
                 await playFlag();
                 const {flag, question} = board[col][row]
                 let fieldCase = 'neutral';

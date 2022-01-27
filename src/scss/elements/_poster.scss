@@ -1,5 +1,9 @@
 .poster {
   position: absolute;
+  //display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
   height: 37rem;
   width: 25rem;
   top: 50%;
@@ -8,13 +12,52 @@
   border-right-color: $brass-color;
   border-bottom-color: $brass-color;
   border-radius: 2px;
+  &__insert {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    height: 35rem;
+    width: 23rem;
+    &--left {
+      background: $background-hex;
+      border: 0.1875rem solid $border-hex;
+    }
+  }
+  &__corner {
+    position: absolute;
+    height: 0.5625rem;
+    width: 0.5625rem;
+    border: 0.1875rem solid $border-hex;
+    &--TL {
+      top: -0.5625rem;
+      left: -0.5625rem;
+    }
+    &--TR {
+      top: -0.5625rem;
+      right: -0.5625rem;
+    }
+    &--BL {
+      bottom: -0.5625rem;
+      left: -0.5625rem;
+    }
+    &--BR {
+      bottom: -0.5625rem;
+      right: -0.5625rem;
+    }
+  }
   &__left {
-    right: 50%;
+    //right: 50%;
+    right: 5%;
+    z-index: 1;
     background: $light-color;
     transform: translate(calc(-50% - 14.5rem), calc(-50% - 7rem));
   }
   &__right {
-    left: 50%;
+    //left: 50%;
+    left: 5%;
+    z-index: 1;
     background: $light-color;
     transform: translate(calc(50% + 14.5rem), calc(-50% - 7rem));
   }

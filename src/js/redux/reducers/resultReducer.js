@@ -4,13 +4,18 @@ const defaultState = {
     resolve: 'init',
     start: null,
     end: null,
-    time: 0
+    time: 0,
+    clicks: 0
 }
 
-const { resolve, start, end} = actionsTypes
+const { resolve, start, end, clickCounter, newGame} = actionsTypes
 
 export const resultReducer = (state = defaultState, {type, payload}) => {
     switch (type) {
+        case newGame:
+            return {...defaultState, resolve: false};
+        case clickCounter:
+            return {...state, clicks: state.clicks + 1};
         case resolve:
             return {...state, resolve: payload};
         case start:

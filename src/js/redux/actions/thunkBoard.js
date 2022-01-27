@@ -2,7 +2,7 @@ import {boarding} from "../../logic/boarding";
 import {playStart} from "../../logic/synth";
 import {
     boardSetter, detectorSetter, editableSetter,
-    minesSetter,
+    minesSetter, newGameSetter,
     resolveSetter,
     screenSetter, setHiddenSetter,
     startSetter,
@@ -19,9 +19,9 @@ export const thunkBoard = (mines) => {
         dispatch(minesSetter({total: mines, remain: mines, flagged: 0}));
         dispatch(screenSetter('board'));
         dispatch(editableSetter(false));
-        dispatch(resolveSetter(false));
-        dispatch(detectorSetter(0))
-        dispatch(setHiddenSetter(fieldsManager))
+        dispatch(detectorSetter(0));
+        dispatch(newGameSetter());
+        dispatch(setHiddenSetter(fieldsManager));
         dispatch(startSetter(new Date().getTime()));
     }
 };

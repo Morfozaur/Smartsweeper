@@ -17,7 +17,8 @@ const {
     detector,
     setHidden, addMine, removeMine, addField, removeField,
     increaseMinesLimit, increaseChecker,
-    scoreSize ,scoreMode, scoreStyle
+    scoreSize ,scoreMode, scoreStyle,
+    clickCounter, newGame
 } = actionsTypes
 
 const setter = (type, data) => {
@@ -44,6 +45,8 @@ export const addFlagSetter = () => setter(addFlag);
 export const removeFlagSetter = () => setter(removeFlag);
 export const totalFieldsSetter = data => setter(totalFields, data);
 export const revealFieldSetter = () => setter(revealField);
+export const clickAddSetter = () => setter(clickCounter);
+export const newGameSetter = () => setter(newGame);
 
 // SMART HELPERS
 export const setHiddenSetter = data => setter(setHidden, data);

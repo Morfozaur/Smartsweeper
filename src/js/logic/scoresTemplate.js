@@ -1,14 +1,7 @@
 const temp = [
-    {name:'AAA', time: 1, clicks: 1000},
-    {name:'AAA', time: 2, clicks: 1000},
-    {name:'AAA', time: 3, clicks: 1000},
-    {name:'AAA', time: 4, clicks: 1000},
-    {name:'AAA', time: 5, clicks: 1000},
     {name:'AAA', time: 36059.99, clicks: 1000},
     {name:'AAB', time: 36059.99, clicks: 1000},
     {name:'ABC', time: 36059.99, clicks: 1000},
-    {name:'---', time: 0, clicks: '---'},
-    {name:'---', time: 0, clicks: '---'}
 ]
 
 const scoresGroup = {

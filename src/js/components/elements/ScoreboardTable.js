@@ -1,7 +1,11 @@
 import React from 'react';
 import {resultCalc} from "../../logic/baseFunctions";
+import EmptyScore from "./EmptyScore";
 
-const ScoreboardTable = ({table}) => {
+const ScoreboardTable = ({table, size, mode, style}) => {
+
+    const currScore = table[size][mode][style];
+
     return (
         <table className="scoreboard__table">
             <thead>
@@ -12,7 +16,7 @@ const ScoreboardTable = ({table}) => {
                 </tr>
             </thead>
             <tbody>
-                {table.map(({name, time, clicks},idx) => {
+                {currScore.map(({name, time, clicks},idx) => {
                     return (
                         <tr key={`${name}-${idx}`} className="scoreboard__row">
                             <td className="scoreboard__cell">{name}</td>
@@ -21,6 +25,8 @@ const ScoreboardTable = ({table}) => {
                         </tr>
                     )
                 })}
+                {currScore.length < 4 && <EmptyScore/>}
+                {currScore.length < 5 && <EmptyScore/>}
             </tbody>
         </table>
     );
