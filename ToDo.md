@@ -1,4 +1,4 @@
-0. Przekazać record.data do state'a i w ModalRecord po naciśnięciu tak - zapisać do globalnych wyników
+0. Po wprowadzeniu rekordu - zapisać do localStage'a za pomocą recordSettera
 
 
 1. Skończyć logikę:

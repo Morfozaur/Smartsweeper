@@ -1,33 +1,31 @@
 import {store} from "../redux/store";
+import {loadScores} from "./loadScores";
+import {codeToName, sizeToLetter} from "./baseFunctions";
 
-export const recordSetter = () => {
+export const recordSetter = (name) => {
     const {
         gameplay: {boardSize, mode, style},
         result: {time, clicks}
     } = store.getState();
 
-
-    console.log(scoresTemplate[sizeKey][mode][style], 'tempka', time);
-    const current = scoresTemplate[sizeKey][mode][style].filter(el => el.time > 0)
-    const newScoreboard = [];
-    let pusher = false;
-
-    current.forEach(score => {
-        if (score.time >= time && !pusher) {
-            if (score.time === time && score.clicks < clicks) {
-                newScoreboard.push(score);
-                newScoreboard.push({name: 'PASS', time: time, clicks: 12});
+    const scores = loadScores();
+    const sizeKey = sizeToLetter(boardSize);
+    const current = scores[sizeKey][mode][style];
+    console.log(current);
+    const newRecord = {name: codeToName(name), time: time, clicks: clicks}
+    for (let i = 0; i < current.length; i++) {
+        if (current[i].time >= time) {
+            if (current[i].time === time && current[i].clicks <= clicks) {
+                current.splice(i + 1, 0, newRecord);
             } else {
-                newScoreboard.push({name: 'PASS', time: time, clicks: 12});
-                newScoreboard.push(score);
+                current.splice(i, 0, newRecord);
             }
-            pusher = true;
-        } else {
-            newScoreboard.push(score);
+            break;
         }
-    })
+    }
 
-    if (newScoreboard.length > 5) newScoreboard.length = 5;
-    const check = newScoreboard.some(el => el.name === 'PASS');
-    return {check: check, data: check ? newScoreboard : null};
+    console.log(current)
+
+    // if (newScoreboard.length > 5) newScoreboard.length = 5;
+    // console.log(newScoreboard)
 };

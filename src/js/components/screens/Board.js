@@ -11,7 +11,7 @@ import {addMine} from "../../logic/smart/addMine";
 import ModalRecord from "../elements/modal/ModalRecord";
 import {recordChecker} from "../../logic/recordChecker";
 import {loadScores} from "../../logic/loadScores";
-import {scoresTemplate} from "../../logic/scoresTemplate";
+import {sizeToLetter} from "../../logic/baseFunctions";
 
 const Board = () => {
     const [rotateStage, setRotateStage] = useState(0);
@@ -19,7 +19,7 @@ const Board = () => {
         board, reload,
         mines : {remain},
         fieldsCounter: {left, check},
-        result: {resolve, time},
+        result: {resolve},
         gameplay: {boardSize, style, mode}} = useSelector(state => state);
     const state = useSelector(state => state);
     const intervalRef = useRef(null);
@@ -31,7 +31,7 @@ const Board = () => {
         playWin();
         setTimeout(() => {
             const scores = loadScores();
-            const sizeKey = boardSize === 10 ? 's' : (boardSize === 15 ? 'm' : 'l');
+            const sizeKey = sizeToLetter(boardSize);
             const table = scores[sizeKey][mode][style];
             const checker = recordChecker(table)
 

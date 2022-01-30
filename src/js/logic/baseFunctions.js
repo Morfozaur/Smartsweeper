@@ -6,6 +6,15 @@ export const resultCalc = (total) => {
     return minutes === 0 ? `${seconds}s` :`${minutes}min ${seconds.toFixed(2)}s`
 }
 
+export const sizeToLetter = (boardSize) => {
+    return boardSize === 10 ? 's' : (boardSize === 15 ? 'm' : 'l');
+};
+
 export const filterMineArray = (el, payload) => {
     return el[0] !== payload[0] || el[1] !== payload[1]
+};
+
+export const codeToName = (arr) => {
+    console.log(...arr)
+    return String.fromCharCode(...arr)
 };
