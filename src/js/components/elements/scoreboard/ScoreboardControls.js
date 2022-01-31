@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {firstBig} from "../../../logic/baseFunctions";
 import {useDispatch, useSelector} from "react-redux";
 import {scoreModeSetter, scoreSizeSetter, scoreStyleSetter} from "../../../redux/actions/allActions";

@@ -1,4 +1,5 @@
 import React from 'react';
+import HexHeader from "./HexHeader";
 
 const PosterHex = () => {
     return (
@@ -8,7 +9,7 @@ const PosterHex = () => {
                 <div className="poster__corner poster__corner--TR"/>
                 <div className="poster__corner poster__corner--BL"/>
                 <div className="poster__corner poster__corner--BR"/>
-                <h2 className="hexplorist__logo"><span className="hexplorist__logo hexplorist__logo--span">Hex</span>plorist</h2>
+                <HexHeader/>
             </div>
         </div>
     );

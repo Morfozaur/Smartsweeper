@@ -1,5 +1,5 @@
 import React from 'react';
-import PosterHex from "./background/PosterHex";
+import PosterHex from "./background/hex-poster/PosterHex";
 import PosterCsn from "./background/PosterCsn";
 
 const Background = () => {

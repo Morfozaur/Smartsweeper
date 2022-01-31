@@ -23,11 +23,10 @@
   }
   @include big {
     &__top {
-      background-size: 0.125rem 0.1875rem;
       border-bottom: $text-color 0.125rem solid;
     }
     &__bottom {
-      background-size: 0.1875rem 0.1875rem;
+      background-size: 0.1875rem 0.1875rem
     }
   }
 }

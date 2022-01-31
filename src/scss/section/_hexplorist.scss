@@ -1,13 +1,40 @@
 .hexplorist {
+  &__frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $button-hex;
+    border: .125rem solid $dark-hex;
+    border-radius: 0.3125rem;
+  }
+  &__header {
+    flex-direction: column;
+    width: 19.5rem;
+    padding: .5rem;
+    margin-top: 1rem;
+  }
   &__logo {
     font-family: $sigmar;
     text-align: center;
     font-size: 2.5rem;
+    line-height: 2.5rem;
     color: $dark-hex;
-    text-shadow: 0 0 2px #404040, 0 0 2px #000;
+    text-shadow: 0 0 .125rem #404040, 0 0 .125rem #000;
     user-select: none;
     &--span {
       color: $light-hex;
     }
+  }
+  &__lead {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 17.25rem;
+  }
+  &__subtitle {
+    font-family: $orbitron;
+    font-weight: 800;
+    color: $light-hex;
+    text-shadow: 0 0 .125rem $background-hex, 0 0 .125rem $dark-hex;
   }
 }

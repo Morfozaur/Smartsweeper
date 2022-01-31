@@ -21,9 +21,3 @@ const ScoreboardMenu = () => {
 }
 
 export default ScoreboardMenu;
-
-const sets = {
-    size: ['s', 'm', 'l'],
-    mode: ['classic', 'rotating', 'rise', 'smart'],
-    style: ['classic', 'colors', 'detector', 'scanner'],
-}

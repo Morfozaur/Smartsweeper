@@ -41,9 +41,8 @@ const Start = () => {
                    onMouseEnter={playClick}
                    onClick={highScore}>HIGH SCORES</p>
                 <p className="start__option"
-                   onMouseEnter={playClick}>HELP</p>
-                <p className="start__option"
-                   onMouseEnter={playClick}>ABOUT</p>
+                   onMouseEnter={playClick}
+                   onClick={()=>dispatch(screenSetter('about'))}>ABOUT</p>
             </div>
         </div>
     );
