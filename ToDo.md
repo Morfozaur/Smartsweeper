@@ -1,4 +1,4 @@
-0. Po wprowadzeniu rekordu - zapisać do localStage'a za pomocą recordSettera
+0. Dodać current high score do reduxa
 
 
 1. Skończyć logikę:

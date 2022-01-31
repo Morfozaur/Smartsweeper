@@ -1,13 +1,9 @@
 import React from 'react';
 import classNames from "classnames";
 
-const NumberBar = ({active, top, left, right, bottom, rotate, addClass}) => {
+const NumberBar = ({active, rotate, addClass}) => {
 
     const barPosition = {}
-    // if (top) barPosition.top = `${top}px`;
-    // if (bottom) barPosition.bottom = `${bottom}px`;
-    // if (left) barPosition.left = `${left}px`;
-    // if (right) barPosition.right = `${right}px`;
     if (rotate) barPosition.transform = `rotate(90deg)`;
 
     return (

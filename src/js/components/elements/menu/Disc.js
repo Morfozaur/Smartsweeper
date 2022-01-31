@@ -26,11 +26,11 @@ const Disc = ({value, setter, pool, type, active, ico}) => {
                     setCurrState(pool.length - 1);
                     setter(pool[pool.length - 1]);
                 }
-            } else if (type === 'Mode' && boardSize === 20 && currState === 3) {
+            } else if (type === 'Mode' && boardSize === 20 && mode === 'rise') {
                 setCurrState(1);
                 setter(pool[1]);
                 rotatingMod +=1;
-            } else if (type === 'Mode' && currState === 2 && style !== 'detector') {
+            } else if (type === 'Mode' && mode === 'rotating' && style !== 'detector') {
                 setCurrState(0);
                 setter(pool[0]);
                 rotatingMod +=1;
@@ -53,15 +53,15 @@ const Disc = ({value, setter, pool, type, active, ico}) => {
             if (currState === pool.length - 1) {
                 setCurrState(0);
                 setter(pool[0]);
-            } else if (type === 'Size' && mode === 'rotating' && currState === 1) {
+            } else if (type === 'Size' && mode === 'rotating' && boardSize === 15) {
                 setCurrState(0);
                 setter(pool[0]);
                 rotatingMod += 1;
-            } else if (type === 'Mode' && boardSize === 20 && currState === 1) {
+            } else if (type === 'Mode' && boardSize === 20 && mode === 'smart') {
                 setCurrState(3);
                 setter(pool[3]);
                 rotatingMod += 1;
-            } else if (type === 'Mode' && currState === 0 && style !== 'detector') {
+            } else if (type === 'Mode' && mode === 'classic' && style !== 'detector') {
                 setCurrState(2);
                 setter(pool[2]);
                 rotatingMod += 1;

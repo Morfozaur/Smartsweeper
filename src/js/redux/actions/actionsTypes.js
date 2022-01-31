@@ -31,6 +31,7 @@ export const actionsTypes = {
     scoreSize: 'SCORE-SIZE',
     scoreMode: 'SCORE-MODE',
     scoreStyle: 'SCORE-STYLE',
+    scoreDefault: 'SCORE-DEFAULT',
     clickCounter: 'COUNT-CLICK',
     newGame: 'RESET'
 };

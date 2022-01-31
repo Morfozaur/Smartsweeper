@@ -1,9 +1,12 @@
 import React from 'react';
-import {resultCalc} from "../../logic/baseFunctions";
-import EmptyScore from "./EmptyScore";
+import {resultCalc} from "../../../logic/baseFunctions";
+import EmptyScore from "../EmptyScore";
+import {useSelector} from "react-redux";
+import {loadScores} from "../../../logic/loadScores";
 
-const ScoreboardTable = ({table, size, mode, style}) => {
-
+const ScoreboardTable = () => {
+    const {size, mode, style} = useSelector(state => state.scoreboard);
+    const table = loadScores();
     const currScore = table[size][mode][style];
 
     return (

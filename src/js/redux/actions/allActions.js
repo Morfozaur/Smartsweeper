@@ -17,7 +17,7 @@ const {
     detector,
     setHidden, addMine, removeMine, addField, removeField,
     increaseMinesLimit, increaseChecker,
-    scoreSize ,scoreMode, scoreStyle,
+    scoreSize ,scoreMode, scoreStyle, scoreDefault,
     clickCounter, newGame
 } = actionsTypes
 
@@ -75,4 +75,4 @@ export const editableSetter = data => setter(editable, data);
 export const scoreSizeSetter = data => setter(scoreSize, data);
 export const scoreModeSetter = data => setter(scoreMode, data);
 export const scoreStyleSetter = data => setter(scoreStyle, data);
-// export const newHighScoreSetter = data => setter(editable, data);
+export const scoreDefaultSetter = () => setter(scoreDefault);

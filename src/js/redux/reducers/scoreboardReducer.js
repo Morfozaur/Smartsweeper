@@ -1,12 +1,12 @@
 import {actionsTypes} from "../actions/actionsTypes";
 
 export const scoreboard = {
-    size: null,
-    mode: null,
-    style: null
+    size: 's',
+    mode: 'classic',
+    style: 'classic'
 }
 
-const {scoreSize ,scoreMode, scoreStyle} = actionsTypes
+const {scoreSize ,scoreMode, scoreStyle, scoreDefault} = actionsTypes
 
 export const scoreboardReducer = (state = scoreboard, {type, payload}) => {
     switch (type) {
@@ -19,6 +19,8 @@ export const scoreboardReducer = (state = scoreboard, {type, payload}) => {
         case scoreStyle:
             return {...state,
                 style: payload};
+        case scoreDefault:
+            return scoreboard;
         default:
             return state;
     }

@@ -5,8 +5,6 @@ export const loadScores = () => {
         localStorage.setItem("smartScore", JSON.stringify(scoresTemplate))
         return scoresTemplate
     } else {
-        // localStorage.setItem("smartScore", JSON.stringify(scoresTemplate))
-        // return scoresTemplate
         return JSON.parse(localStorage.getItem("smartScore"));
     }
 };

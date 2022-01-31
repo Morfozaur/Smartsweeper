@@ -5,12 +5,11 @@ import {
     backlightSetter,
     boardSetter,
     editableSetter,
-    minesSetter,
+    minesSetter, scoreDefaultSetter,
     screenSetter,
     totalFieldsSetter
 } from "../../redux/actions/allActions";
 import {allFields} from "../../redux/reducers/boardFieldsReducer";
-
 
 const Start = () => {
     const dispatch = useDispatch();
@@ -24,6 +23,11 @@ const Start = () => {
         dispatch(totalFieldsSetter(allFields))
     };
 
+    const highScore = () => {
+        dispatch(scoreDefaultSetter())
+        dispatch(screenSetter('score'))
+    }
+
     return (
         <div className={'start gui'}>
             <p className={'start__logo'}>
@@ -35,7 +39,7 @@ const Start = () => {
                    onClick={start}>NEW GAME</p>
                 <p className="start__option"
                    onMouseEnter={playClick}
-                   onClick={()=>dispatch(screenSetter('score'))}>HIGH SCORES</p>
+                   onClick={highScore}>HIGH SCORES</p>
                 <p className="start__option"
                    onMouseEnter={playClick}>HELP</p>
                 <p className="start__option"

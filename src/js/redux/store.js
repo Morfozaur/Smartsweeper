@@ -11,6 +11,7 @@ import thunk from "redux-thunk";
 import {settingsReducer} from "./reducers/settingsReducer";
 import {gameplayReducer} from "./reducers/gameplayReducer";
 import {hiddenReducer} from "./reducers/hiddenReducer";
+import {scoreboardReducer} from "./reducers/scoreboardReducer";
 
 const allReducers = combineReducers({
     screen: screenReducer,
@@ -23,7 +24,8 @@ const allReducers = combineReducers({
     result: resultReducer,
     settings: settingsReducer,
     gameplay: gameplayReducer,
-    smart: hiddenReducer
+    smart: hiddenReducer,
+    scoreboard: scoreboardReducer
 });
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
