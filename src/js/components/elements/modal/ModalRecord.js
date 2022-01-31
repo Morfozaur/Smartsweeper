@@ -4,6 +4,7 @@ import {playClick} from "../../../logic/synth";
 import {useDispatch, useSelector} from "react-redux";
 import {resultCalc} from "../../../logic/baseFunctions";
 import {recordSetter} from "../../../logic/recordSetter";
+import {resolveSetter} from "../../../redux/actions/allActions";
 
 const ModalRecord = () => {
     const [name, setName] = useState([65, 65, 65]);
@@ -12,7 +13,7 @@ const ModalRecord = () => {
 
     const setRecord = () => {
         recordSetter(name);
-        // dispatch(resolveSetter('win'))
+        dispatch(resolveSetter('win'));
     };
 
     return (

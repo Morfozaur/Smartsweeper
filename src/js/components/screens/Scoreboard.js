@@ -4,7 +4,6 @@ import ScoreboardMenu from "../elements/ScoreboardMenu";
 import ScoreboardTable from "../elements/ScoreboardTable";
 import {screenSetter} from "../../redux/actions/allActions";
 import {useDispatch} from "react-redux";
-import {scoresTemplate} from "../../logic/scoresTemplate";
 import {loadScores} from "../../logic/loadScores";
 
 const Scoreboard = () => {

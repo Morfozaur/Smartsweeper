@@ -11,7 +11,6 @@ export const recordSetter = (name) => {
     const scores = loadScores();
     const sizeKey = sizeToLetter(boardSize);
     const current = scores[sizeKey][mode][style];
-    console.log(current);
     const newRecord = {name: codeToName(name), time: time, clicks: clicks}
     for (let i = 0; i < current.length; i++) {
         if (current[i].time >= time) {
@@ -23,9 +22,6 @@ export const recordSetter = (name) => {
             break;
         }
     }
-
-    console.log(current)
-
-    // if (newScoreboard.length > 5) newScoreboard.length = 5;
-    // console.log(newScoreboard)
+    scores[sizeKey][mode][style] = current
+    localStorage.setItem("smartScore", JSON.stringify(scores))
 };

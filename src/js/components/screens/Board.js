@@ -21,7 +21,6 @@ const Board = () => {
         fieldsCounter: {left, check},
         result: {resolve},
         gameplay: {boardSize, style, mode}} = useSelector(state => state);
-    const state = useSelector(state => state);
     const intervalRef = useRef(null);
 
     const dispatch = useDispatch();
@@ -34,15 +33,13 @@ const Board = () => {
             const sizeKey = sizeToLetter(boardSize);
             const table = scores[sizeKey][mode][style];
             const checker = recordChecker(table)
-
-
             if (checker) {
                 dispatch(resolveSetter('record'));
             } else {
                 dispatch(resolveSetter('win'))
             }
         }, 2000);
-    },[dispatch]);
+    },[dispatch, boardSize, mode, style]);
 
     useEffect(()=> {
         (async function() {

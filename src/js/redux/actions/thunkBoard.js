@@ -3,7 +3,6 @@ import {playStart} from "../../logic/synth";
 import {
     boardSetter, detectorSetter, editableSetter,
     minesSetter, newGameSetter,
-    resolveSetter,
     screenSetter, setHiddenSetter,
     startSetter,
     totalFieldsSetter
