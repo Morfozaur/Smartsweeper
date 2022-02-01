@@ -1,5 +1,7 @@
 import React from 'react';
 import HexHeader from "./HexHeader";
+import HexBoard from "./HexBoard";
+import Avatar from "./Avatar";
 
 const PosterHex = () => {
     return (
@@ -10,6 +12,8 @@ const PosterHex = () => {
                 <div className="poster__corner poster__corner--BL"/>
                 <div className="poster__corner poster__corner--BR"/>
                 <HexHeader/>
+                <HexBoard/>
+                <Avatar/>
             </div>
         </div>
     );

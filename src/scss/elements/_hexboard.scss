@@ -1,0 +1,67 @@
+.hexplorist {
+  &__board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    width: 19.5rem;
+    height: 19.5rem;
+    margin: 1rem;
+    background: $button-dark-hex;
+    border: .125rem solid $dark-hex;
+    border-radius: 0.3125rem;
+  }
+  &__hex, &__hex::after, &__hex::before {
+    border-radius: .5rem / .25rem;
+    width: 2rem;
+    height: 3.464em;
+    //height: 8.66024em;
+    user-select: none;
+  }
+  &__hex {
+    margin: .25rem .63rem;
+    position: relative;
+    &::after, &::before {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      top: 0;
+      left: 0;
+      transform: rotate(60deg);
+    }
+    &::after {
+      transform: rotate(120deg);
+    }
+    @each $type, $color in $terrains {
+      &--#{$type}, &--#{$type}::before, &--#{$type}::after {
+        background: $color;
+      }
+    }
+  }
+  &__shape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 3.49em;
+    &, &::before, &::after {
+      z-index: 2;
+      border-top: .125rem solid $light-color;
+      border-bottom: .125rem solid $light-color;
+      border-radius: .5rem / .25rem;
+
+    }
+    &::before, &::after  {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      transform: rotate(60deg);
+      width: 2rem;
+      height: 3.264rem;
+    }
+    &::after {
+      transform: rotate(120deg);
+    }
+  }
+}

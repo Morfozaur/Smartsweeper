@@ -16,10 +16,10 @@
     display: none;
   }
   &__insert {
+    z-index: -1;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     height: 35rem;
     width: 23rem;
