@@ -1,0 +1,47 @@
+.hexplorist {
+  &__avatar, &__row, &__image, &__description {
+    display: flex;
+  }
+  &__avatar {
+    background: $button-hex;
+    border: .125rem solid $dark-hex;
+    border-radius: 0.3125rem;
+    width: 19.5rem;
+    padding: .5rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+  }
+  &__image {
+    flex-direction: column;
+    border: .125rem solid $dark-hex;
+    border-radius: 0.3125rem;
+  }
+  &__pixel {
+    width: .25rem;
+    height: .25rem;
+    @each $type, $color in $avatar-pixels {
+      &--#{$type},{
+        background: $color;
+      }
+    }
+  }
+  &__description {
+    flex-direction: column;
+    gap: .5rem
+  }
+  &__text {
+    font-family: $orbitron;
+    font-weight: 800;
+    font-size: .8125rem;
+    color: $light-hex;
+    text-align: center;
+    &--small {
+      font-size: .5625rem;
+      font-weight: 400;
+    }
+    &--marked {
+      color: $light-color;
+    }
+  }
+}

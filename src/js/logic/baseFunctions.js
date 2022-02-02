@@ -14,4 +14,4 @@ export const filterMineArray = (el, payload) => {
     return el[0] !== payload[0] || el[1] !== payload[1]
 };
 
-export const codeToName = (arr) => String.fromCharCode(...arr)
+export const codeToName = (arr) => String.fromCharCode(...arr);

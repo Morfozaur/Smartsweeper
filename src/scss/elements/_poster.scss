@@ -24,6 +24,7 @@
     height: 35rem;
     width: 23rem;
     &--left {
+      justify-content: space-evenly;
       background: $background-hex;
       border: 0.1875rem solid $dark-hex;
     }
