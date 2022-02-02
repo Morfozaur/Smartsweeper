@@ -1,111 +1,60 @@
 .bar {
   position: absolute;
-  width: 18px;
+  width: 1.125rem;
   display: flex;
   justify-content: center;
   &__center {
-    height: 4px;
-    width: 10px;
+    height: 0.25rem;
+    width: 0.625rem;
     background: $display-inactive;
   }
   &__arrow  {
     width: 0;
     height: 0;
-    border-top: 2px solid transparent;
-    border-bottom: 2px solid transparent;
-    border-right: 2px solid $display-inactive;
+    border-top: 0.125rem solid transparent;
+    border-bottom: 0.125rem solid transparent;
+    border-right: 0.125rem solid $display-inactive;
     &--right {
       border-right: none;
-      border-left: 2px solid $display-inactive;
+      border-left: 0.125rem solid $display-inactive;
     }
   }
   &__lighten {
     background: $display-active;
     &--left {
-      border-right: 2px solid $display-active;
+      border-right: 0.125rem solid $display-active;
     }
     &--right {
       border-right: none;
-      border-left: 2px solid $display-active;
+      border-left: 0.125rem solid $display-active;
     }
   }
   &__top {
-    top: -3px;
-    left: -3px;
+    top: -0.1875rem;
+    left: -0.1875rem;
   }
   &__topL {
-    top: 5px;
-    right: 4px;
+    top: 0.3125rem;
+    right: 0.25rem;
   }
   &__topR {
-    top: 5px;
-    left: 4px;
+    top: 0.3125rem;
+    left: 0.25rem;
   }
   &__middle {
-    top: 13px;
-    left: -3px;
+    top: 0.8125rem;
+    left: -0.1875rem;
   }
   &__bottomR {
-    bottom: 5px;
-    left: 4px;
+    bottom: 0.3125rem;
+    left: 0.25rem;
   }
   &__bottomL {
-    bottom: 5px;
-    right: 4px;
+    bottom: 0.3125rem;
+    right: 0.25rem;
   }
   &__bottom {
-    bottom: -3px;
-    left: -3px;
-  }
-  @include big {
-    width: 1.125rem;
-    &__center {
-      height: 0.25rem;
-      width: 0.625rem;
-    }
-    &__arrow  {
-      border-top-width: 0.125rem;
-      border-bottom-width: 0.125rem;
-      border-right-width: 0.125rem;
-      &--right {
-        border-left-width: 0.125rem;
-      }
-    }
-    &__lighten {
-      &--left {
-        border-right-width: 0.125rem;
-      }
-      &--right {
-        border-left-width: 0.125rem;
-      }
-    }
-    &__top {
-      top: -0.1875rem;
-      left: -0.1875rem;
-    }
-    &__topL {
-      top: 0.3125rem;
-      right: 0.25rem;
-    }
-    &__topR {
-      top: 0.3125rem;
-      left: 0.25rem;
-    }
-    &__middle {
-      top: 0.8125rem;
-      left: -0.1875rem;
-    }
-    &__bottomR {
-      bottom: 0.3125rem;
-      left: 0.25rem;
-    }
-    &__bottomL {
-      bottom: 0.3125rem;
-      right: 0.25rem;
-    }
-    &__bottom {
-      bottom: -0.1875rem;
-      left: -0.1875rem;
-    }
+    bottom: -0.1875rem;
+    left: -0.1875rem;
   }
 }

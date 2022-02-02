@@ -3,20 +3,20 @@
   &__border {
     position: relative;
     display: block;
-    width: calc(100% - 6px);
-    height: calc(100% - 6px);
-    border: 3px solid $brass-color;
+    width: calc(100% - 0.375rem);
+    height: calc(100% - 0.375rem);
+    border: 0.1875rem solid $brass-color;
     border-left-color: $brass-lite-color;
     border-top-color: $brass-lite-color;
     border-radius: 50%;
     &:after {
       position: absolute;
       content: '';
-      top: -2px;
-      left: -2px;
-      width: 168px;
-      height: 38px;
-      border: 1px solid $accent-color;
+      top: -0.125rem;
+      left: -0.125rem;
+      width: 10.5rem;
+      height: 2.375rem;
+      border: 0.0625rem solid $accent-color;
       //border-bottom-color: $brass-lite-color;
       opacity: .8;
       border-radius: 50%;
@@ -24,11 +24,11 @@
     &:before {
       position: absolute;
       content: '';
-      top: -1px;
-      left: -1px;
-      width: 166px;
-      height: 36px;
-      border: 1px solid $brass-color;
+      top: -0.0625rem;
+      left: -0.0625rem;
+      width: 10.375rem;
+      height: 2.25rem;
+      border: 0.0625rem solid $brass-color;
       border-bottom-color: $brass-lite-color;
       border-right-color: $brass-lite-color;
       border-radius: 50%;
@@ -40,18 +40,20 @@
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(to bottom right, $brass-color , $accent-color);
-    height: 50px;
-    width: 180px;
-    border: 1px solid $brass-color;
+    height: 3.125rem;
+    width: 11.25rem;
+    border: 0.0625rem solid $brass-color;
     border-radius: 50%;
+    &:before, &:after {
+      top: -0.0625rem;
+      left: -0.0625rem;
+      height:3.125rem;
+      width: 11.25rem;
+    }
     &:before {
       position: absolute;
       content: '';
       background: radial-gradient(ellipse at center, $accent-color, $brass-color);
-      top: -1px;
-      left: -1px;
-      height: 50px;
-      width: 180px;
       border-radius: 50%;
       opacity: .5;
     }
@@ -65,99 +67,41 @@
               $brass-lite-color 90% ,
               $brass-color 100%);
       opacity: .5;
-      top: -1px;
-      left: -1px;
-      height: 50px;
-      width: 180px;
       border-radius: 50%;
     }
   }
   &__text {
-    font-size: 23px;
+    font-size: 1.4375rem;
     position: absolute;
-    top: 11px;
-    left: 36px;
+    top: 0.6875rem;
+    left: 2.25rem;
     font-family: $brush;
     color: $panel-color;
     transform: rotate(-3deg);
     @include engraving('Smart');
     &--span {
-      top: -1px;
-      left: 45px;
+      top: -0.0625rem;
+      left: 2.8125rem;
       @include engraving('Sweeper');
     }
   }
   &__pin {
     position: absolute;
-    height: 5px;
-    width: 5px;
+    height: 0.3125rem;
+    width: 0.3125rem;
     background: radial-gradient(circle, $accent-color, $brass-color);
-    border-top: 1px solid rgba(158,138,38, .5);
-    border-right: 1px solid rgba(158,138,38, .8);
-    border-bottom: 1px solid rgba(158,138,38, .2);
-    border-left: 1px solid rgba(158,138,38, .5);
+    border-top: 0.0625rem solid rgba(158,138,38, .5);
+    border-right: 0.0625rem solid rgba(158,138,38, .8);
+    border-bottom: 0.0625rem solid rgba(158,138,38, .2);
+    border-left: 0.0625rem solid rgba(158,138,38, .5);
     border-radius: 50%;
     &--left {
-      top: 22px;
-      left: 12px;
+      top: 1.375rem;
+      left: 0.75rem;
     }
     &--right {
-      top: 23px;
-      right: 12px;
-    }
-  }
-  @include big {
-    &__border {
-      width: calc(100% - 0.375rem);
-      height: calc(100% - 0.375rem);
-      border: 0.1875rem;
-      &:after {
-        top: -0.125rem;
-        left: -0.125rem;
-        width: 10.5rem;
-        height: 2.375rem;
-        border-width: 0.0625rem;
-      }
-      &:before {
-        top: -0.0625rem;
-        left: -0.0625rem;
-        width: 10.375rem;
-        height: 2.25rem;
-        border-width: 0.0625rem;
-      }
-    }
-    &__plate {
-      height: 3.125rem;
-      width: 11.25rem;
-      border-width: 0.0625rem;
-      &:before, &:after {
-        top: -0.0625rem;
-        left: -0.0625rem;
-        height:3.125rem;
-        width: 11.25rem;
-      }
-    }
-    &__text {
-      font-size: 1.4375rem;
-      top: 0.6875rem;
-      left: 2.25rem;
-      &--span {
-        top: -0.0625rem;
-        left: 2.8125rem;
-      }
-    }
-    &__pin {
-      height: 0.3125rem;
-      width: 0.3125rem;
-      border-width: 0.0625rem;
-      &--left {
-        top: 1.375rem;
-        left: 0.75rem;
-      }
-      &--right {
-        top: 1.4375rem;
-        right: 0.75rem;
-      }
+      top: 1.4375rem;
+      right: 0.75rem;
     }
   }
 }

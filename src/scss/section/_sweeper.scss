@@ -1,0 +1,72 @@
+.sweeper {
+  display: flex;
+  flex-direction: column;
+  &__header {
+    position: absolute;
+    top: -3rem;
+    left: 1.25rem;
+    &::before {
+      position: absolute;
+      top: 2.5rem;
+      left: 1.375rem;
+      content: '';
+      width: 18rem;
+      background: $light-color;
+      height: 1rem;
+    }
+  }
+  &__logo {
+    position: relative;
+    font-family: $brush;
+    transform: rotate(-3deg);
+    color: $display-active;
+    font-size: 3.5rem;
+    top: 0.6875rem;
+    left: 2rem;
+    &--span {
+      position: relative;
+      top: 0.0625rem;
+      left: 0.5625rem;
+    }
+  }
+  &__lead {
+    padding-top: 3.5rem;
+    font-size: 2.125rem;
+  }
+  &__group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  &__motto {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-top: .5rem;
+    color: $display-active;
+    &--medium {
+      font-size: 1.25rem;
+    }
+    &--large {
+      font-size: 1.5rem;
+    }
+  }
+  &__field {
+    height: 19px;
+    width: 19px;
+    border: 1px $display-active solid;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: -0.0625rem -.0625rem .25rem #f4f4f4;
+  }
+  &__symbol {
+    color: $display-active;
+  }
+  &__text {
+    list-style: none;
+    margin-bottom: .25rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+  }
+}

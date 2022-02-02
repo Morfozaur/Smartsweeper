@@ -1,7 +1,6 @@
 .poster {
   position: absolute;
   display: flex;
-  //display: none;
   justify-content: center;
   align-items: center;
   height: 37rem;
@@ -12,9 +11,6 @@
   border-right-color: $brass-color;
   border-bottom-color: $brass-color;
   border-radius: 2px;
-  &__right {
-    display: none;
-  }
   &__insert {
     z-index: -1;
     position: relative;
@@ -27,6 +23,13 @@
       justify-content: space-evenly;
       background: $background-hex;
       border: 0.1875rem solid $dark-hex;
+    }
+    &--right {
+      justify-content: flex-start;
+      border: 0.125rem solid $display-active;
+      border-radius: 0.925rem;
+      margin-top: 2rem;
+      height: 33rem
     }
   }
   &__corner {
@@ -52,15 +55,13 @@
     }
   }
   &__left {
-    //right: 50%;
-    right: 5%;
+    right: 50%;
     z-index: 1;
     background: $light-color;
     transform: translate(calc(-50% - 14.5rem), calc(-50% - 7rem));
   }
   &__right {
-    //left: 50%;
-    left: 5%;
+    left: 50%;
     z-index: 1;
     background: $light-color;
     transform: translate(calc(50% + 14.5rem), calc(-50% - 7rem));

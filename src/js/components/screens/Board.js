@@ -109,7 +109,7 @@ const Board = () => {
                     return (
                         <div key={`col-${c}`} className='board__col'>
                             {col.map((row, r) => {
-                                return <Field key={`row-${r}`} field={row} col={c} row={r}/>
+                                return <Field key={`row-${c}${r}`} field={row} col={c} row={r}/>
                             })}
                         </div>
                     )

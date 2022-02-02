@@ -5,23 +5,23 @@
   height: 1.125rem;
   background: $button-ring-gradient;
   border-radius: 50%;
-  box-shadow: 0 1px 0 0 $panel-color;
+  box-shadow: 0 0.0625rem 0 0 $panel-color;
   &__center {
     position: absolute;
-    top:-2px;
-    left: 1px;
+    top:-0.125rem;
+    left: 0.0625rem;
     height: 1rem;
     width: 1rem;
-    margin-bottom: 3px;
+    margin-bottom: 0.1875rem;
     background: $power-on-color;
     border-radius: 50%;
     &:active {
-      top:-1px;
+      top:-0.0625rem;
       &:before {
-        top:2px;
+        top: 0.125rem;
       }
       &:after {
-        bottom: 5px;
+        bottom: 0.3125rem;
       }
     }
     &:before, &:after {
@@ -32,32 +32,26 @@
       width: 1rem;
     }
     &:before {
-      top: 3px;
+      top: 0.1875rem;;
       height: 1rem;
       border-radius: 50%;
     }
     &:after {
-      bottom: 4px;
-      height: 5px;
+      bottom: 0.2rem;
+      height: 0.3125rem;
     }
-    //&--inactive {
-    //  background: $power-off-color;
-    //  &:before, &:after {
-    //    background: $inactive-color;
-    //  }
-    //}
   }
   &__symbol {
     position: absolute;
     transform: translate(-50%, -50%);
     top: .5rem;
     &--left, &--right {
-      border: 5px solid transparent;
+      border: 0.3125rem solid transparent;
       transition: 0s linear 0.2s;
     }
     &--left {
       border-right-color: $light-color;
-      border-right-width: 8px;
+      border-right-width: 0.5rem;
       left: .3rem;
       &--inactive {
         border-right-color: $power-off-color;
@@ -65,7 +59,7 @@
     }
     &--right {
       border-left-color: $light-color;
-      border-left-width: 8px;
+      border-left-width: 0.5rem;
       left: .7rem;
       &--inactive {
         border-left-color: $power-off-color;
@@ -78,37 +72,6 @@
     }
     &--inactive {
       color: $power-off-color;
-    }
-  }
-  @include big {
-    box-shadow: 0 0.0625rem 0 0 $panel-color;
-    &__center {
-      top:-0.125rem;
-      left: 0.0625rem;
-      margin-bottom: 0.1875rem;
-      &:active {
-        top:-0.0625rem;
-        &:before { top: 0.125rem; }
-        &:after { bottom: 0.3125rem; }
-      }
-      &:before {
-        top: 0.1875rem;
-      }
-      &:after {
-        bottom: 0.2rem;
-        height: 0.3125rem;
-      }
-    }
-    &__symbol {
-      &--left, &--right {
-        border-width: 0.3125rem;
-      }
-      &--left {
-        border-right-width: 0.5rem;
-      }
-      &--right {
-        border-left-width: 0.5rem;
-      }
     }
   }
 }
