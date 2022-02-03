@@ -2,7 +2,7 @@ import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {thunkBoard} from "../../redux/actions/thunkBoard";
 import {firstBig} from "../../logic/baseFunctions";
-import {minesSetter} from "../../redux/actions/allActions";
+import {backlightSetter, editableSetter, minesSetter, screenSetter} from "../../redux/actions/allActions";
 import {startingMines} from "../../logic/startingMines";
 
 const Setup = () => {
@@ -27,6 +27,13 @@ const Setup = () => {
         dispatch(minesSetter({total: mines, remain: mines, flagged: 0}))
     },[boardSize, dispatch])
 
+    const back = () => {
+        dispatch(editableSetter(false));
+        dispatch(backlightSetter(false));
+        dispatch(minesSetter({total: null, remain:null, flagged: null}))
+        dispatch(screenSetter('start'))
+    }
+
     useEffect(()=> {
         updateDisplay()
     }, [boardSize, updateDisplay])
@@ -47,7 +54,10 @@ const Setup = () => {
                     <div className="setup__text setup__text--desc">{styleDesc[style]}</div>
                 </div>
             </div>
-            <div className="setup__btn" onClick={() => dispatch(thunkBoard(total))}>Start!</div>
+            <div className="setup__buttons">
+                <div className="button__screen" onClick={() => dispatch(thunkBoard(total))}>Start!</div>
+                <div className="button__screen" onClick={back}>Back</div>
+            </div>
         </div>
     );
 }

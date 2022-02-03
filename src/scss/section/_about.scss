@@ -1,0 +1,37 @@
+.about {
+  &__text {
+    color: $light-color;
+    &--title {
+      font-size: 1.5rem;
+      margin-bottom: .75rem;
+    }
+    &--paragraph {
+      font-size: 1.25rem;
+      margin-bottom: .5rem;
+      text-align: center;
+    }
+    &--list {
+      list-style: none;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    color: $light-color;
+    font-family: $brush;
+    font-size: 4rem;
+    transform: rotate(-3deg);
+    font-weight: 200;
+    &--span {
+      top: -.0625rem;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5rem 1rem;
+    max-width: 80%;
+    margin-bottom: 1rem;
+  }
+}

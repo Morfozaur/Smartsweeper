@@ -13,7 +13,7 @@ const Scoreboard = () => {
             <hr className={'scoreboard__line'}/>
             <ScoreboardMenu/>
             <ScoreboardTable/>
-            <div className="scoreboard__btn" onClick={()=>dispatch(screenSetter('start'))}>Back</div>
+            <div className="button__screen" onClick={()=>dispatch(screenSetter('start'))}>Back</div>
         </div>
     );
 }

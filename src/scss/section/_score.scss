@@ -62,7 +62,7 @@
     }
   }
   &__table {
-    margin-top: 1rem;
+    margin: 1rem 0;
     width: 26rem;
   }
   &__row {
@@ -78,17 +78,6 @@
     color: $light-color;
     &--head {
       font-size: 2rem;
-    }
-  }
-  &__btn {
-    background: #FAEBD7FF;
-    font-size: 1.5rem;
-    padding: 0.2rem 0.5rem;
-    margin-top: 1rem;
-    border: .125rem solid #ADA28C;
-    border-radius: 0.3125rem;
-    &:active {
-      transform: scale(.95);
     }
   }
 }
