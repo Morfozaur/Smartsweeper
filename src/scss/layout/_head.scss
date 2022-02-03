@@ -1,69 +1,43 @@
 .head {
   position: relative;
-  width: 600px;
-  height: 600px;
-  perspective: 300px;
-  //border: 1px solid #666;
+  width: 37.5rem;
+  height: 37.5rem;
+  perspective: 18.75rem;
   &__insert {
     z-index: -10;
     position: absolute;
     content: '';
-    top: 40px;
+    top: 2.5rem;
     left: 0;
     display: flex;
     justify-content: space-between;
-    width: 600px;
-    height: 600px;
+    width: 37.5rem;
+    height: 37.5rem;
     background: $panel-dark-color;
     transform-style: preserve-3d;
     transform: rotateX(-3deg);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 1.25rem;
+    border-top-right-radius: 1.25rem;
   }
   &__side {
-    width: 15px;
+    width: 0.9375rem;
     height: 100%;
     background: $panel-color;
-    border-top: 4px solid $panel-darkest-color;
-    border-bottom: 2px solid $panel-darkest-color;
-    border-left: 2px solid $panel-darkest-color;
-    border-right: 2px solid $panel-darkest-color;
+    border-top: 0.25rem solid $panel-darkest-color;
+    border-bottom: 0.125rem solid $panel-darkest-color;
+    border-left: 0.125rem solid $panel-darkest-color;
+    border-right: 0.125rem solid $panel-darkest-color;
     &--left {
-      border-top-left-radius: 20px;
-      border-left-width: 3px;
+      border-top-left-radius: 1.25rem;
+      border-left-width: 0.1875rem;
     }
     &--right {
-      border-top-right-radius: 20px;
-      border-right-width: 3px;
+      border-top-right-radius: 1.25rem;
+      border-right-width: 0.1875rem;
     }
   }
   &__center {
     z-index: -10;
     width: 100%;
-  }
-  @include big {
-    width: 37.5rem;
-    height: 37.5rem;
-    perspective: 18.75rem;
-    &__insert {
-      top: 2.5rem;
-      width: 37.5rem;
-      height: 37.5rem;
-      border-top-left-radius: 1.25rem;
-      border-top-right-radius: 1.25rem;
-    }
-    &__side {
-      width: 0.9375rem;
-      border-width: 0.125rem;
-      border-top-width: 0.25rem;
-      &--left {
-        border-top-left-radius: 1.25rem;
-        border-left-width: 0.1875rem;
-      }
-      &--right {
-        border-top-right-radius: 1.25rem;
-        border-right-width: 0.1875rem;
-      }
-    }
   }
 }

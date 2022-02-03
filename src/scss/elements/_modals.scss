@@ -2,7 +2,7 @@
   &__modal {
     position: absolute;
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -13,13 +13,13 @@
     border: 0.125rem solid $light-border-color;
   }
   &__preview {
+    position: absolute;
     background: white;
     border-radius: 50%;
-    border: 1px solid $light-border-color;
-    padding: 2px;
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    border: 0.0625rem solid $light-border-color;;
+    padding: 0.125rem;
+    top: 0.3125rem;
+    right: 0.3125rem;
     font-size: 1rem;
     &:hover {
       opacity: .2;
@@ -46,7 +46,7 @@
   &__btn {
     background: $light-border-color;
     padding: .2rem .4rem;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     &:hover {
       background: $inactive-color;
       color: $light-color;
@@ -55,20 +55,6 @@
     &:active {
       transform-origin: center;
       transform: scale(.9);
-    }
-  }
-  @include big {
-    &__modal {
-      border-radius: 0.3125rem;
-    }
-    &__preview {
-      border: 0.0625rem solid $light-border-color;
-      padding: 0.125rem;
-      top: 0.3125rem;
-      right: 0.3125rem;
-    }
-    &__btn {
-      border-radius: 0.3125rem;
     }
   }
 }

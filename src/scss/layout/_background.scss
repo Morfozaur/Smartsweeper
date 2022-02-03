@@ -22,12 +22,4 @@
     background-size: 0.125rem 0.125rem;
 
   }
-  @include big {
-    &__top {
-      border-bottom: $text-color 0.125rem solid;
-    }
-    &__bottom {
-      background-size: 0.1875rem 0.1875rem
-    }
-  }
 }

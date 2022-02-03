@@ -6,7 +6,7 @@
     font-size: 4rem;
     transform: rotate(-3deg);
     &--span {
-      top: -1px;
+      top: -0.0625rem;
     }
   }
   &__menu {
@@ -24,11 +24,6 @@
     &:hover {
       color: $text-color;
       background: $light-color;
-    }
-  }
-  @include big {
-    &__logo--span {
-      top: -0.0625rem;
     }
   }
 }

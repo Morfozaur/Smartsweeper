@@ -10,10 +10,3 @@ $mono: 'VT323', monospace;
 $awesome: "Font Awesome 5 Free";
 $orbitron: 'Orbitron', sans-serif;
 $sigmar: 'Sigmar One', cursive;;
-
-.fas {
-  font-size: 12px;
-  @media (min-height: 1000px) {
-    font-size: 0.75rem;
-  }
-}

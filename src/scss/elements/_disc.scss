@@ -1,21 +1,21 @@
 .disc {
   position: relative;
-  height: 30px;
-  width: 45px;
-  border: 2px solid $brass-color;
+  height: 1.875rem;
+  width: 2.8125rem;
+  border: 0.125rem solid $brass-color;
   border-left-color: $brass-lite-color;
   border-top-color: $brass-lite-color;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   background: #38310D;
   &:after {
     position: absolute;
     z-index: 33;
     content: '';
-    top: -1px;
-    left: -1px;
-    height: 26px;
-    width: 41px;
-    border: 1px solid $accent-bright-color;
+    top: -0.0625rem;
+    left: -0.0625rem;
+    height: 1.6872rem;
+    width: 2.5625rem;
+    border: 0.0625rem solid $accent-bright-color;
     border-right-color: $brass-bright-color;
     border-bottom-color: $brass-bright-color;
     border-radius: .3rem;
@@ -27,10 +27,10 @@
   }
   &__container {
     position: relative;
-    height: 27px;
-    width: 41px;
+    height: 1.6875rem;
+    width: 2.5625rem;
+    border-radius: 0.1875rem;
     overflow: hidden;
-    border-radius: 3px;
     &:after {
       position: absolute;
       content: '';
@@ -44,11 +44,11 @@
   }
   &__plate {
     position: absolute;
-    top: 1px;
-    left: -9px;
-    height: 60px;
-    width: 60px;
-    border: 1px solid $panel-color;
+    top: 0.0625rem;
+    left: -0.5625rem;
+    height: 3.75rem;
+    width: 3.75rem;
+    border: 0.0625rem solid $panel-color;
     border-radius: 50%;
   }
   &__background {
@@ -58,7 +58,7 @@
     height: 100%;
     width: 100%;
     background: $round-gradient;
-    border: 1px solid $brass-color;
+    border: 0.0625rem solid $brass-color;
     border-radius: 50%;
     transition: 0.5s;
     &:before {
@@ -75,48 +75,11 @@
   }
   &__number {
     position: absolute;
-    //height: 20px;
-    height: 30px;
-    top: -2px;
+    height: 1.875rem;
+    top: -0.125rem;
     left: 50%;
     transform-origin: bottom center;
-    //font-family: $acme;
-    //font-size: 1.3rem;
     color: $panel-color;
-    text-shadow: 1px 1px  $brass-color;
-  }
-  @include big {
-    height: 1.875rem;
-    width: 2.8125rem;
-    border-width: 0.125rem;
-    border-radius: 0.3125rem;
-    &:after {
-      top: -0.0625rem;
-      left: -0.0625rem;
-      height: 1.6872rem;
-      width: 2.5625rem;
-      border-width: 0.0625rem;
-    }
-    &__container {
-      height: 1.6875rem;
-      width: 2.5625rem;
-      border-radius: 0.1875rem;
-    }
-    &__plate {
-      top: 0.0625rem;
-      left: -0.5625rem;
-      height: 3.75rem;
-      width: 3.75rem;
-      border-width: 0.0625rem;
-
-    }
-    &__background {
-      border-width: 0.0625rem;
-    }
-    &__number {
-      height: 1.875rem;
-      top: -0.125rem;
-      text-shadow: 0.0625rem 0.0625rem  $brass-color;
-    }
+    text-shadow: 0.0625rem 0.0625rem  $brass-color;
   }
 }

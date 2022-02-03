@@ -80,8 +80,8 @@
     font-size: 1.5rem;
     text-align: center;
     padding: .2rem .5rem;
-    border: 2px solid $border-color;
-    border-radius: 5px;
+    border: 0.125rem solid $border-color;
+    border-radius: 0.3125rem;
     &:active {
       transform: scale(.95);
     }
