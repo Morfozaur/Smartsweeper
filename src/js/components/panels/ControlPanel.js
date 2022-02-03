@@ -40,6 +40,7 @@ const ControlPanel = () => {
                     <Button func={smartTrigger}
                             symbol={'flag'}
                             addClass={selectClass}/>
+                    <p className={'menu__caption'}>Press Q</p>
                 </div>
             </div>
             <Disc value={boardSize}

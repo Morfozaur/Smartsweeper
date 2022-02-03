@@ -15,4 +15,13 @@
     height: 1.875rem;
     gap: .5rem;
   }
+  &__caption {
+    position: absolute;
+    bottom: 4rem;
+    font-family: $acme;
+    font-size: .75rem;
+    transform: translateX(-25%);
+    color: $panel-color;
+    text-shadow: 0 0 0.0625rem $brass-bright-color, 0 0 0.0625rem $brass-color;
+  }
 }
