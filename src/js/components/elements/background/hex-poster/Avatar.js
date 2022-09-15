@@ -55,7 +55,7 @@ const Avatar = () => {
                 <p className='hexplorist__text hexplorist__text--small'>
                     Explore distant lands, fight with wild animals, search for treasures and become famous!
                 </p>
-                <p className='hexplorist__text'>FALL <span className='hexplorist__text hexplorist__text--marked'>2022</span></p>
+                <p className='hexplorist__text'>SPRING <span className='hexplorist__text hexplorist__text--marked'>2023</span></p>
             </div>
         </div>
     );
