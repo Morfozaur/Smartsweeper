@@ -3,7 +3,7 @@ import {parseFields} from "./parseFields";
 import {random} from "../baseFunctions";
 import {
     addFieldListSetter,
-    addMineSetter, increaseMinesToFindSetter, reduceMinesToFindSetter,
+    addMineSetter, boardSetter, increaseMinesToFindSetter, reduceMinesToFindSetter,
     reloadSetter,
     removeFieldListSetter,
     removeMineSetter
@@ -30,10 +30,12 @@ export const moveMine = () => {
     const [newMineCol, newMineRow] = parsedField[fieldNum];
 
 
-    board[oldMineCol][oldMineRow].bomb = false;
-    board[newMineCol][newMineRow].bomb = true;
-    modifyAdjacent(board, oldMineCol, oldMineRow, 'minus')
-    modifyAdjacent(board, newMineCol, newMineRow, 'plus')
+    let updatedBoard = [...board];
+    updatedBoard[oldMineCol][oldMineRow].bomb = false;
+    updatedBoard[newMineCol][newMineRow].bomb = true;
+    updatedBoard = modifyAdjacent(updatedBoard, oldMineCol, oldMineRow, 'minus');
+    updatedBoard = modifyAdjacent(updatedBoard, newMineCol, newMineRow, 'plus');
+    store.dispatch(boardSetter(updatedBoard))
 
     if (board[oldMineCol][oldMineRow].flag) {
         store.dispatch(increaseMinesToFindSetter())

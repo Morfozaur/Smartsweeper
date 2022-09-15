@@ -37,7 +37,7 @@ export const modifyAdjacent = (board, col, row, operator) => {
         board[col - 1][row].adj += type;
         board[col - 1][row].unknown = true;
     }
-
+    return board;
 };
 
 export const revealAdjacent = (board, col, row) => {

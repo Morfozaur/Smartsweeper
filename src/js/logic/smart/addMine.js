@@ -3,7 +3,7 @@ import {parseFields} from "./parseFields";
 import {random} from "../baseFunctions";
 import {modifyAdjacent} from "../adjacentControl";
 import {
-    addMineSetter, increaseCheckerLimitSetter,
+    addMineSetter, boardSetter, increaseCheckerLimitSetter,
     increaseMinesLimitSetter,
     removeFieldListSetter
 } from "../../redux/actions/allActions";
@@ -27,10 +27,12 @@ export const addMine = () => {
         }
 
         const [newMineCol, newMineRow] = parsedField[fieldNum];
-        board[newMineCol][newMineRow].bomb = true;
-        modifyAdjacent(board, newMineCol, newMineRow, 'plus')
+        let updatedBoard = [...board];
+        updatedBoard[newMineCol][newMineRow].bomb = true;
+        updatedBoard = modifyAdjacent(updatedBoard, newMineCol, newMineRow, 'plus')
 
         const remain = board[newMineCol][newMineRow].flag ? 0 : 1;
+        store.dispatch(boardSetter(updatedBoard))
         store.dispatch(increaseMinesLimitSetter(remain));
         store.dispatch(increaseCheckerLimitSetter())
         store.dispatch(addMineSetter(parsedField[fieldNum]));

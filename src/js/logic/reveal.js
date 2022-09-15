@@ -1,18 +1,20 @@
 import {store} from "../redux/store";
 import {ifFieldExist, down, downLeft, downRight, left, right, up, upLeft, upRight} from "./ifFieldExist";
-import {removeFieldListSetter, removeFlagSetter, revealFieldSetter} from "../redux/actions/allActions";
+import {boardSetter, removeFieldListSetter, removeFlagSetter, revealFieldSetter} from "../redux/actions/allActions";
 
 
 export const reveal = async (col, row, main) => {
     let {board, gameplay: {mode}} = store.getState();
 
+    let updatedBoard = [...board];
+
     const size = board.length;
     const smartChecker = (mode === 'rise' || mode === 'smart')
 
-    board[col][row].visible = true;
-    if (board[col][row].flag) store.dispatch(removeFlagSetter());
-    board[col][row].flag = false;
-    board[col][row].question = false;
+    updatedBoard[col][row].visible = true;
+    if (updatedBoard[col][row].flag) store.dispatch(removeFlagSetter());
+    updatedBoard[col][row].flag = false;
+    updatedBoard[col][row].question = false;
     store.dispatch(revealFieldSetter());
     if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col, remRow:row}))
 
@@ -20,68 +22,69 @@ export const reveal = async (col, row, main) => {
     const passer = (data) => (data.adj <= 0) && (data.visible === false);
 
     if (ifFieldExist(col, row, upLeft)) {
-        if (passer(board[col - 1][row - 1])) board = await reveal(col-1, row-1, board);
-        else if (!board[col - 1][row - 1].visible) {
+        if (passer(updatedBoard[col - 1][row - 1])) updatedBoard = await reveal(col-1, row-1, updatedBoard);
+        else if (!updatedBoard[col - 1][row - 1].visible) {
             store.dispatch(revealFieldSetter());
-            board[col - 1][row - 1].visible = true;
+            updatedBoard[col - 1][row - 1].visible = true;
             if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col - 1, remRow:row - 1}))
         }
     }
     if (ifFieldExist(col, row, up)) {
-        if (passer(board[col][row-1])) board = await reveal(col, row-1, board);
-        else if (!board[col][row - 1].visible) {
+        if (passer(updatedBoard[col][row-1])) updatedBoard = await reveal(col, row-1, updatedBoard);
+        else if (!updatedBoard[col][row - 1].visible) {
             store.dispatch(revealFieldSetter());
-            board[col][row - 1].visible = true;
+            updatedBoard[col][row - 1].visible = true;
             if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col, remRow:row - 1}))
         }
     }
     if (ifFieldExist(col, row, upRight, size)) {
-        if (passer(board[col+1][row-1])) board = await reveal(col+1, row-1, board);
-        else if(!board[col + 1][row - 1].visible) {
-            store.dispatch(revealFieldSetter());
-            board[col + 1][row - 1].visible = true;
+        if (passer(updatedBoard[col+1][row-1])) updatedBoard = await reveal(col+1, row-1, updatedBoard);
+        else if(!updatedBoard[col + 1][row - 1].visible) {
+            // store.dispatch(revealFieldSetter());
+            updatedBoard[col + 1][row - 1].visible = true;
             if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col + 1, remRow:row - 1}))
         }
     }
     if (ifFieldExist(col, row, right, size)) {
-        if (passer(board[col+1][row])) board = await reveal(col+1, row, board);
-        else if(!board[col + 1][row].visible) {
+        if (passer(updatedBoard[col+1][row])) updatedBoard = await reveal(col+1, row, updatedBoard);
+        else if(!updatedBoard[col + 1][row].visible) {
             store.dispatch(revealFieldSetter());
-            board[col + 1][row].visible = true;
+            updatedBoard[col + 1][row].visible = true;
             if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col + 1, remRow:row}))
         }
     }
     if (ifFieldExist(col, row, downRight, size)) {
-        if (passer(board[col+1][row+1])) board = await reveal(col+1, row+1, board);
-        else if(!board[col + 1][row + 1].visible) {
+        if (passer(updatedBoard[col+1][row+1])) updatedBoard = await reveal(col+1, row+1, updatedBoard);
+        else if(!updatedBoard[col + 1][row + 1].visible) {
             store.dispatch(revealFieldSetter());
-            board[col + 1][row + 1].visible = true;
+            updatedBoard[col + 1][row + 1].visible = true;
             if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col + 1, remRow:row + 1}))
         }
     }
     if (ifFieldExist(col, row, down, size)) {
-        if (passer(board[col][row+1])) board = await reveal(col, row+1, board);
-        else if(!board[col][row + 1].visible) {
+        if (passer(updatedBoard[col][row+1])) updatedBoard = await reveal(col, row+1, updatedBoard);
+        else if(!updatedBoard[col][row + 1].visible) {
             store.dispatch(revealFieldSetter());
-            board[col][row + 1].visible = true;
+            updatedBoard[col][row + 1].visible = true;
             if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col, remRow:row + 1}))
         }
     }
     if (ifFieldExist(col, row, downLeft, size)) {
-        if (passer(board[col-1][row+1])) board = await reveal(col-1, row+1, board);
-        else if(!board[col - 1][row + 1].visible) {
+        if (passer(updatedBoard[col-1][row+1])) updatedBoard = await reveal(col-1, row+1, updatedBoard);
+        else if(!updatedBoard[col - 1][row + 1].visible) {
             store.dispatch(revealFieldSetter());
-            board[col - 1][row + 1].visible = true;
+            updatedBoard[col - 1][row + 1].visible = true;
             if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col - 1, remRow:row + 1}))
         }
     }
     if (ifFieldExist(col, row, left)) {
-        if (passer(board[col-1][row])) board = await reveal(col-1, row, board);
-        else if(!board[col - 1][row].visible) {
+        if (passer(updatedBoard[col-1][row])) updatedBoard = await reveal(col-1, row, updatedBoard);
+        else if(!updatedBoard[col - 1][row].visible) {
             store.dispatch(revealFieldSetter());
-            board[col - 1][row].visible = true;
+            updatedBoard[col - 1][row].visible = true;
             if (smartChecker) store.dispatch(removeFieldListSetter({remCol:col - 1, remRow:row}))
         }
     }
-    if (main) return board
+    store.dispatch(boardSetter(updatedBoard))
+    if (main) return updatedBoard
 };
